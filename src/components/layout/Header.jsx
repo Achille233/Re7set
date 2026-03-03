@@ -6,21 +6,31 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
+    // Check if we are on a dark page
+    const isDarkPage = location.pathname === '/offres/diagnostic-strategique';
+
+    // Dynamic classes based on the page theme
+    const headerBgClass = isDarkPage
+        ? 'bg-transparent border-transparent'
+        : 'bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-black/[0.04]';
+
+    const textColorClass = isDarkPage ? 'text-white' : 'text-foreground';
+
     return (
         <header className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-5xl">
             {/* Pill Container */}
-            <div className={`bg-white/95 backdrop-blur-md rounded-full px-6 py-3.5 md:px-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.04] flex items-center justify-between transition-colors duration-300`}>
+            <div className={`${headerBgClass} rounded-full px-6 py-3.5 md:px-8 border flex items-center justify-between transition-colors duration-300`}>
 
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-1 group z-[110]">
-                    <span className={`font-sans font-bold text-xl tracking-tight text-foreground transition-colors duration-300`}>
+                    <span className={`font-sans font-bold text-xl tracking-tight ${textColorClass} transition-colors duration-300`}>
                         RE<span className="text-primary transition-colors duration-300">7</span>SET<span className="text-primary">.</span>
                     </span>
                 </a>
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden p-2 text-foreground z-[110]"
+                    className={`md:hidden p-2 ${textColorClass} z-[110]`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -29,7 +39,7 @@ export default function Header() {
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8 relative">
                     <div className="relative group p-2 -m-2">
-                        <button className="flex items-center gap-1 font-sans font-medium text-[15px] text-foreground group-hover:text-primary transition-colors">
+                        <button className={`flex items-center gap-1 font-sans font-medium text-[15px] ${textColorClass} group-hover:text-primary transition-colors`}>
                             Services
                             <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
                         </button>
@@ -41,7 +51,7 @@ export default function Header() {
 
                                 {/* Left Col - Services List */}
                                 <div className="col-span-3 flex flex-col gap-2 relative z-10">
-                                    <a href="/#offres" className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                                    <a href="/offres/diagnostic-strategique" className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition-colors group/item">
                                         <div className="mt-1 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                                             <Target className="text-primary w-5 h-5" />
                                         </div>
@@ -101,15 +111,17 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <a href="/#equipe" className="font-sans font-medium text-[15px] text-foreground hover:text-primary transition-colors">Équipe</a>
-                    <a href="/#offres" className="font-sans font-medium text-[15px] text-foreground hover:text-primary transition-colors">Offres</a>
-                    <a href="/#outils-ia" className="font-sans font-medium text-[15px] text-foreground hover:text-primary transition-colors">Outils IA</a>
+                    <a href="/#equipe" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors`}>Équipe</a>
+                    <a href="/#offres" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors`}>Offres</a>
+                    <a href="/#outils-ia" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors`}>Outils IA</a>
                 </nav>
 
                 {/* CTA Right */}
-                <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className={`hidden md:flex items-center justify-center bg-[#1A1A1A] text-white hover:bg-black px-6 py-2.5 rounded-full font-sans font-semibold text-sm transition-colors`}>
-                    Nous contacter
-                </a>
+                <div className="hidden md:block z-[110]">
+                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className={`hidden md:flex items-center justify-center ${isDarkPage ? 'bg-white text-[#111] hover:bg-slate-200' : 'bg-[#1A1A1A] text-white hover:bg-black'} px-6 py-2.5 rounded-full font-sans font-semibold text-sm transition-colors`}>
+                        Nous contacter
+                    </a>
+                </div>
             </div>
 
             {/* Mobile Navigation Menu */}

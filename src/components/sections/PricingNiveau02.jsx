@@ -135,7 +135,7 @@ export default function PricingNiveau02() {
                                     🔒 Paiement sécurisé par Stripe
                                 </div>
 
-                                <a href="#" className="relative z-10 block text-center text-sm font-semibold text-primary hover:text-cyan-600 transition-colors flex items-center gap-1">
+                                <a href="/offres/diagnostic-strategique" className="relative z-10 block text-center text-sm font-semibold text-primary hover:text-cyan-600 transition-colors flex items-center gap-1">
                                     Détails de l'offre <ArrowRight size={14} />
                                 </a>
                             </div>

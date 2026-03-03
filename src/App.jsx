@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import ServiceDetail from './pages/ServiceDetail';
 import AuditStrategique from './pages/AuditStrategique';
 import MiseEnOeuvre from './pages/MiseEnOeuvre';
+import DiagnosticStrategique from './pages/DiagnosticStrategique';
 
 export default function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/offres/diagnostic-strategique" element={<DiagnosticStrategique />} />
         <Route path="/service/:id" element={<ServiceDetail />} />
         <Route path="/offres/audits-strategiques" element={<AuditStrategique />} />
         <Route path="/offres/mise-en-oeuvre" element={<MiseEnOeuvre />} />
