@@ -83,7 +83,7 @@ export default function PricingNiveau03() {
     ];
 
     return (
-        <section className="relative w-full py-24 pb-48 px-6 md:px-12 lg:px-24 bg-secondary">
+        <section className="relative w-full py-24 pb-48 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
@@ -120,7 +120,7 @@ export default function PricingNiveau03() {
                             </ul>
 
                             {offer.noteInfo && (
-                                <div className="bg-secondary/50 p-4 rounded text-xs text-muted mb-8 italic">
+                                <div className="bg-secondary/50 p-4 rounded text-xs text-muted mb-8">
                                     {offer.noteInfo}
                                 </div>
                             )}

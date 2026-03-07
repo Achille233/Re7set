@@ -32,7 +32,7 @@ export const Timeline = ({ data }) => {
                     Le déroulement de notre accompagnement
                 </h2>
                 <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed font-sans">
-                    De l'immersion initiale à la restition de votre feuille de route, découvrez les grandes étapes de la mise en place de votre diagnostic stratégique.
+                    De l'immersion initiale à la restitution de votre feuille de route, découvrez les grandes étapes de la mise en place de votre diagnostic stratégique.
                 </p>
             </div>
 

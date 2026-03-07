@@ -96,7 +96,7 @@ export default function Hero() {
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-24 cursor-pointer w-full">
-                    <a href="#pricing" className="group relative px-8 py-4 bg-primary text-white flex items-center justify-center gap-2 rounded hover:brightness-110 transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.5)]">
+                    <a href="#audits" className="group relative px-8 py-4 bg-primary text-white flex items-center justify-center gap-2 rounded hover:brightness-110 transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.5)]">
                         <span className="font-medium text-lg">Découvrir nos offres</span>
                         <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
                         <div className="absolute inset-0 rounded pointer-events-none border border-white/0 group-hover:border-white/20 transition-colors" />

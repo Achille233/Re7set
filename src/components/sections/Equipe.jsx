@@ -36,7 +36,7 @@ const TEAM = [
         quote: '"Légitimité & Conformité"',
         desc: "Elle audite les besoins réels de la profession. Chaque recommandation est alignée avec la déontologie.",
         initial: "SD",
-        image: "/Sibyile.jpg"
+        image: "/Sibylle.jpg"
     },
     {
         name: "Achille B.",
@@ -58,7 +58,7 @@ export default function Equipe() {
     }, []);
 
     return (
-        <section id="equipe" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-background">
+        <section id="equipe" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16">
                     <span className="text-xs uppercase tracking-widest font-mono text-muted mb-4 block">
@@ -94,7 +94,7 @@ export default function Equipe() {
                             <h3 className="font-bold font-sans text-foreground text-base md:text-lg mb-1">{member.name}</h3>
                             <p className="text-[11px] font-mono text-primary tracking-widest uppercase mb-4">{member.role}</p>
 
-                            <p className="text-sm font-serif italic text-muted mb-3">
+                            <p className="text-sm font-serif text-muted mb-3">
                                 {member.quote}
                             </p>
 

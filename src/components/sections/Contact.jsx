@@ -27,7 +27,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <section id="contact" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-background">
+        <section id="contact" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
                 <span className="text-xs uppercase tracking-widest font-mono text-muted mb-4 block">
                     Nous contacter
@@ -94,23 +94,23 @@ export default function Contact() {
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-foreground">Nom complet</label>
-                                    <input type="text" placeholder="Jean Dupont" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+                                    <label htmlFor="contact-nom" className="text-xs font-bold text-foreground">Nom complet</label>
+                                    <input id="contact-nom" type="text" placeholder="Jean Dupont" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-foreground">Email professionnel</label>
-                                    <input type="email" placeholder="jean.dupont@cabinet.fr" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+                                    <label htmlFor="contact-email" className="text-xs font-bold text-foreground">Email professionnel</label>
+                                    <input id="contact-email" type="email" placeholder="jean.dupont@cabinet.fr" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-foreground">Téléphone</label>
-                                    <input type="tel" placeholder="+33 6 XX XX XX XX" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+                                    <label htmlFor="contact-tel" className="text-xs font-bold text-foreground">Téléphone</label>
+                                    <input id="contact-tel" type="tel" placeholder="+33 6 XX XX XX XX" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-foreground">Service souhaité</label>
-                                    <select className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground appearance-none cursor-pointer">
+                                    <label htmlFor="contact-service" className="text-xs font-bold text-foreground">Service souhaité</label>
+                                    <select id="contact-service" className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground appearance-none cursor-pointer">
                                         <option>Audit Positionnement 250€</option>
                                         <option>Audit SEO & GEO 300€</option>
                                         <option>Audit IA 450€</option>
@@ -121,8 +121,9 @@ export default function Contact() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-foreground">Votre message</label>
+                                <label htmlFor="contact-message" className="text-xs font-bold text-foreground">Votre message</label>
                                 <textarea
+                                    id="contact-message"
                                     rows="5"
                                     placeholder="Parlez-nous de votre cabinet et de vos besoins..."
                                     className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"

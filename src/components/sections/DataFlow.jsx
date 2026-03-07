@@ -60,12 +60,12 @@ export default function DataFlow() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full py-24 md:py-32 bg-background overflow-hidden border-t border-foreground/5">
+        <section ref={sectionRef} className="relative w-full py-24 md:py-32 bg-transparent overflow-hidden border-t border-foreground/5">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
 
                 <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-sans font-medium text-foreground mb-6 tracking-tight leading-tight">
-                        Nous Scalons votre SEO par <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic">la data des leaders</span> de votre marché
+                        Nous Scalons votre SEO par <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif">la data des leaders</span> de votre marché
                     </h2>
                     <p className="text-base font-sans text-muted leading-relaxed max-w-2xl mx-auto">
                         Nous créons des articles optimisés sur les mots-clés gagnants de vos concurrents, et plaçons votre site dans les sources influentes pour accélérer votre croissance.
@@ -79,7 +79,7 @@ export default function DataFlow() {
                     <div className="absolute top-1/2 left-0 w-full h-[1px] bg-foreground/10 -translate-y-1/2 z-0"></div>
 
                     {/* LEFT COLUMN */}
-                    <div className="w-[320px] flex flex-col gap-4 z-10 relative bg-background py-4 pr-8">
+                    <div className="w-[320px] flex flex-col gap-4 z-10 relative bg-transparent py-4 pr-8">
                         {LEFT_NODES.map((node, i) => (
                             <div
                                 key={node.id}
@@ -98,14 +98,14 @@ export default function DataFlow() {
                     </div>
 
                     {/* CENTER CORE */}
-                    <div ref={centerNodeRef} className="w-[120px] h-[120px] flex items-center justify-center z-20 bg-background relative px-4">
+                    <div ref={centerNodeRef} className="w-[120px] h-[120px] flex items-center justify-center z-20 bg-transparent relative px-4">
                         <div className="relative w-16 h-16 bg-white border border-foreground/10 rounded-2xl flex items-center justify-center shadow-lg shadow-black/5 hover:scale-105 transition-transform duration-500">
                             <BrainCircuit className="text-primary w-8 h-8" strokeWidth={1.5} />
                         </div>
                     </div>
 
                     {/* RIGHT COLUMN */}
-                    <div className="w-[320px] flex flex-col gap-4 z-10 relative bg-background py-4 pl-8">
+                    <div className="w-[320px] flex flex-col gap-4 z-10 relative bg-transparent py-4 pl-8">
                         {RIGHT_NODES.map((node, i) => (
                             <div
                                 key={node.id}
@@ -145,7 +145,7 @@ export default function DataFlow() {
                         ))}
                     </div>
 
-                    <div className="my-6 relative z-10 py-4 bg-background px-4">
+                    <div className="my-6 relative z-10 py-4 bg-transparent px-4">
                         <div className="w-16 h-16 bg-white border border-foreground/10 rounded-xl flex items-center justify-center shadow-md">
                             <BrainCircuit className="text-primary w-6 h-6" strokeWidth={1.5} />
                         </div>

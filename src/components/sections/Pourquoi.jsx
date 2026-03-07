@@ -60,7 +60,7 @@ export default function Pourquoi() {
     }, []);
 
     return (
-        <section id="pourquoi" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-white" ref={sectionRef}>
+        <section id="pourquoi" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
             <div className="max-w-6xl mx-auto flex flex-col items-center">
 
                 {/* Header */}

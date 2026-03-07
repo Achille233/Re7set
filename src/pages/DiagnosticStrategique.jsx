@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ArrowRight, FileText, CheckCircle2, ChevronDown, Check, Crosshair, Users, BarChart, Puzzle, Target, Sparkles } from 'lucide-react';
 import { Timeline } from '../components/ui/timeline';
+import EngagementSection from '../components/sections/EngagementSection';
 
 export default function DiagnosticStrategique() {
     useEffect(() => {
@@ -143,7 +144,7 @@ export default function DiagnosticStrategique() {
     ];
 
     return (
-        <main className="relative bg-[#0A0A0A] text-white min-h-screen overflow-hidden">
+        <main className="relative bg-[#0A0A0A] text-white min-h-screen overflow-x-clip">
 
             {/* Cinematic Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
@@ -276,6 +277,8 @@ export default function DiagnosticStrategique() {
             <section className="relative z-30 bg-[#0A0A0A] w-full border-t border-white/5">
                 <Timeline data={timelineData} />
             </section>
+
+            <EngagementSection />
 
             {/* CONTENT SECTION (Detailed blocks matching pricing cards but expanded) */}
             <section id="contenu" className="relative z-30 bg-[#0A0A0A] py-24 px-6 md:px-12 border-t border-white/5">

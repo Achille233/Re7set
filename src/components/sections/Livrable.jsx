@@ -124,7 +124,7 @@ export default function Livrable() {
     };
 
     return (
-        <section ref={sectionRef} className="relative w-full py-20 lg:py-24 px-6 md:px-12 lg:px-24 bg-white z-20 overflow-visible perspective-[3000px]">
+        <section ref={sectionRef} className="relative w-full py-20 lg:py-24 px-6 md:px-12 lg:px-24 bg-transparent z-20 overflow-visible perspective-[3000px]">
             {/* Soft background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.03] blur-[100px] rounded-full pointer-events-none -z-10" />
 

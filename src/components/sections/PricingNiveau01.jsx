@@ -114,7 +114,7 @@ export default function PricingNiveau01() {
                             </ul>
 
                             {audit.noteInfo && (
-                                <div className="bg-secondary/50 p-4 rounded text-xs text-muted mb-8 italic">
+                                <div className="bg-secondary/50 p-4 rounded text-xs text-muted mb-8">
                                     {audit.noteInfo}
                                 </div>
                             )}

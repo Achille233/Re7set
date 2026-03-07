@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#FFFFFF",
+        background: "#FCFBF8",
         secondary: "#F4F4F5",
         foreground: "#09090B",
         muted: "#71717A",
@@ -19,7 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        serif: ['"Outfit"', 'sans-serif'],
+        serif: ['"Montserrat"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       keyframes: {

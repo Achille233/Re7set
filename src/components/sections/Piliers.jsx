@@ -31,33 +31,36 @@ export default function Piliers() {
 
     const services = [
         {
-            badge: "L'OFFRE STRUCTURANTE",
-            title: "Diagnostic Stratégique Global",
-            id: "diagnostic-strategique",
-            description: "Passer d'un expert isolé à une stratégie numérique complète. Nous analysons l'ensemble de votre présence en ligne pour construire un plan d'action priorisé à 90 jours.",
-            tags: ["Image & Positionnement", "Audit SEO & GEO", "Potentiel IA"],
-            visualType: "dashboard"
+            badge: "DIAGNOSTICS",
+            title: "Audits & Diagnostic Stratégique",
+            link: "/offres/audits-strategiques",
+            description: "Positionnement, SEO, potentiel IA : identifiez précisément vos leviers de croissance grâce à des audits indépendants et actionnables, seuls ou en pack complet.",
+            tags: ["Positionnement", "SEO & GEO", "Potentiel IA"],
+            visualType: "dashboard",
+            buttonHoverColor: "hover:bg-primary"
         },
         {
-            badge: "INTERVENTIONS CIBLÉES",
-            title: "Audits & Optimisations à la demande",
-            id: "audits-optimisations",
-            description: "Besoin d'optimiser un point précis de votre activité ? Nos experts vous accompagnent sur des missions ponctuelles (SEO, Positionnement, IA) sans ralentir vos opérations.",
-            tags: ["Audit Unique", "Plan d'action", "Mise en œuvre"],
-            visualType: "components"
+            badge: "VISIBILITÉ SEO & GEO",
+            title: "Accompagnement Visibilité Digitale",
+            link: "/offres/visibilite-seo",
+            description: "Refonte de votre site, référencement naturel, Google Ads et suivi mensuel. Nous déployons et pilotons votre visibilité pour attirer les meilleurs dossiers.",
+            tags: ["Refonte site web", "SEO & Google Ads", "Suivi mensuel"],
+            visualType: "components",
+            buttonHoverColor: "hover:bg-cyan-600"
         },
         {
-            badge: "ACCOMPAGNEMENT B2B",
-            title: "Coaching & Transformation IA",
-            id: "coaching-ia",
-            description: "C'est souvent lorsqu'on repense son organisation qu'on réalise le potentiel de l'IA. Nous vous accompagnons pour structurer votre cabinet, automatiser les process et former vos équipes.",
-            tags: ["Stratégie", "Outils IA sur-mesure", "Accompagnement"],
-            visualType: "abstract"
+            badge: "IA POUR AVOCATS",
+            title: "Outils & Solutions IA",
+            link: "/outils-ia",
+            description: "Assistants IA, automatisation des process, formation de vos équipes : nous intégrons l'intelligence artificielle au cœur de votre cabinet pour un gain de productivité immédiat.",
+            tags: ["Outils IA sur-mesure", "Automatisation", "Formation"],
+            visualType: "abstract",
+            buttonHoverColor: "hover:bg-orange-500"
         }
     ];
 
     return (
-        <section id="services" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-background" ref={sectionRef}>
+        <section id="services" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
             <div className="max-w-6xl mx-auto flex flex-col gap-8">
 
                 {/* Section Header */}
@@ -99,7 +102,7 @@ export default function Piliers() {
                                 </ul>
 
                                 <div className="mt-auto">
-                                    <Link to={`/service/${service.id}`} className="inline-block bg-primary text-white hover:bg-black transition-colors duration-300 font-medium px-8 py-3.5 rounded text-center cursor-pointer">
+                                    <Link to={service.link} className={`inline-block bg-[#1A1A1A] text-white ${service.buttonHoverColor} transition-colors duration-300 font-medium px-8 py-3.5 rounded text-center cursor-pointer shadow-md`}>
                                         Découvrir
                                     </Link>
                                 </div>

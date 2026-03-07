@@ -27,7 +27,7 @@ export default function PricingNiveau02() {
     }, []);
 
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-secondary">
+        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
