@@ -118,7 +118,7 @@ export default function Piliers() {
                     <span className="text-sm uppercase tracking-widest font-mono text-muted mb-6 block">
                         Nos piliers d'intervention
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans text-foreground tracking-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground">
                         Conçus pour votre métier.
                     </h2>
                 </div>
