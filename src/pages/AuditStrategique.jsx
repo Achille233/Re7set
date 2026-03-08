@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { Check, ArrowRight, Target, Search, Brain, ShieldCheck } from 'lucide-react';
 import CommentCaMarcheSEO from '../components/sections/CommentCaMarcheSEO';
+import DataFlow from '../components/sections/DataFlow';
 
 export default function AuditStrategique() {
     useEffect(() => {
@@ -147,6 +148,11 @@ export default function AuditStrategique() {
             <div className="w-full h-40 bg-gradient-to-b from-transparent to-[#0A0A0A] relative z-20 -mt-20"></div>
 
             <CommentCaMarcheSEO />
+
+            {/* INTEGRATED DATAFLOW SECTION */}
+            <div className="relative z-30 bg-[#0A0A0A]">
+                <DataFlow theme="dark" />
+            </div>
 
             {/* CARDS SECTION (Adapted to Dark Mode) */}
             <section id="contenu" className="relative z-30 bg-[#0A0A0A] py-24 px-6 md:px-12 border-t border-white/5">

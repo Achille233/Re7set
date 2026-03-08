@@ -25,7 +25,7 @@ export default function Hero() {
     const titleWords = "Positionnement stratégique, Visibilité & IA.".split(" ");
 
     return (
-        <section className="relative min-h-screen flex flex-col justify-center px-6 pt-32 pb-24 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
+        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 pt-32 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
 
             {/* Background Grid Lines */}
             <div className="absolute inset-0 w-full h-full pointer-events-none -z-20 flex justify-center">
@@ -109,20 +109,6 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Trust Strip */}
-            <div className="w-full max-w-6xl mx-auto border-t border-foreground/10 pt-8 grid grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                {[
-                    { icon: '🔒', text: 'Confidentiel & déontologique' },
-                    { icon: '⚡', text: 'Livré sous 7 jours' },
-                    { icon: '⚖️', text: 'Équipe pluridisciplinaire' },
-                    { icon: '🤖', text: 'Expertise juridique intégrée' }
-                ].map((item, i) => (
-                    <div key={i} className={cn("flex flex-col md:flex-row items-center text-center md:text-left justify-center lg:justify-start gap-3", i !== 0 && "lg:border-l border-foreground/10 lg:pl-6")}>
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="text-sm font-medium text-foreground">{item.text}</span>
-                    </div>
-                ))}
-            </div>
         </section>
     );
 }

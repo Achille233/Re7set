@@ -2,7 +2,6 @@ import React from 'react';
 import Hero from '../components/sections/Hero';
 import Piliers from '../components/sections/Piliers';
 import Deconstat from '../components/sections/Deconstat';
-import DataFlow from '../components/sections/DataFlow';
 import Pourquoi from '../components/sections/Pourquoi';
 import Livrable from '../components/sections/Livrable';
 import Equipe from '../components/sections/Equipe';
@@ -19,7 +18,6 @@ export default function Home() {
             <Hero />
             <Piliers />
             <Deconstat />
-            <DataFlow />
             <Pourquoi />
             <Livrable />
             <Equipe />
