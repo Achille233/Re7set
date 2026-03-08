@@ -5,6 +5,7 @@ import { ArrowRight, FileText, CheckCircle2, ChevronDown, Check, Crosshair, User
 import { Timeline } from '../components/ui/timeline';
 import EngagementSection from '../components/sections/EngagementSection';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { SITE_CONFIG } from '../config/site';
 
 export default function DiagnosticStrategique() {
     usePageMeta(
@@ -321,7 +322,7 @@ export default function DiagnosticStrategique() {
                             <p className="text-sm text-white/50">Délai de réalisation : 2 semaines</p>
                         </div>
 
-                        <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 mb-4">
+                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 mb-4">
                             Réserver le diagnostic
                             <ArrowRight size={18} />
                         </a>

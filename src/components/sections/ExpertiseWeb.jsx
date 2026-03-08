@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LayoutTemplate, Target, LineChart, Plug, BarChart3, Presentation } from 'lucide-react';
+import { SITE_CONFIG } from '../../config/site';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,7 +117,7 @@ export default function ExpertiseWeb() {
                 </div>
 
                 <div className="flex justify-center web-header">
-                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-blue-500 text-white rounded-xl font-medium transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] group">
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-blue-500 text-white rounded-xl font-medium transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)] group">
                         Parler avec un expert
                         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

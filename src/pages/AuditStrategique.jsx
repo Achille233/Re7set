@@ -5,6 +5,7 @@ import { Check, ArrowRight, Target, Search, Brain, ShieldCheck } from 'lucide-re
 import CommentCaMarcheSEO from '../components/sections/CommentCaMarcheSEO';
 import DataFlow from '../components/sections/DataFlow';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { SITE_CONFIG } from '../config/site';
 
 export default function AuditStrategique() {
     usePageMeta(
@@ -202,7 +203,7 @@ export default function AuditStrategique() {
                                         <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase block mb-1">Prix indicatif</span>
                                         <span className="text-2xl font-serif font-bold text-white">{audit.price}</span>
                                     </div>
-                                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 text-white rounded-lg hover:bg-primary transition-colors group-hover:-translate-y-1 duration-300 border border-white/10 hover:border-transparent">
+                                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 text-white rounded-lg hover:bg-primary transition-colors group-hover:-translate-y-1 duration-300 border border-white/10 hover:border-transparent">
                                         <ArrowRight className="w-5 h-5" />
                                     </a>
                                 </div>
@@ -226,7 +227,7 @@ export default function AuditStrategique() {
                             <a href="/offres/diagnostic-strategique" className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-blue-500 text-white rounded-xl font-medium transition-colors shadow-[0_0_30px_-5px_rgba(37,99,235,0.4)]">
                                 Voir le Diagnostic Global
                             </a>
-                            <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl font-medium transition-colors">
+                            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl font-medium transition-colors">
                                 Prendre rendez-vous
                             </a>
                         </div>

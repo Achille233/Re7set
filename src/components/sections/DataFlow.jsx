@@ -3,28 +3,25 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
     LineChart,
-    Search,
-    BookOpenCheck,
-    Crosshair,
-    Maximize,
-    PenTool,
+    Globe,
     BrainCircuit,
     Code2,
-    FileText
+    FileText,
+    Target
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const LEFT_NODES = [
-    { id: 'opti', title: 'Optimisation technique', text: "Audit et structure", icon: Code2 },
-    { id: 'analyse', title: 'Analyse de mots-clés', text: "Volume et opportunité", icon: LineChart },
-    { id: 'relecture', title: 'Relecture humaine', text: "Qualité éditoriale", icon: BookOpenCheck }
+    { id: 'opti', title: 'Audit technique & structure', text: "Performances, code, accessibilité", icon: Code2 },
+    { id: 'analyse', title: 'Mots-clés de votre spécialité', text: "Volumes & intentions de recherche", icon: LineChart },
+    { id: 'local', title: 'Google Business Profile', text: "Visibilité locale maximale", icon: Globe }
 ];
 
 const RIGHT_NODES = [
-    { id: 'intentions', title: 'Détection des intentions', text: "Comprendre la recherche", icon: Crosshair },
-    { id: 'generation', title: 'Génération IA', text: "Rédaction scalée", icon: BrainCircuit },
-    { id: 'perso', title: 'Personnalisation', text: "Toucher votre cible", icon: PenTool }
+    { id: 'geo', title: 'GEO — IA conversationnelle', text: "Visible sur ChatGPT & Perplexity", icon: BrainCircuit },
+    { id: 'contenu', title: "Contenu d'autorité juridique", text: "Articles à forte valeur ajoutée", icon: FileText },
+    { id: 'acquisition', title: 'Acquisition qualifiée', text: "Dossiers à haute valeur", icon: Target }
 ];
 
 export default function DataFlow({ theme = 'light' }) {
@@ -75,10 +72,10 @@ export default function DataFlow({ theme = 'light' }) {
 
                 <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
                     <h2 className={`text-4xl md:text-5xl lg:text-6xl font-sans font-medium mb-6 tracking-tight leading-tight ${textMain}`}>
-                        Nous Scalons votre SEO par <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif">la data des leaders</span> de votre marché
+                        Votre expertise mérite d'être trouvée <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif">par les bons clients.</span>
                     </h2>
                     <p className={`text-base font-sans leading-relaxed max-w-2xl mx-auto ${textMuted}`}>
-                        Nous créons des articles optimisés sur les mots-clés gagnants de vos concurrents, et plaçons votre site dans les sources influentes pour accélérer votre croissance.
+                        Nous analysons les mots-clés sur lesquels vos confrères dominent et déployons un SEO de précision pour que votre cabinet capte les dossiers à forte valeur ajoutée.
                     </p>
                 </div>
 

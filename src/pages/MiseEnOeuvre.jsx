@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ArrowRight, Zap, Target, BarChart, Settings, Users } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { SITE_CONFIG } from '../config/site';
 
 export default function MiseEnOeuvre() {
     usePageMeta(
@@ -107,7 +108,7 @@ export default function MiseEnOeuvre() {
                     </div>
 
                     <div className="relative z-10 shrink-0">
-                        <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 px-8 py-5 bg-white text-[#111] hover:bg-slate-100 rounded-xl font-bold transition-all shadow-xl hover:shadow-2xl hover:shadow-white/20">
+                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 px-8 py-5 bg-white text-[#111] hover:bg-slate-100 rounded-xl font-bold transition-all shadow-xl hover:shadow-2xl hover:shadow-white/20">
                             Prendre rendez-vous
                             <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
                         </a>

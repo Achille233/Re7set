@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowRight, Phone } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { SITE_CONFIG } from '../../config/site';
 
 export default function Hero() {
     const titleRef = useRef(null);
@@ -102,7 +103,7 @@ export default function Hero() {
                         <div className="absolute inset-0 rounded pointer-events-none border border-white/0 group-hover:border-white/20 transition-colors" />
                     </a>
 
-                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="group px-8 py-4 flex items-center justify-center gap-2 rounded border border-foreground/20 bg-white/50 backdrop-blur-sm text-foreground hover:bg-white transition-all duration-300 hover:shadow-sm">
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="group px-8 py-4 flex items-center justify-center gap-2 rounded border border-foreground/20 bg-white/50 backdrop-blur-sm text-foreground hover:bg-white transition-all duration-300 hover:shadow-sm">
                         <Phone size={20} />
                         <span className="font-medium text-lg">Nous contacter</span>
                     </a>
