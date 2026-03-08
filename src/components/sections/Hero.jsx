@@ -87,10 +87,10 @@ export default function Hero() {
 
                 {/* Subtitles & Body */}
                 <div className="max-w-3xl mx-auto text-center">
-                    <p className="text-xl md:text-2xl font-sans text-foreground mb-4">
+                    <p className="text-xl md:text-2xl font-sans text-foreground mb-6">
                         Par des spécialistes du secteur libéral, pour les professionnels qui exigent l'excellence.
                     </p>
-                    <p className="text-lg md:text-xl font-sans text-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-sm md:text-base font-sans text-muted mb-12 max-w-xl mx-auto leading-relaxed">
                         Nous structurons la présence digitale de votre cabinet et intégrons l'IA pour vous permettre d'attirer les meilleurs dossiers et vous concentrer sur votre cœur de métier.
                     </p>
                 </div>
