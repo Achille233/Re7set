@@ -48,7 +48,7 @@ export default function PreuveSociale() {
     return (
         <TestimonialsSection
             title="La parole aux Experts."
-            description="Ils ont choisi de clarifier leur positionnement et de booster la croissance de leur cabinet. Voici leur retour d'expérience vérifié."
+            description="Ils ont choisi de clarifier leur positionnement et de booster la croissance de leur cabinet."
             testimonials={TESTIMONIALS}
         />
     );

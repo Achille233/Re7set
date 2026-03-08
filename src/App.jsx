@@ -12,6 +12,7 @@ import DiagnosticStrategique from './pages/DiagnosticStrategique';
 import OutilsIA from './pages/OutilsIA';
 import MentionsLegales from './pages/MentionsLegales';
 import NotFound from './pages/NotFound';
+import CookieBanner from './components/ui/CookieBanner';
 
 export default function App() {
   const location = useLocation();
@@ -41,6 +42,7 @@ export default function App() {
       </Routes>
 
       <Footer />
+      <CookieBanner />
     </>
   );
 }

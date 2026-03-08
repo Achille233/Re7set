@@ -46,12 +46,12 @@ const TOOLS = [
 
 export default function OutilsIA() {
     return (
-        <section id="outils-ia" className="relative w-full py-32 bg-darkAccent text-white">
+        <section id="outils-ia" className="relative w-full py-32 bg-transparent">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-32">
-                <span className="text-sm uppercase tracking-widest font-mono text-white/40 mb-4 block">
+                <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                     Outils IA
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-4 max-w-3xl">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 max-w-3xl">
                     <span className="block">Les outils IA que nous déployons</span>
                     <span className="block text-primary">pour transformer votre cabinet.</span>
                 </h2>
@@ -63,21 +63,18 @@ export default function OutilsIA() {
                     {TOOLS.map((tool, i) => (
                         <div
                             key={i}
-                            className="group relative bg-[#141410] border border-white/[0.06] rounded-xl p-8 overflow-hidden hover:-translate-y-1 transition-transform duration-300"
+                            className="group relative bg-white border border-foreground/[0.06] rounded-xl p-8 overflow-hidden hover:-translate-y-1 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] hover:border-primary/20"
                         >
-                            {/* Scanline Effect */}
-                            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transparent via-primary/20 to-transparent -translate-y-full group-hover:animate-scanline pointer-events-none opacity-0 group-hover:opacity-100" />
-
                             {/* Giant Background Number */}
-                            <div className="absolute top-4 right-4 text-6xl md:text-7xl font-serif text-white/5 pointer-events-none select-none">
+                            <div className="absolute top-4 right-4 text-6xl md:text-7xl font-serif text-foreground/[0.04] pointer-events-none select-none">
                                 {tool.num}
                             </div>
 
-                            <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-6 relative">
+                            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-6 relative group-hover:bg-primary/15 transition-colors duration-300">
                                 {tool.icon}
                             </div>
 
-                            <h3 className="font-bold font-sans text-lg md:text-xl mb-1 relative">{tool.title}</h3>
+                            <h3 className="font-bold font-sans text-lg md:text-xl text-foreground mb-1 relative">{tool.title}</h3>
                             <p className="text-[10px] font-mono text-primary uppercase tracking-widest mb-4 relative">{tool.kicker}</p>
 
                             <p className="text-sm text-muted mb-8 relative leading-relaxed">
@@ -88,7 +85,7 @@ export default function OutilsIA() {
                                 {tool.features.map((feature, idx) => (
                                     <li key={idx} className="flex items-start gap-3">
                                         <Sparkles className="text-primary mt-1 flex-shrink-0" size={14} />
-                                        <span className="text-sm text-white/90">{feature}</span>
+                                        <span className="text-sm text-foreground/80">{feature}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -97,23 +94,9 @@ export default function OutilsIA() {
                 </div>
             </div>
 
-            <div className="w-full bg-primary py-6 px-6 text-center shadow-[0_0_40px_rgba(37,99,235,0.4)]">
+            <div className="w-full bg-primary py-6 px-6 text-center shadow-[0_0_40px_rgba(37,99,235,0.3)]">
                 <p className="text-white font-medium">Chaque outil est implanté et configuré par notre expert, pour votre cabinet.</p>
             </div>
-
-            {/* Internal CSS for the scanline animation because we can't easily add arbitrary tailwind keyframes without config */}
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        @keyframes scanline {
-          0% { transform: translateY(-100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(400%); opacity: 0; }
-        }
-        .group:hover .group-hover\\:animate-scanline {
-          animation: scanline 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-      `}} />
         </section>
     );
 }
