@@ -65,7 +65,7 @@ export default function Pourquoi() {
 
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl">
-                    <h2 className="text-3xl md:text-4xl font-sans font-medium text-foreground tracking-tight mb-6">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground tracking-tight mb-6">
                         Pourquoi choisir notre agence ?
                     </h2>
                     <p className="text-base text-muted font-sans leading-relaxed">

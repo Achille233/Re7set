@@ -29,11 +29,11 @@ export default function Contact() {
     return (
         <section id="contact" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
-                <span className="text-xs uppercase tracking-widest font-mono text-muted mb-4 block">
+                <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                     Nous contacter
                 </span>
 
-                <h2 className="text-3xl md:text-4xl font-serif mb-16 max-w-3xl">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-16 max-w-3xl">
                     <span className="text-foreground">Parlons de </span>
                     <span className="text-primary">votre cabinet.</span>
                 </h2>

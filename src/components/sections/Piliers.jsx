@@ -100,7 +100,7 @@ export default function Piliers() {
             link: "/offres/visibilite-seo",
             description: "Refonte de votre site, référencement naturel, Google Ads et suivi mensuel. Nous déployons et pilotons votre visibilité pour attirer les meilleurs dossiers.",
             tags: ["Refonte site web", "SEO & Google Ads", "Suivi mensuel"],
-            visualType: "components",
+            visualType: "abstract",
             buttonHoverColor: "hover:bg-cyan-600"
         },
         {
@@ -109,7 +109,7 @@ export default function Piliers() {
             link: "/outils-ia",
             description: "Assistants IA, automatisation des process, formation de vos équipes : nous intégrons l'intelligence artificielle au cœur de votre cabinet pour un gain de productivité immédiat.",
             tags: ["Outils IA sur-mesure", "Automatisation", "Formation"],
-            visualType: "abstract",
+            visualType: "components",
             buttonHoverColor: "hover:bg-orange-500"
         }
     ];
@@ -120,10 +120,10 @@ export default function Piliers() {
 
                 {/* Section Header */}
                 <div className="mb-8">
-                    <span className="text-[10px] uppercase tracking-widest font-mono text-muted mb-6 block">
+                    <span className="text-sm uppercase tracking-widest font-mono text-muted mb-6 block">
                         Notre approche
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-sans text-foreground tracking-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans text-foreground tracking-tight">
                         Des solutions sur-mesure.
                     </h2>
                 </div>

@@ -61,10 +61,10 @@ export default function Equipe() {
         <section id="equipe" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16">
-                    <span className="text-xs uppercase tracking-widest font-mono text-muted mb-4 block">
+                    <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                         Notre équipe
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4 max-w-3xl">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 max-w-3xl">
                         <span className="block">Une équipe taillée pour</span>
                         <span className="block text-primary">l'excellence.</span>
                     </h2>

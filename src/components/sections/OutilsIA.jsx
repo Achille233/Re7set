@@ -48,10 +48,10 @@ export default function OutilsIA() {
     return (
         <section id="outils-ia" className="relative w-full py-32 bg-darkAccent text-white">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-32">
-                <span className="text-xs uppercase tracking-widest font-mono text-white/40 mb-4 block">
+                <span className="text-sm uppercase tracking-widest font-mono text-white/40 mb-4 block">
                     Outils IA
                 </span>
-                <h2 className="text-3xl md:text-4xl font-serif mb-4 max-w-3xl">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-4 max-w-3xl">
                     <span className="block">Les outils IA que nous déployons</span>
                     <span className="block text-primary">pour transformer votre cabinet.</span>
                 </h2>

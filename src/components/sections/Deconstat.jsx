@@ -67,7 +67,7 @@ export default function Deconstat() {
     return (
         <section className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto" ref={containerRef}>
-                <span className="text-xs uppercase tracking-widest font-mono text-muted mb-4 block">
+                <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                     Le problème
                 </span>
 

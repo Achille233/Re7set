@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { Cpu, Zap, Database, Lock, Globe, Sparkles, ArrowRight, Bot } from 'lucide-react';
+import { SplineScene } from '../components/ui/splite';
+import { Card } from '../components/ui/card';
+import { Spotlight } from '../components/ui/spotlight';
 
 export default function OutilsIA() {
     const canvasRef = useRef(null);
@@ -76,84 +79,55 @@ export default function OutilsIA() {
             <div className="absolute top-20 right-1/4 w-[600px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen mix-blend-lighten"></div>
 
             {/* HERO SECTION */}
-            <section className="relative z-10 pt-40 pb-32 px-6 md:px-12 flex flex-col items-center text-center">
+            <section className="relative z-10 pt-32 pb-24 px-6 md:px-12 flex flex-col items-center">
+                <Card className="w-full max-w-7xl h-[650px] md:h-[700px] bg-[#0A0A0A]/40 border-white/10 relative overflow-hidden rounded-3xl backdrop-blur-md shadow-2xl">
+                    <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="rgba(168,85,247,0.15)" />
 
-                {/* Main Title Area */}
-                <div className="relative w-full max-w-5xl">
+                    <div className="flex flex-col lg:flex-row h-full">
+                        {/* Left content */}
+                        <div className="flex-1 p-8 md:p-14 relative z-10 flex flex-col justify-center items-start text-left">
 
-                    {/* Floating Tech Badges */}
-                    <div className="hidden lg:flex float-badge-ia-1 absolute -left-10 top-0 xl:-left-20 xl:-top-5 bg-[#111]/80 border border-purple-500/20 backdrop-blur-md px-4 py-2 rounded-lg items-center gap-2 text-xs text-purple-100 shadow-[0_0_20px_rgba(168,85,247,0.15)] font-mono tracking-widest uppercase">
-                        <Sparkles size={14} className="text-purple-400" /> IA Générative
-                    </div>
-                    <div className="hidden lg:flex float-badge-ia-2 absolute -right-4 top-32 xl:-right-10 xl:top-40 bg-[#111]/80 border border-cyan-500/20 px-4 py-2 rounded-lg items-center gap-2 text-xs text-cyan-100 shadow-[0_0_20px_rgba(6,182,212,0.15)] font-mono tracking-widest uppercase z-10">
-                        <Database size={14} className="text-cyan-400" /> LLMs Souverains
-                    </div>
-                    <div className="hidden lg:flex float-badge-ia-3 absolute left-0 bottom-40 xl:-left-10 xl:bottom-28 bg-[#111]/80 border border-blue-500/20 px-4 py-2 rounded-lg items-center gap-2 text-xs text-blue-100 shadow-[0_0_20px_rgba(59,130,246,0.15)] font-mono tracking-widest uppercase">
-                        <Lock size={14} className="text-blue-400" /> Données Sécurisées
-                    </div>
+                            {/* Floating Tech Badges (adapted for left alignment) */}
+                            <div className="flex flex-wrap gap-3 mb-8">
+                                <div className="bg-[#111]/80 border border-purple-500/20 px-3 py-1.5 rounded-lg flex items-center gap-2 text-[10px] md:text-xs text-purple-100 shadow-[0_0_20px_rgba(168,85,247,0.15)] font-mono tracking-widest uppercase">
+                                    <Sparkles size={14} className="text-purple-400" /> IA Générative
+                                </div>
+                                <div className="bg-[#111]/80 border border-cyan-500/20 px-3 py-1.5 rounded-lg flex items-center gap-2 text-[10px] md:text-xs text-cyan-100 shadow-[0_0_20px_rgba(6,182,212,0.15)] font-mono tracking-widest uppercase">
+                                    <Database size={14} className="text-cyan-400" /> LLMs Souverains
+                                </div>
+                            </div>
 
-                    <h1 className="ia-anim text-5xl md:text-7xl lg:text-[5.5rem] font-medium leading-[1.05] tracking-tight mb-8">
-                        L'Intelligence Artificielle <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500">
-                            au service du Droit
-                        </span>
-                    </h1>
-                </div>
+                            <h1 className="ia-anim text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-medium leading-[1.05] tracking-tight mb-6">
+                                L'Intelligence Artificielle <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-500">
+                                    au service du Droit
+                                </span>
+                            </h1>
 
-                <p className="ia-anim text-lg md:text-xl text-white/50 mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Découvrez notre écosystème d'outils et de solutions sur mesure conçus pour décupler la productivité de votre cabinet tout en garantissant le secret professionnel.
-                </p>
+                            <p className="ia-anim text-base md:text-lg text-white/50 mb-10 max-w-xl leading-relaxed">
+                                Découvrez notre écosystème d'outils et de solutions sur mesure conçus pour décupler la productivité de votre cabinet tout en garantissant le secret professionnel.
+                            </p>
 
-                <a href="#outils" className="ia-anim relative inline-flex group items-center justify-center px-8 py-4 font-medium text-white transition-all duration-300 bg-[#111] border border-white/10 rounded-xl hover:bg-white/[0.05] hover:border-white/20 hover:scale-105 z-20 mb-24 overflow-hidden">
-                    <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
-                    <span className="relative z-10 flex items-center gap-2">Découvrir les Outils <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
-                </a>
+                            <a href="#outils" className="ia-anim relative inline-flex group items-center justify-center px-8 py-4 font-medium text-white transition-all duration-300 bg-[#111] border border-white/10 rounded-xl hover:bg-white/[0.05] hover:border-white/20 hover:scale-105 overflow-hidden">
+                                <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                                <span className="relative z-10 flex items-center gap-2">Découvrir les Outils <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></span>
+                            </a>
+                        </div>
 
-                {/* Highly Technical Abstract Visual (Neural Network Concept) */}
-                <div className="ia-anim w-full max-w-4xl mx-auto relative h-[450px]">
+                        {/* Right content (Spline) */}
+                        <div className="flex-1 relative min-h-[300px] lg:min-h-full w-full">
+                            {/* Gradient mask to gracefully blend the 3D scene edges */}
+                            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[rgba(10,10,10,0.6)] to-transparent z-10 pointer-events-none hidden lg:block"></div>
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[rgba(10,10,10,0.4)] to-transparent z-10 pointer-events-none hidden lg:block"></div>
+                            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[rgba(10,10,10,0.4)] to-transparent z-10 pointer-events-none hidden lg:block"></div>
 
-                    {/* Background Grid Layer */}
-                    <div className="absolute inset-0 opacity-[0.03]"
-                        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}>
-                    </div>
-
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 450">
-                        {/* Connecting Paths (Data Streams) */}
-                        <path d="M200 250 C 350 250, 300 150, 450 200" fill="none" stroke="#2D3748" strokeWidth="2" />
-                        <path className="stream-path" strokeDasharray="10 15" d="M200 250 C 350 250, 300 150, 450 200" fill="none" stroke="rgba(168,85,247,0.5)" strokeWidth="3" />
-
-                        <path d="M450 200 C 550 250, 500 350, 650 300" fill="none" stroke="#2D3748" strokeWidth="2" />
-                        <path className="stream-path" strokeDasharray="8 20" d="M450 200 C 550 250, 500 350, 650 300" fill="none" stroke="rgba(6,182,212,0.5)" strokeWidth="3" style={{ animationDirection: 'reverse' }} />
-
-                        <path d="M200 250 C 300 350, 550 150, 650 300" fill="none" stroke="#2D3748" strokeWidth="1" />
-                        <path className="stream-path" strokeDasharray="5 25" d="M200 250 C 300 350, 550 150, 650 300" fill="none" stroke="rgba(59,130,246,0.3)" strokeWidth="2" />
-                    </svg>
-
-                    {/* Node 1: Purple (Generative AI) */}
-                    <div className="absolute top-[250px] left-[25%] transform -translate-x-1/2 -translate-y-1/2 z-20">
-                        <div className="node-1-glow absolute -inset-6 bg-purple-500 rounded-full opacity-0 blur-xl"></div>
-                        <div className="node-1 w-8 h-8 rounded-full bg-[#111] border-[3px] border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.8)] flex items-center justify-center relative z-10">
-                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                            <SplineScene
+                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
-
-                    {/* Node 2: Cyan (Core Reasoning engine) */}
-                    <div className="absolute top-[200px] left-[56.25%] transform -translate-x-1/2 -translate-y-1/2 z-20">
-                        <div className="node-2-glow absolute -inset-8 bg-cyan-400 rounded-full opacity-0 blur-2xl"></div>
-                        <div className="node-2 w-12 h-12 rounded-full bg-[#111] border-[4px] border-cyan-400 shadow-[0_0_40px_rgba(6,182,212,0.9)] flex items-center justify-center relative z-10">
-                            <Bot className="w-5 h-5 text-cyan-200" />
-                        </div>
-                    </div>
-
-                    {/* Node 3: Blue (Data Layer) */}
-                    <div className="absolute top-[300px] left-[81.25%] transform -translate-x-1/2 -translate-y-1/2 z-20">
-                        <div className="node-3-glow absolute -inset-5 bg-blue-500 rounded-full opacity-0 blur-lg"></div>
-                        <div className="node-3 w-6 h-6 rounded-full bg-[#111] border-[2px] border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.8)] flex items-center justify-center relative z-10">
-                            <div className="w-1.5 h-1.5 bg-blue-300 rounded-full"></div>
-                        </div>
-                    </div>
-                </div>
-
+                </Card>
             </section>
 
             {/* Fading bottom edge of the hero */}

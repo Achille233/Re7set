@@ -74,7 +74,7 @@ export default function DataFlow({ theme = 'light' }) {
             <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
 
                 <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
-                    <h2 className={`text-3xl md:text-4xl font-sans font-medium mb-6 tracking-tight leading-tight ${textMain}`}>
+                    <h2 className={`text-4xl md:text-5xl lg:text-6xl font-sans font-medium mb-6 tracking-tight leading-tight ${textMain}`}>
                         Nous Scalons votre SEO par <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif">la data des leaders</span> de votre marché
                     </h2>
                     <p className={`text-base font-sans leading-relaxed max-w-2xl mx-auto ${textMuted}`}>
