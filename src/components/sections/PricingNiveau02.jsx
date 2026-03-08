@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Check } from 'lucide-react';
+import { SITE_CONFIG } from '../../config/site';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,19 +12,23 @@ export default function PricingNiveau02() {
     useEffect(() => {
         if (!cardRef.current) return;
 
-        gsap.fromTo(cardRef.current,
-            { y: 60, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'elastic.out(1, 0.75)',
-                scrollTrigger: {
-                    trigger: cardRef.current,
-                    start: 'top 85%',
+        const ctx = gsap.context(() => {
+            gsap.fromTo(cardRef.current,
+                { y: 60, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'elastic.out(1, 0.75)',
+                    scrollTrigger: {
+                        trigger: cardRef.current,
+                        start: 'top 85%',
+                    }
                 }
-            }
-        );
+            );
+        }, cardRef);
+
+        return () => ctx.revert();
     }, []);
 
     return (
@@ -125,11 +130,16 @@ export default function PricingNiveau02() {
                                     <span className="text-sm font-bold text-muted uppercase tracking-widest">TTC</span>
                                 </div>
 
-                                <button className="w-full relative z-10 group/btn px-6 py-4 bg-[#1A1A1A] text-white flex items-center justify-center gap-2 rounded-xl transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:-translate-y-1 mb-6 overflow-hidden">
+                                <a
+                                    href={SITE_CONFIG.calendlyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full relative z-10 group/btn px-6 py-4 bg-[#1A1A1A] text-white flex items-center justify-center gap-2 rounded-xl transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.2)] hover:-translate-y-1 mb-6 overflow-hidden"
+                                >
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary to-cyan-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
                                     <span className="relative z-10 font-bold text-sm tracking-wide">RECEVOIR LE DIAGNOSTIC</span>
                                     <ArrowRight size={18} className="relative z-10 transform group-hover/btn:translate-x-1 transition-transform" />
-                                </button>
+                                </a>
 
                                 <div className="relative z-10 text-[11px] font-mono text-muted/80 mb-6 flex items-center gap-1.5 justify-center uppercase tracking-wider">
                                     🔒 Paiement sécurisé par Stripe

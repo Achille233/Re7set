@@ -4,8 +4,13 @@ import gsap from 'gsap';
 import { ArrowRight, FileText, CheckCircle2, ChevronDown, Check, Crosshair, Users, BarChart, Puzzle, Target, Sparkles } from 'lucide-react';
 import { Timeline } from '../components/ui/timeline';
 import EngagementSection from '../components/sections/EngagementSection';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function DiagnosticStrategique() {
+    usePageMeta(
+        'Diagnostic Stratégique Global | RE7SET — Vision Complète de votre Cabinet',
+        'Le diagnostic structurant RE7SET : positionnement, SEO, potentiel IA réunis en un seul livrable complet. Plan de développement priorisé sur 90 jours. 900€ TTC.'
+    );
     useEffect(() => {
         gsap.fromTo('.diag-anim',
             { y: 30, opacity: 0 },

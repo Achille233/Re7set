@@ -11,77 +11,72 @@ export default function Piliers() {
 
     useEffect(() => {
         if (!sectionRef.current) return;
-        const cards = sectionRef.current.querySelectorAll('.pilier-card');
 
-        cards.forEach((card, i) => {
-            const elements = card.querySelectorAll('.animate-elem');
-            const visual = card.querySelector('.animate-visual');
+        const ctx = gsap.context(() => {
+            const cards = sectionRef.current.querySelectorAll('.pilier-card');
 
-            // Setup initial state
-            gsap.set(elements, { y: 40, opacity: 0, filter: 'blur(8px)' });
-            gsap.set(visual, { x: 50, opacity: 0, scale: 0.95 });
+            cards.forEach((card) => {
+                const elements = card.querySelectorAll('.animate-elem');
+                const visual = card.querySelector('.animate-visual');
 
-            // Create timeline for each card
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                }
-            });
+                gsap.set(elements, { y: 40, opacity: 0, filter: 'blur(8px)' });
+                gsap.set(visual, { x: 50, opacity: 0, scale: 0.95 });
 
-            // Animate text elements cascading
-            tl.to(elements, {
-                y: 0,
-                opacity: 1,
-                filter: 'blur(0px)',
-                duration: 1.2,
-                stagger: 0.1,
-                ease: 'power3.out'
-            }, 0)
-                // Animate the rich visual area slightly offset
-                .to(visual, {
-                    x: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.5,
-                    ease: 'expo.out'
-                }, 0.2); // Starts 0.2s after the text starts animating
-
-            // --- HYBRID INTERACTION ANIMATION STRATEGY ---
-            let mm = gsap.matchMedia();
-
-            // 1. Desktop: Hover
-            mm.add("(min-width: 1024px)", () => {
-                const onEnter = () => card.classList.add('is-active');
-                const onLeave = () => card.classList.remove('is-active');
-
-                card.addEventListener('mouseenter', onEnter);
-                card.addEventListener('mouseleave', onLeave);
-
-                return () => {
-                    card.removeEventListener('mouseenter', onEnter);
-                    card.removeEventListener('mouseleave', onLeave);
-                    card.classList.remove('is-active');
-                };
-            });
-
-            // 2. Mobile & Tablet: Scroll Trigger
-            mm.add("(max-width: 1023px)", () => {
-                const st = ScrollTrigger.create({
-                    trigger: card,
-                    start: 'top 55%',
-                    end: 'bottom 45%', // Keep active while in center of screen
-                    onEnter: () => card.classList.add('is-active'),
-                    onEnterBack: () => card.classList.add('is-active'),
-                    onLeave: () => card.classList.remove('is-active'),
-                    onLeaveBack: () => card.classList.remove('is-active'),
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
                 });
 
-                return () => st.kill();
-            });
-        });
+                tl.to(elements, {
+                    y: 0,
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    duration: 1.2,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                }, 0)
+                    .to(visual, {
+                        x: 0,
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1.5,
+                        ease: 'expo.out'
+                    }, 0.2);
 
+                // --- HYBRID INTERACTION ANIMATION STRATEGY ---
+                const mm = gsap.matchMedia();
+
+                mm.add("(min-width: 1024px)", () => {
+                    const onEnter = () => card.classList.add('is-active');
+                    const onLeave = () => card.classList.remove('is-active');
+                    card.addEventListener('mouseenter', onEnter);
+                    card.addEventListener('mouseleave', onLeave);
+                    return () => {
+                        card.removeEventListener('mouseenter', onEnter);
+                        card.removeEventListener('mouseleave', onLeave);
+                        card.classList.remove('is-active');
+                    };
+                });
+
+                mm.add("(max-width: 1023px)", () => {
+                    const st = ScrollTrigger.create({
+                        trigger: card,
+                        start: 'top 55%',
+                        end: 'bottom 45%',
+                        onEnter: () => card.classList.add('is-active'),
+                        onEnterBack: () => card.classList.add('is-active'),
+                        onLeave: () => card.classList.remove('is-active'),
+                        onLeaveBack: () => card.classList.remove('is-active'),
+                    });
+                    return () => st.kill();
+                });
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
     }, []);
 
     const services = [

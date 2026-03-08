@@ -5,8 +5,13 @@ import { Cpu, Zap, Database, Lock, Globe, Sparkles, ArrowRight, Bot } from 'luci
 import { SplineScene } from '../components/ui/splite';
 import { Card } from '../components/ui/card';
 import { Spotlight } from '../components/ui/spotlight';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function OutilsIA() {
+    usePageMeta(
+        'Outils & Solutions IA | RE7SET — Intelligence Artificielle pour Avocats',
+        'Agents IA multi-canaux, standard téléphonique IA, automatisation emails et réseaux sociaux. RE7SET intègre et configure les meilleurs outils IA pour votre cabinet.'
+    );
     const canvasRef = useRef(null);
 
     useEffect(() => {

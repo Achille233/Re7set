@@ -1,4 +1,4 @@
-import { cn } from "../../lib/utils"
+import { cn } from "../../utils/cn"
 import { TestimonialCard } from "../ui/testimonial-card"
 import "./marquee.css"
 

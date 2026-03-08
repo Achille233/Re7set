@@ -4,8 +4,13 @@ import gsap from 'gsap';
 import { Check, ArrowRight, Target, Search, Brain, ShieldCheck } from 'lucide-react';
 import CommentCaMarcheSEO from '../components/sections/CommentCaMarcheSEO';
 import DataFlow from '../components/sections/DataFlow';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function AuditStrategique() {
+    usePageMeta(
+        'Audits Stratégiques | RE7SET — Positionnement, SEO & IA pour Cabinets',
+        'Audits indépendants et actionnables pour professions libérales : positionnement, SEO local, GEO et potentiel IA. Livrables concrets et plan d\'action sur 90 jours.'
+    );
     useEffect(() => {
         gsap.fromTo('.audit-anim',
             { y: 30, opacity: 0 },

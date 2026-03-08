@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Check } from 'lucide-react';
+import { SITE_CONFIG } from '../../config/site';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,22 +11,26 @@ export default function PricingNiveau01() {
 
     useEffect(() => {
         if (!cardsRef.current) return;
-        const cards = cardsRef.current.querySelectorAll('.pricing-card');
 
-        gsap.fromTo(cards,
-            { y: 60, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'elastic.out(1, 0.75)',
-                stagger: 0.12,
-                scrollTrigger: {
-                    trigger: cardsRef.current,
-                    start: 'top 85%',
+        const ctx = gsap.context(() => {
+            const cards = cardsRef.current.querySelectorAll('.pricing-card');
+            gsap.fromTo(cards,
+                { y: 60, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'elastic.out(1, 0.75)',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: cardsRef.current,
+                        start: 'top 85%',
+                    }
                 }
-            }
-        );
+            );
+        }, cardsRef);
+
+        return () => ctx.revert();
     }, []);
 
     const audits = [
@@ -132,14 +137,17 @@ export default function PricingNiveau01() {
                                     <span className="text-xs text-muted">Paiement sécurisé · Stripe</span>
                                 </div>
 
-                                <button
+                                <a
+                                    href={SITE_CONFIG.calendlyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className={`w-full py-4 rounded font-medium flex items-center justify-center gap-2 transition-all duration-300 mb-4
                     ${audit.ctaType === 'dark'
                                             ? 'bg-darkAccent text-white hover:bg-black'
                                             : 'border border-foreground/20 text-foreground hover:bg-secondary'}`}
                                 >
                                     Réserver l'audit <ArrowRight size={18} />
-                                </button>
+                                </a>
 
                                 <a href="/offres/audits-strategiques" className="block text-center text-xs font-medium text-primary hover:underline">
                                     Voir le détail du service →

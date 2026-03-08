@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function MentionsLegales() {
+    usePageMeta(
+        'Mentions Légales & Confidentialité | RE7SET',
+        'Mentions légales, politique de confidentialité et gestion des cookies du site RE7SET.'
+    );
     return (
         <main className="min-h-screen bg-background pt-40 pb-24 px-6 md:px-12">
             <div className="max-w-3xl mx-auto">

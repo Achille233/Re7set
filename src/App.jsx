@@ -11,6 +11,7 @@ import MiseEnOeuvre from './pages/MiseEnOeuvre';
 import DiagnosticStrategique from './pages/DiagnosticStrategique';
 import OutilsIA from './pages/OutilsIA';
 import MentionsLegales from './pages/MentionsLegales';
+import VisibiliteSEO from './pages/VisibiliteSEO';
 import NotFound from './pages/NotFound';
 import CookieBanner from './components/ui/CookieBanner';
 
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/service/:id" element={<ServiceDetail />} />
         <Route path="/offres/audits-strategiques" element={<AuditStrategique />} />
         <Route path="/offres/mise-en-oeuvre" element={<MiseEnOeuvre />} />
+        <Route path="/offres/visibilite-seo" element={<VisibiliteSEO />} />
         <Route path="/outils-ia" element={<OutilsIA />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="*" element={<NotFound />} />

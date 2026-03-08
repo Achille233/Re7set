@@ -13,22 +13,24 @@ export default function RevealText({ text, className = "", stagger = 0.08, as: C
     useEffect(() => {
         if (!containerRef.current) return;
 
-        // Select the words
-        const words = containerRef.current.querySelectorAll('.reveal-word');
-
-        gsap.fromTo(words,
-            { y: '100%' },
-            {
-                y: '0%',
-                duration: 1,
-                ease: 'power3.out',
-                stagger: stagger,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 85%',
+        const ctx = gsap.context(() => {
+            const words = containerRef.current.querySelectorAll('.reveal-word');
+            gsap.fromTo(words,
+                { y: '100%' },
+                {
+                    y: '0%',
+                    duration: 1,
+                    ease: 'power3.out',
+                    stagger: stagger,
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top 85%',
+                    }
                 }
-            }
-        );
+            );
+        }, containerRef);
+
+        return () => ctx.revert();
     }, [stagger]);
 
     // naive split by words

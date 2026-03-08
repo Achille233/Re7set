@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Eye, Search, Sparkles, Rocket, ArrowRight, Phone, Menu, X, ChevronDown, Target } from 'lucide-react';
+import { SITE_CONFIG } from '../../config/site';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -122,7 +123,7 @@ export default function Header() {
                                         <p className="text-sm text-muted mb-6 leading-relaxed">Échange de 30 min pour évaluer le potentiel de croissance de votre cabinet.</p>
                                     </div>
 
-                                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="relative z-10 w-full mt-auto bg-[#1A1A1A] hover:bg-black text-white font-medium text-sm py-3.5 rounded-lg text-center transition-colors shadow-lg shadow-black/5">
+                                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="relative z-10 w-full mt-auto bg-[#1A1A1A] hover:bg-black text-white font-medium text-sm py-3.5 rounded-lg text-center transition-colors shadow-lg shadow-black/5">
                                         Prendre rendez-vous
                                     </a>
                                 </div>
@@ -137,7 +138,7 @@ export default function Header() {
 
                 {/* CTA Right */}
                 <div className="hidden md:block z-[110] relative">
-                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-md font-sans font-medium text-[14px] transition-colors">
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-md font-sans font-medium text-[14px] transition-colors">
                         Contact
                     </a>
                 </div>
@@ -152,7 +153,7 @@ export default function Header() {
                     <a href="#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Équipe</a>
                     <a href="#audits" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Offres</a>
                     <a href="#outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Outils IA</a>
-                    <a href="https://calendly.com/sibylle-/30min?month=2026-02" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#1A1A1A] text-white py-4 rounded-full text-center hover:bg-black">Nous contacter</a>
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#1A1A1A] text-white py-4 rounded-full text-center hover:bg-black">Nous contacter</a>
                 </div>
             </div>
         </header>

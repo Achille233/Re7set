@@ -2,8 +2,13 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ArrowRight, Zap, Target, BarChart, Settings, Users } from 'lucide-react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 export default function MiseEnOeuvre() {
+    usePageMeta(
+        'Mise en Œuvre | RE7SET — Déploiement Digital pour Professions Libérales',
+        'Accompagnement opérationnel sur mesure : refonte site, SEO, Google Ads, outils IA. RE7SET déploie et pilote votre stratégie digitale de A à Z.'
+    );
     useEffect(() => {
         gsap.fromTo('.mo-anim',
             { y: 30, opacity: 0 },
