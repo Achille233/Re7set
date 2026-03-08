@@ -84,7 +84,7 @@ export default function Piliers() {
             badge: "DIAGNOSTICS",
             title: "Audits & Diagnostic Stratégique",
             link: "/offres/audits-strategiques",
-            description: "Positionnement, SEO, potentiel IA : identifiez précisément vos leviers de croissance grâce à des audits indépendants et actionnables, seuls ou en pack complet.",
+            description: "Nous radiographions votre cabinet : positionnement, SEO, potentiel IA. Un état des lieux honnête pour savoir exactement où agir.",
             tags: ["Positionnement", "SEO & GEO", "Potentiel IA"],
             visualType: "dashboard",
             buttonHoverColor: "hover:bg-primary"
@@ -93,7 +93,7 @@ export default function Piliers() {
             badge: "VISIBILITÉ SEO & GEO",
             title: "Accompagnement Visibilité Digitale",
             link: "/offres/visibilite-seo",
-            description: "Refonte de votre site, référencement naturel, Google Ads et suivi mensuel. Nous déployons et pilotons votre visibilité pour attirer les meilleurs dossiers.",
+            description: "Nous déployons et pilotons votre visibilité locale pour que votre cabinet apparaisse en premier — quand vos futurs clients cherchent votre expertise.",
             tags: ["Refonte site web", "SEO & Google Ads", "Suivi mensuel"],
             visualType: "abstract",
             buttonHoverColor: "hover:bg-cyan-600"
@@ -102,7 +102,7 @@ export default function Piliers() {
             badge: "IA POUR AVOCATS",
             title: "Outils & Solutions IA",
             link: "/outils-ia",
-            description: "Assistants IA, automatisation des process, formation de vos équipes : nous intégrons l'intelligence artificielle au cœur de votre cabinet pour un gain de productivité immédiat.",
+            description: "Nous automatisons vos tâches répétitives et intégrons des assistants IA dans vos workflows pour libérer du temps — et le réinvestir dans ce qui compte vraiment.",
             tags: ["Outils IA sur-mesure", "Automatisation", "Formation"],
             visualType: "components",
             buttonHoverColor: "hover:bg-orange-500"
@@ -116,10 +116,10 @@ export default function Piliers() {
                 {/* Section Header */}
                 <div className="mb-8">
                     <span className="text-sm uppercase tracking-widest font-mono text-muted mb-6 block">
-                        Notre approche
+                        Nos piliers d'intervention
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans text-foreground tracking-tight">
-                        Des solutions sur-mesure.
+                        Conçus pour votre métier.
                     </h2>
                 </div>
 
