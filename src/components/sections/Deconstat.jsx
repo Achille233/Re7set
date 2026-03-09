@@ -1,275 +1,123 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ArrowRight, Star, Shield, Trophy, Eye, Zap, EyeOff, HelpCircle, Search, Cpu } from 'lucide-react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Search, Users, Shield, FileText, Eye } from 'lucide-react';
 
-function AuraVisual() {
-    const auraCoreRef = useRef(null);
-    const badgeRefs = useRef([]);
-    const [isRevealed, setIsRevealed] = useState(false);
+gsap.registerPlugin(ScrollTrigger);
 
-    // Configuration des états "Avant" (grisé) et "Après" (coloré)
-    const badgesData = [
-        {
-            angle: -Math.PI / 2, // Perfect Top
-            before: { icon: <EyeOff strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Introuvable", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
-            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-[#8B5CF6]" />, text: "Visibilité Nette", bg: "bg-[#F3E8FF]", border: "border-[#D8B4FE] border-solid", textClass: "text-[#8B5CF6]", shadow: "shadow-[0_8px_20px_rgba(139,92,246,0.12)]" }
-        },
-        {
-            angle: 0, // Perfect Right
-            before: { icon: <HelpCircle strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Aucun avis", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
-            after: { icon: <Star strokeWidth={2.5} className="w-[18px] h-[18px] text-[#FBBC05]" fill="#FBBC05" />, text: "4.9/5 TrustScore", bg: "bg-white", border: "border-[#FEF08A] border-solid", textClass: "text-[#1A1A1A]", shadow: "shadow-[0_8px_20px_rgba(251,188,5,0.08)]" }
-        },
-        {
-            angle: Math.PI / 2, // Perfect Bottom
-            before: { icon: <Search strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Page 3 Google", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
-            after: { icon: <Shield strokeWidth={2.5} className="w-[18px] h-[18px] text-[#10B981]" />, text: "Top 3 Google", bg: "bg-[#ECFDF5]", border: "border-[#A7F3D0] border-solid", textClass: "text-[#10B981]", shadow: "shadow-[0_8px_20px_rgba(16,185,129,0.12)]" }
-        },
-        {
-            angle: Math.PI, // Perfect Left
-            before: { icon: <Cpu strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Ignoré des IA", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
-            after: { icon: <Trophy strokeWidth={2.5} className="w-[18px] h-[18px] text-[#3B82F6]" />, text: "Reconnu par l'IA", bg: "bg-white", border: "border-[#BFDBFE] border-solid", textClass: "text-[#1A1A1A]", shadow: "shadow-[0_8px_20px_rgba(59,130,246,0.08)]" }
-        }
-    ];
-
-    useEffect(() => {
-        const container = auraCoreRef.current?.closest('section');
-
-        gsap.set(auraCoreRef.current, {
-            xPercent: -50,
-            yPercent: -50,
-            left: "50%",
-            top: "50%"
-        });
-
-        gsap.fromTo(auraCoreRef.current,
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out' }
-        );
-
-        // Lévitation noyau — en pause jusqu'à ce que visible
-        const coreAnim = gsap.to(auraCoreRef.current, {
-            y: "-=8",
-            scale: 1.02,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            paused: true,
-        });
-
-        // Placement initial des badges
-        badgeRefs.current.forEach((badge, i) => {
-            const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 130 : 180;
-            const angle = badgesData[i].angle;
-            gsap.set(badge, {
-                x: Math.cos(angle) * radius,
-                y: Math.sin(angle) * radius,
-                xPercent: -50,
-                yPercent: -50,
-                left: "50%",
-                top: "50%",
-                opacity: 0,
-                scale: 0.5
-            });
-            gsap.to(badge, { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.5)", delay: 0.5 + (i * 0.1) });
-        });
-
-        // Lévitation badges — en pause jusqu'à ce que visible
-        const badgeAnims = badgeRefs.current.map((badge, i) =>
-            gsap.to(badge, {
-                y: "-=10",
-                duration: 2.5 + i * 0.3,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut",
-                delay: i * 0.2,
-                paused: true,
-            })
-        );
-
-        // Jouer/pauser selon visibilité
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    coreAnim.play();
-                    badgeAnims.forEach(a => a.play());
-                } else {
-                    coreAnim.pause();
-                    badgeAnims.forEach(a => a.pause());
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (container) observer.observe(container);
-
-        return () => {
-            observer.disconnect();
-            coreAnim.kill();
-            badgeAnims.forEach(a => a.kill());
-        };
-    }, []);
-
-    // Animation dynamique ("BUMP") lors de la révélation "Avant" -> "Après"
-    useEffect(() => {
-        if (isRevealed) {
-            gsap.to(auraCoreRef.current, { scale: 1.08, duration: 0.3, yoyo: true, repeat: 1, ease: 'power2.out' });
-            badgeRefs.current.forEach((badge, i) => {
-                gsap.to(badge, { scale: 1.05, duration: 0.3, yoyo: true, repeat: 1, delay: i * 0.05, ease: 'power2.out' });
-            });
-        }
-    }, [isRevealed]);
-
-    return (
-        <div className="w-full h-full min-h-[500px] flex items-center justify-center font-sans relative">
-
-            {/* Conteneur Interactif Principal */}
-            <div
-                className="relative w-full max-w-[500px] aspect-square flex items-center justify-center cursor-pointer group perspective-1000"
-                onMouseEnter={() => setIsRevealed(true)}
-                onMouseLeave={() => setIsRevealed(false)}
-                onClick={() => setIsRevealed(!isRevealed)}
-            >
-
-                {/* 1. LE NOYAU CENTRAL (État Dormant vs Actif) */}
-                <div
-                    ref={auraCoreRef}
-                    className="absolute rounded-full z-10 transition-colors duration-1000 ease-out flex items-center justify-center"
-                    style={{
-                        width: "180px",
-                        height: "180px",
-                        background: isRevealed
-                            ? "radial-gradient(circle at 35% 35%, #4F9DF8 0%, #0D7DF2 50%, #054ea6 100%)" // Bleu vibrant
-                            : "radial-gradient(circle at 35% 35%, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%)", // Gris inactif
-                        boxShadow: isRevealed
-                            ? "0 0 80px 20px rgba(13, 125, 242, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.6)"
-                            : "0 0 0 0 rgba(0,0,0,0), inset 0 0 20px rgba(255, 255, 255, 0.8)",
-                    }}
-                >
-                    <Zap className={`w-12 h-12 transition-all duration-1000 ${isRevealed ? 'text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] opacity-100 scale-100' : 'text-[#94A3B8] opacity-50 scale-90'}`} />
-                </div>
-
-                {/* 2. LES BADGES ORBITAUX */}
-                <div className="absolute inset-0 z-20 pointer-events-none">
-                    {badgesData.map((data, i) => {
-                        return (
-                            <div
-                                key={i}
-                                ref={el => badgeRefs.current[i] = el}
-                                className="absolute"
-                            >
-                                {/* Wrapper to hold both states without layout shifting */}
-                                <div className="relative flex items-center justify-center">
-
-                                    {/* BEFORE STATE (Grey) */}
-                                    <div
-                                        className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[600ms] ease-in-out ${data.before.bg} ${data.before.border} ${data.before.textClass} shadow-none ${isRevealed ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}
-                                        style={{ transformOrigin: 'center center' }}
-                                    >
-                                        <div className="opacity-60">
-                                            {data.before.icon}
-                                        </div>
-                                        <span className="tracking-tight">{data.before.text}</span>
-                                    </div>
-
-                                    {/* AFTER STATE (Colored & Glowing) */}
-                                    <div
-                                        className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[800ms] ease-out ${data.after.bg} ${data.after.border} ${data.after.textClass} ${data.after.shadow} ${isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.05] pointer-events-none'}`}
-                                        style={{ transformOrigin: 'center center' }}
-                                    >
-                                        <div className="scale-100">
-                                            {data.after.icon}
-                                        </div>
-                                        <span className="tracking-tight">{data.after.text}</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* Appel à l'action / Button */}
-                <div className={`absolute -bottom-16 left-1/2 -translate-x-1/2 transition-all duration-700 w-full flex flex-col items-center justify-center`}>
-
-                    <a
-                        href="#offres"
-                        onClick={(e) => {
-                            e.stopPropagation(); // Prevent toggling the aura state when clicking the button
-                            const target = document.getElementById('offres');
-                            if (target) {
-                                target.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
-                        className={`group relative overflow-hidden rounded-full font-semibold text-sm transition-all duration-500 flex items-center gap-2 
-                            ${isRevealed
-                                ? 'bg-[#0D7DF2] text-white px-8 py-3.5 shadow-[0_10px_25px_rgba(13,125,242,0.3)] hover:shadow-[0_15px_35px_rgba(13,125,242,0.4)] hover:-translate-y-1 scale-100 opacity-100'
-                                : 'bg-white text-muted border border-black/10 px-6 py-3 shadow-none scale-95 opacity-80'}`}
-                    >
-                        <span className="relative z-10 transition-colors duration-300">
-                            {isRevealed ? "Structurer mon image digitale" : "Analyser ma situation"}
-                        </span>
-
-                        {/* Interactive Arrow */}
-                        <ArrowRight
-                            size={16}
-                            className={`relative z-10 transition-transform duration-300 ${isRevealed ? 'translate-x-0 group-hover:translate-x-1' : '-translate-x-1 opacity-50'}`}
-                        />
-
-                        {/* Button hover gradient effect */}
-                        {isRevealed && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#0D7DF2] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        )}
-                    </a>
-                </div>
-            </div>
-        </div>
-    );
-}
+const CARDS = [
+    {
+        icon: <Search className="w-7 h-7 text-white" strokeWidth={2.5} />,
+        title: "Google",
+        desc: "Ce qui apparaît en premier construit (ou détruit) votre crédibilité.",
+        sub: "SEO et GEO déterminent désormais votre visibilité dans Google et dans l'IA."
+    },
+    {
+        icon: <Users className="w-7 h-7 text-white" strokeWidth={2.5} />,
+        title: "Avis",
+        desc: "La preuve sociale influence plus qu'un argument commercial.",
+        sub: "Les avis structurés renforcent votre autorité aux yeux des algorithmes."
+    },
+    {
+        icon: <Shield className="w-7 h-7 text-white" strokeWidth={2.5} />,
+        title: "Cohérence",
+        desc: "Un message flou crée un doute.",
+        sub: "Un positionnement structuré améliore votre référencement SEO & IA."
+    },
+    {
+        icon: <FileText className="w-7 h-7 text-white" strokeWidth={2.5} />,
+        title: "Contenus",
+        desc: "Votre expertise se démontre avant même un premier échange.",
+        sub: "Un contenu optimisé GEO vous rend visible dans les recherches conversationnelles."
+    }
+];
 
 export default function Deconstat() {
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                '.reveal-el',
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: 'top 75%',
+                    },
+                }
+            );
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden object-cover">
-            {/* Ambient Ambient Blue Glow */}
-            <div className="absolute top-1/2 left-3/4 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+        <section ref={sectionRef} className="relative w-full py-24 md:py-32 px-6 bg-[#F4F7FB] overflow-hidden">
+            <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col items-center">
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-20">
+                {/* Header block */}
+                <div className="reveal-el flex flex-col items-center text-center mb-20 w-full">
 
-                {/* Left Column - Text (Restored to original requested layout) */}
-                <div className="lg:col-span-6 relative">
-                    <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
-                        Le problème
-                    </span>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-2">
+                        <div className="w-[56px] h-[56px] md:w-[64px] md:h-[64px] bg-gradient-to-tr from-[#0051e0] to-[#00BCFA] rounded-[18px] flex items-center justify-center shadow-lg transform -rotate-3 hover:rotate-0 transition-transform duration-300 shrink-0">
+                            <Eye className="w-8 h-8 md:w-9 md:h-9 text-white" strokeWidth={2.5} />
+                        </div>
+                        <h2 className="text-[38px] sm:text-5xl md:text-6xl lg:text-[64px] font-sans font-black tracking-tighter text-[#1a1c1e] m-0 leading-none">
+                            Avant de vous contacter,
+                        </h2>
+                    </div>
 
-                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-medium text-foreground leading-[1.1] tracking-tight mb-10">
-                        <span className="block mb-1">Votre expertise est peut-être excellente.</span>
-                        <span className="block text-[#0D7DF2] font-serif italic">Votre image digitale raconte une autre histoire.</span>
+                    <h2 className="text-[38px] sm:text-5xl md:text-6xl lg:text-[64px] font-sans font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#00BCFA] to-[#0051e0] leading-tight">
+                        ils ont déjà décidé.
                     </h2>
 
-                    <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-light">
-                        La réalité est asymétrique. Les patients, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
-                        Une réputation invisible ou dégradée profite directement à vos concurrents.
-                    </p>
+                    <div className="mt-10 mb-8">
+                        <p className="text-[#0051e0] font-sans font-bold text-[18px] md:text-[22px] tracking-tight">
+                            Et parfois, ce sont les moteurs d'IA qui décident pour eux.
+                        </p>
+                    </div>
 
-                    <ul className="space-y-6">
-                        {[
-                            "La majorité des prospects vérifient les avis en ligne avant de prendre rendez-vous.",
-                            "Les algorithmes (Google, IA) ignorent les profils dont le contenu est obsolète.",
-                            "Un décalage entre la réalité et l'écran crée un doute immédiat sur la compétence."
-                        ].map((text, i) => (
-                            <li key={i} className="flex items-start gap-4">
-                                <div className="mt-1 w-6 h-6 rounded-full bg-[#E5F1FF] flex items-center justify-center shrink-0">
-                                    <ArrowRight className="text-[#0D7DF2]" size={12} strokeWidth={3} />
-                                </div>
-                                <span className="text-foreground font-medium leading-snug text-sm md:text-base">{text}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="space-y-2">
+                        <p className="text-[#4a5568] font-sans text-base md:text-[19px] font-medium tracking-tight">
+                            Vos futurs clients ne vous appellent pas pour découvrir qui vous êtes.
+                        </p>
+                        <p className="text-[#4a5568] font-sans text-base md:text-[19px] font-medium tracking-tight">
+                            Ils vérifient votre crédibilité sur Google... <span className="font-bold text-[#1a1c1e]">et dans les réponses générées par l'IA.</span>
+                        </p>
+                    </div>
                 </div>
 
-                {/* Right Column - User provided AuraVisual Component */}
-                <div className="lg:col-span-6 relative w-full flex items-center justify-center">
-                    <AuraVisual />
+                {/* Cards grid */}
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    {CARDS.map((card, i) => (
+                        <div key={i} className="reveal-el bg-white rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-[#00BCFA]/10">
+
+                            <div className="w-[68px] h-[68px] bg-gradient-to-tr from-[#0051e0] to-[#00BCFA] rounded-2xl flex items-center justify-center mb-8 shadow-md shadow-blue-500/20">
+                                {card.icon}
+                            </div>
+
+                            <h3 className="text-[26px] font-sans font-black tracking-tight text-[#1a1c1e] mb-5">
+                                {card.title}
+                            </h3>
+
+                            <p className="text-[#4a5568] font-sans text-[16px] leading-relaxed mb-8 font-medium">
+                                {card.desc}
+                            </p>
+
+                            <div className="mt-auto pt-2">
+                                <p className="text-[#0051e0] font-sans text-[14px] font-bold leading-snug">
+                                    {card.sub}
+                                </p>
+                            </div>
+
+                        </div>
+                    ))}
                 </div>
 
             </div>

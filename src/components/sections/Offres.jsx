@@ -37,86 +37,45 @@ export default function Offres() {
     }, []);
 
     return (
-        <section ref={sectionRef} id="offres" className="relative w-full py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden">
-            {/* Background elements to make this section pop despite being on a transparent global background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/5 to-[#050505]/10 pointer-events-none -z-10"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <section ref={sectionRef} id="offres" className="relative w-full py-20 px-6 flex flex-col items-center justify-center overflow-hidden bg-[#0A0A0B]">
+            {/* Grainy Noise Overlay */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.06] mix-blend-overlay pointer-events-none z-10"></div>
 
-            <div ref={containerRef} className="max-w-4xl mx-auto relative z-10 p-6 md:p-0">
+            {/* Vibrant RE7SET Gradient Aura behind the card */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] w-[600px] h-[400px] bg-gradient-to-tr from-[#0051e0]/80 via-[#00BCFA]/80 to-transparent blur-[140px] rounded-full pointer-events-none z-0 opacity-80"></div>
 
-                {/* Main Clear Premium Card */}
-                <div className="relative bg-white/70 backdrop-blur-3xl rounded-[2.5rem] p-10 md:p-20 border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden group">
+            {/* The Glassy Card with RE7SET tint */}
+            <div ref={containerRef} className="reveal-el w-full max-w-[700px] mx-auto relative z-20 backdrop-blur-[40px] bg-[#0A1929]/50 border border-[#00BCFA]/10 hover:border-[#00BCFA]/25 transition-colors duration-500 rounded-[2rem] p-10 md:p-14 flex flex-col items-center text-center shadow-[0_8px_40px_rgba(0,188,250,0.15)] group/card">
 
-                    {/* Subtle internal glows for depth */}
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/5 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-1000 transform -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
-
-                    <div className="relative z-10 flex flex-col items-center text-center">
-
-                        {/* Top Label */}
-                        <div className="reveal-el inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/5 border border-primary/10 mb-10">
-                            <span className="text-[11px] font-sans font-semibold text-primary tracking-widest uppercase">
-                                Audit Stratégique Offert
-                            </span>
-                        </div>
-
-                        {/* Typo Hook */}
-                        <h2 className="reveal-el text-3xl md:text-5xl lg:text-5xl font-sans font-extrabold text-slate-900 mb-6 tracking-tighter leading-[1.05] text-balance">
-                            Chaque mois sans stratégie digitale,<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">vos concurrents avancent à votre place.</span>
-                        </h2>
-
-                        {/* Subtitle / Promise */}
-                        <p className="reveal-el text-base md:text-lg lg:text-xl text-slate-600 font-sans max-w-2xl mx-auto mb-8 leading-relaxed text-balance">
-                            Nous analysons la visibilité de votre cabinet, votre positionnement face à la concurrence et les leviers de croissance que vous n'avez pas encore actionnés au cœur de RE7SET.
-                        </p>
-
-                        {/* Guarantee Highlight */}
-                        <div className="reveal-el bg-primary/5 border border-primary/20 rounded-xl p-4 max-w-xl mx-auto mb-8 text-primary font-medium">
-                            🎯 On vous livre un plan concret ou vous gardez le document, sans suite.
-                        </div>
-
-                        {/* Benefits Row */}
-                        <div className="reveal-el flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
-                            {['Analyse Offerte', 'Zéro Engagement', 'Plan Actionnable'].map((label, idx) => (
-                                <div key={idx} className="flex items-center gap-2 font-sans font-semibold text-slate-700 bg-white shadow-sm border border-slate-100 px-4 pt-1.5 pb-2 rounded-lg text-sm">
-                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                    <span>{label}</span>
-                                </div>
-                            ))}
-                        </div>
-
-
-                        {/* Shimmering CTA Button */}
-                        <div className="reveal-el relative w-full sm:w-auto">
-                            <button
-                                onClick={() => setIsCalendlyOpen(true)}
-                                className="group/btn relative inline-flex items-center justify-center w-full sm:w-auto gap-4 bg-primary text-white px-10 py-5 md:px-12 md:py-6 rounded-2xl font-semibold text-lg hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_30px_rgba(37,99,235,0.25)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] overflow-hidden"
-                            >
-                                {/* Shimmer animation */}
-                                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
-
-                                <Calendar className="w-6 h-6 relative z-10" />
-                                <span className="relative z-10 tracking-wide">Réserver mon Audit</span>
-                                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center ml-2 relative z-10 transition-transform duration-300 group-hover/btn:translate-x-2">
-                                    <ArrowRight className="w-5 h-5" />
-                                </div>
-                            </button>
-                            <p className="text-[11px] font-sans font-medium text-slate-400 uppercase tracking-widest mt-6 text-center">
-                                Entretien en visio • 30 Minutes • Confidentiel
-                            </p>
-
-                            <PopupModal
-                                url={SITE_CONFIG.calendlyUrl}
-                                onModalClose={() => setIsCalendlyOpen(false)}
-                                open={isCalendlyOpen}
-                                rootElement={document.getElementById("root")}
-                            />
-                        </div>
-
-                    </div>
+                {/* Brand-Colored Interlocking Circles */}
+                <div className="flex justify-center items-center mb-8 relative w-12 h-12 opacity-90 mix-blend-screen scale-110">
+                    <div className="absolute w-[28px] h-[28px] rounded-full bg-gradient-to-tr from-[#00BCFA]/90 to-[#0051e0]/40 -translate-x-[10px] -translate-y-[5px]"></div>
+                    <div className="absolute w-[28px] h-[28px] rounded-full bg-gradient-to-bl from-[#0051e0]/90 to-[#00BCFA]/20 translate-x-[10px] translate-y-[5px]"></div>
                 </div>
 
+                {/* Title */}
+                <h2 className="text-xl md:text-3xl lg:text-[32px] font-sans font-medium tracking-[0.01em] leading-[1.3] text-balance mb-10 max-w-[480px]">
+                    <span className="text-white block">Chaque mois sans stratégie,</span>
+                    <span className="block mt-1 bg-gradient-to-r from-white via-[#e2f6ff] to-[#00BCFA]/80 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,188,250,0.15)]">vos concurrents avancent.</span>
+                </h2>
+
+                {/* RE7SET Pill Button */}
+                <button
+                    onClick={() => setIsCalendlyOpen(true)}
+                    className="group relative inline-flex items-center justify-center px-8 py-[14px] bg-[#00BCFA]/10 hover:bg-[#00BCFA]/20 text-white font-semibold tracking-[0.15em] uppercase rounded-full border border-[#00BCFA]/30 hover:border-[#00BCFA]/60 transition-all duration-300 backdrop-blur-xl overflow-hidden shadow-[inset_0_1px_0_rgba(0,188,250,0.2),0_0_20px_rgba(0,188,250,0.1)] focus:outline-none focus:ring-2 focus:ring-[#00BCFA]/50"
+                >
+                    <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#00BCFA]/40 to-transparent group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    <span className="relative z-10 flex items-center justify-center gap-2 text-[11px] drop-shadow-sm">
+                        Réaliser un audit
+                    </span>
+                </button>
+
+                <PopupModal
+                    url={SITE_CONFIG.calendlyUrl}
+                    onModalClose={() => setIsCalendlyOpen(false)}
+                    open={isCalendlyOpen}
+                    rootElement={document.getElementById("root")}
+                />
             </div>
         </section>
     );
