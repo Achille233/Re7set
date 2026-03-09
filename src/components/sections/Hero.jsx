@@ -45,7 +45,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 pt-28 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
+        <section className="relative min-h-[100svh] flex flex-col justify-center px-6 pt-32 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
 
             {/* Background Grid Lines */}
             <div className="absolute inset-0 w-full h-full pointer-events-none -z-20 flex justify-center">
@@ -75,19 +75,18 @@ export default function Hero() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] rounded-full border border-primary/5"></div>
             </div>
 
-            {/* Badge Pill — haut de section */}
-            <div className="flex items-center justify-center gap-3 px-5 py-2.5 rounded-full border border-foreground/10 bg-white/60 backdrop-blur-md mb-8 shadow-sm w-fit mx-auto relative z-10">
-                <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-primary/50 hidden sm:block"></div>
-                <div className="flex items-center gap-2">
-                    <Scale size={14} className="text-foreground/80" strokeWidth={2.5} />
-                    <span className="text-xs uppercase tracking-widest font-mono text-foreground/80 font-medium">
-                        Stratégie digitale pour professions libérales
-                    </span>
+            <div className="max-w-6xl w-full mx-auto flex flex-col items-center justify-center flex-grow text-center relative z-10 mt-8 md:mt-16">
+                {/* Badge Pill — haut de section */}
+                <div className="flex items-center justify-center gap-3 px-5 py-2.5 rounded-full border border-foreground/10 bg-white/60 backdrop-blur-md mb-8 shadow-sm w-fit mx-auto relative">
+                    <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-primary/50 hidden sm:block"></div>
+                    <div className="flex items-center gap-2">
+                        <Scale size={14} className="text-foreground/80" strokeWidth={2.5} />
+                        <span className="text-xs uppercase tracking-widest font-mono text-foreground/80 font-medium">
+                            Stratégie digitale pour professions libérales
+                        </span>
+                    </div>
+                    <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-primary/50 hidden sm:block"></div>
                 </div>
-                <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-primary/50 hidden sm:block"></div>
-            </div>
-
-            <div className="max-w-6xl w-full mx-auto flex flex-col items-center justify-center flex-grow text-center relative z-10">
 
                 {/* Title */}
                 <h1

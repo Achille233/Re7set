@@ -54,8 +54,8 @@ export default function CommentCaMarcheSEO() {
                     <span className="text-[11px] font-mono text-white/60 uppercase tracking-widest font-bold block mb-4">
                         COMMENT ÇA MARCHE
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-sans font-medium text-white tracking-tight">
-                        Vous n'êtes qu'à <span className="text-[#3B82F6]">3 corrections</span> d'un trafic exponentiel
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white tracking-tight">
+                        Vous n'êtes qu'à <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">3 corrections</span> d'un trafic exponentiel
                     </h2>
                 </div>
 

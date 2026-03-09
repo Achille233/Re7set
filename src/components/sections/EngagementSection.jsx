@@ -47,8 +47,8 @@ export default function EngagementSection() {
                 {/* Left Column (Scrolling Content) */}
                 <div className="w-full lg:w-5/12 shrink-0">
                     <div className="mb-24">
-                        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-sans font-medium text-white mb-6 leading-[1.1] tracking-tight">
-                            Notre engagement pour l'excellence
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white mb-6 leading-[1.1] tracking-tight">
+                            Notre engagement pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">l'excellence</span>
                         </h2>
                         <p className="text-lg text-white/50 leading-relaxed font-sans max-w-sm">
                             Tous nos développements respectent les meilleures pratiques et incluent :

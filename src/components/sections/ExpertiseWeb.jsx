@@ -92,7 +92,7 @@ export default function ExpertiseWeb() {
 
                 <div className="text-center mb-16 md:mb-24 web-header">
                     <h2 className="text-3xl md:text-5xl font-sans font-medium mb-6 tracking-tight leading-tight max-w-3xl mx-auto">
-                        Une expérience pensée pour <span className="text-primary font-serif italic">convertir votre audience</span>
+                        Une expérience pensée pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">convertir votre audience</span>
                     </h2>
                 </div>
 

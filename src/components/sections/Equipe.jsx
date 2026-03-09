@@ -51,7 +51,7 @@ export default function Equipe() {
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground mb-4 max-w-3xl">
                         <span className="block">Une équipe taillée pour</span>
-                        <span className="block text-primary font-serif italic">l'excellence.</span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">l'excellence.</span>
                     </h2>
                     <p className="text-base font-sans text-muted max-w-2xl">
                         La rencontre unique entre l'expertise bancaire, la maîtrise technique du SEO et la connaissance intime du monde juridique.

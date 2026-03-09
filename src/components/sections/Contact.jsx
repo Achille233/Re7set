@@ -72,7 +72,7 @@ export default function Contact() {
                         </span>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight mb-10">
                             <span className="text-foreground">Parlons de </span>
-                            <span className="text-primary font-serif italic">votre cabinet.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">votre cabinet.</span>
                         </h2>
 
                         {/* Référente card */}

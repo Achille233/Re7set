@@ -80,7 +80,7 @@ export default function Resultats() {
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground mb-6">
                         À quoi ressemble votre cabinet<br />
-                        <span className="text-primary font-serif italic">dans 90 jours.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">dans 90 jours.</span>
                     </h2>
                     <p className="text-base md:text-lg text-muted font-sans max-w-2xl mx-auto leading-relaxed">
                         Des résultats concrets obtenus quand l'expertise métier rencontre une stratégie digitale d'excellence.

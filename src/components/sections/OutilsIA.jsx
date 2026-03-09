@@ -53,7 +53,7 @@ export default function OutilsIA() {
                 </span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground mb-4 max-w-3xl">
                     <span className="block">Les outils IA que nous déployons</span>
-                    <span className="block text-primary font-serif italic">pour transformer votre cabinet.</span>
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">pour transformer votre cabinet.</span>
                 </h2>
                 <p className="text-base font-sans text-muted max-w-2xl mb-16">
                     Notre expert implante, configure et vous accompagne sur chaque outil — pour une adoption réelle et des résultats concrets.

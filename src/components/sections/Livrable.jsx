@@ -117,7 +117,7 @@ export default function Livrable() {
 
     const scrollToAudits = (e) => {
         e.preventDefault();
-        const auditsSection = document.getElementById('audits');
+        const auditsSection = document.getElementById('offres');
         if (auditsSection) {
             auditsSection.scrollIntoView({ behavior: 'smooth' });
         }
@@ -135,7 +135,7 @@ export default function Livrable() {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground mb-4 tracking-tight leading-[1.1]">
                         Un document de pilotage
                         <br />
-                        <span className="text-primary font-serif italic">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">
                             clair et actionnable
                         </span>
                     </h2>
@@ -160,7 +160,7 @@ export default function Livrable() {
                     />
 
                     {/* The Document - Wrapped in anchor */}
-                    <a href="#audits" onClick={scrollToAudits} className="block relative z-10 w-full hover:scale-[1.02] transition-transform duration-500">
+                    <a href="#offres" onClick={scrollToAudits} className="block relative z-10 w-full hover:scale-[1.02] transition-transform duration-500">
                         <div
                             ref={documentRef}
                             className="bg-white rounded-r-xl rounded-l-md aspect-[1/1.414] p-8 md:p-10 flex flex-col justify-between overflow-hidden will-change-transform transform-style-3d mx-auto"
@@ -285,7 +285,7 @@ export default function Livrable() {
 
                 {/* Improved Central CTA */}
                 <div className="w-full flex justify-center mt-16 md:mt-24 relative z-40">
-                    <a href="#audits" onClick={scrollToAudits} className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+                    <a href="#offres" onClick={scrollToAudits} className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]">
                         {/* Shimmer effect background */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
 

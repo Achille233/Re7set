@@ -63,7 +63,7 @@ export default function Offres() {
                         {/* Typo Hook */}
                         <h2 className="reveal-el text-3xl md:text-5xl lg:text-5xl font-sans font-extrabold text-slate-900 mb-6 tracking-tighter leading-[1.05] text-balance">
                             Chaque mois sans stratégie digitale,<br />
-                            <span className="text-primary font-serif italic">vos concurrents avancent à votre place.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">vos concurrents avancent à votre place.</span>
                         </h2>
 
                         {/* Subtitle / Promise */}
