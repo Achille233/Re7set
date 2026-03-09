@@ -12,7 +12,7 @@ function AuraVisual() {
         {
             angle: -Math.PI / 2, // Perfect Top
             before: { icon: <EyeOff strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Introuvable", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
-            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-[#8B5CF6]" />, text: "Visibilité Nette", bg: "bg-[#F3E8FF]", border: "border-[#D8B4FE] border-solid", textClass: "text-[#8B5CF6]", shadow: "shadow-[0_8px_20px_rgba(139,92,246,0.12)]" }
+            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-[#0D7DF2]" />, text: "Visibilité Nette", bg: "bg-[#eff6ff]", border: "border-[#93c5fd] border-solid", textClass: "text-[#0D7DF2]", shadow: "shadow-[0_8px_20px_rgba(13,125,242,0.15)]" }
         },
         {
             angle: 0, // Perfect Right
