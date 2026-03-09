@@ -7,27 +7,27 @@ function AuraVisual() {
     const badgeRefs = useRef([]);
     const [isRevealed, setIsRevealed] = useState(false);
 
-    // Configuration des états "Avant" (grisé/sombre) et "Après" (coloré/neon)
+    // Configuration des états "Avant" (grisé) et "Après" (coloré)
     const badgesData = [
         {
             angle: -Math.PI / 2, // Perfect Top
-            before: { icon: <EyeOff strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Introuvable", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
-            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-purple-400" />, text: "Visibilité Nette", bg: "bg-purple-500/10", border: "border-purple-500/20", textClass: "text-purple-400", shadow: "shadow-[0_0_20px_rgba(168,85,247,0.2)]" }
+            before: { icon: <EyeOff strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Introuvable", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
+            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-[#8B5CF6]" />, text: "Visibilité Nette", bg: "bg-[#F3E8FF]", border: "border-[#D8B4FE] border-solid", textClass: "text-[#8B5CF6]", shadow: "shadow-[0_8px_20px_rgba(139,92,246,0.12)]" }
         },
         {
             angle: 0, // Perfect Right
-            before: { icon: <HelpCircle strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Aucun avis", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
-            after: { icon: <Star strokeWidth={2.5} className="w-[18px] h-[18px] text-yellow-400" fill="#FACC15" />, text: "4.9/5 TrustScore", bg: "bg-[#111]", border: "border-yellow-500/20", textClass: "text-white", shadow: "shadow-[0_0_20px_rgba(250,204,21,0.15)]" }
+            before: { icon: <HelpCircle strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Aucun avis", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
+            after: { icon: <Star strokeWidth={2.5} className="w-[18px] h-[18px] text-[#FBBC05]" fill="#FBBC05" />, text: "4.9/5 TrustScore", bg: "bg-white", border: "border-[#FEF08A] border-solid", textClass: "text-[#1A1A1A]", shadow: "shadow-[0_8px_20px_rgba(251,188,5,0.08)]" }
         },
         {
             angle: Math.PI / 2, // Perfect Bottom
-            before: { icon: <Search strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Page 3 Google", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
-            after: { icon: <Shield strokeWidth={2.5} className="w-[18px] h-[18px] text-emerald-400" />, text: "Top 3 Google", bg: "bg-emerald-500/10", border: "border-emerald-500/20", textClass: "text-emerald-400", shadow: "shadow-[0_0_20px_rgba(52,211,153,0.2)]" }
+            before: { icon: <Search strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Page 3 Google", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
+            after: { icon: <Shield strokeWidth={2.5} className="w-[18px] h-[18px] text-[#10B981]" />, text: "Top 3 Google", bg: "bg-[#ECFDF5]", border: "border-[#A7F3D0] border-solid", textClass: "text-[#10B981]", shadow: "shadow-[0_8px_20px_rgba(16,185,129,0.12)]" }
         },
         {
             angle: Math.PI, // Perfect Left
-            before: { icon: <Cpu strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Ignoré des IA", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
-            after: { icon: <Trophy strokeWidth={2.5} className="w-[18px] h-[18px] text-blue-400" />, text: "Reconnu par l'IA", bg: "bg-blue-500/10", border: "border-blue-500/20", textClass: "text-blue-400", shadow: "shadow-[0_0_20px_rgba(59,130,246,0.2)]" }
+            before: { icon: <Cpu strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Ignoré des IA", bg: "bg-[#F8FAFC]", border: "border-[#E2E8F0] border-dashed", textClass: "text-[#94A3B8]", shadow: "shadow-none" },
+            after: { icon: <Trophy strokeWidth={2.5} className="w-[18px] h-[18px] text-[#3B82F6]" />, text: "Reconnu par l'IA", bg: "bg-white", border: "border-[#BFDBFE] border-solid", textClass: "text-[#1A1A1A]", shadow: "shadow-[0_8px_20px_rgba(59,130,246,0.08)]" }
         }
     ];
 
@@ -124,14 +124,14 @@ function AuraVisual() {
                         width: "180px",
                         height: "180px",
                         background: isRevealed
-                            ? "radial-gradient(circle at 35% 35%, #2563EB 0%, #1D4ED8 50%, #1E3A8A 100%)" // Bleu profond
-                            : "radial-gradient(circle at 35% 35%, #111 0%, #0A0A0A 50%, #050505 100%)", // Noir profond
+                            ? "radial-gradient(circle at 35% 35%, #4F9DF8 0%, #0D7DF2 50%, #054ea6 100%)" // Bleu vibrant
+                            : "radial-gradient(circle at 35% 35%, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%)", // Gris inactif
                         boxShadow: isRevealed
-                            ? "0 0 80px 20px rgba(37, 99, 235, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2)"
-                            : "0 0 0 0 rgba(0,0,0,0), inset 0 0 20px rgba(255, 255, 255, 0.05)",
+                            ? "0 0 80px 20px rgba(13, 125, 242, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.6)"
+                            : "0 0 0 0 rgba(0,0,0,0), inset 0 0 20px rgba(255, 255, 255, 0.8)",
                     }}
                 >
-                    <Zap className={`w-12 h-12 transition-all duration-1000 ${isRevealed ? 'text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] opacity-100 scale-100' : 'text-white/20 opacity-50 scale-90'}`} />
+                    <Zap className={`w-12 h-12 transition-all duration-1000 ${isRevealed ? 'text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] opacity-100 scale-100' : 'text-[#94A3B8] opacity-50 scale-90'}`} />
                 </div>
 
                 {/* 2. LES BADGES ORBITAUX */}
@@ -170,8 +170,8 @@ function AuraVisual() {
                         }}
                         className={`group relative overflow-hidden rounded-full font-semibold text-sm transition-all duration-500 flex items-center gap-2 
                             ${isRevealed
-                                ? 'bg-primary text-white px-8 py-3.5 shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 scale-100 opacity-100'
-                                : 'bg-[#111] text-white/50 border border-white/5 px-6 py-3 shadow-none scale-95 opacity-80'}`}
+                                ? 'bg-[#0D7DF2] text-white px-8 py-3.5 shadow-[0_10px_25px_rgba(13,125,242,0.3)] hover:shadow-[0_15px_35px_rgba(13,125,242,0.4)] hover:-translate-y-1 scale-100 opacity-100'
+                                : 'bg-white text-muted border border-black/10 px-6 py-3 shadow-none scale-95 opacity-80'}`}
                     >
                         <span className="relative z-10 transition-colors duration-300">
                             {isRevealed ? "Structurer mon image digitale" : "Analyser ma situation"}
@@ -185,7 +185,7 @@ function AuraVisual() {
 
                         {/* Button hover gradient effect */}
                         {isRevealed && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-[shimmer_1.5s_infinite]" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-[#0D7DF2] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         )}
                     </a>
                 </div>
@@ -202,18 +202,18 @@ export default function Deconstat() {
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-20">
 
-                {/* Left Column - Text */}
+                {/* Left Column - Text (Restored to original requested layout) */}
                 <div className="lg:col-span-6 relative">
-                    <span className="text-sm uppercase tracking-widest font-mono text-primary mb-6 block">
+                    <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                         Le problème
                     </span>
 
-                    <h2 className="text-3xl md:text-5xl lg:text-5xl font-sans font-medium text-white leading-[1.1] tracking-tight mb-10">
-                        <span className="block mb-2">Votre expertise est peut-être excellente.</span>
-                        <span className="block text-white/50">Votre image digitale raconte une autre histoire.</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-bold text-[#1A1A1A] leading-[1.1] tracking-tight mb-10">
+                        <span className="block mb-1">Votre expertise est peut-être excellente.</span>
+                        <span className="block text-[#0D7DF2]">Votre image digitale raconte une autre histoire.</span>
                     </h2>
 
-                    <p className="text-base md:text-lg font-sans text-white/60 mb-10 leading-relaxed">
+                    <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-light">
                         La réalité est asymétrique. Les patients, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
                         Une réputation invisible ou dégradée profite directement à vos concurrents.
                     </p>
@@ -225,10 +225,10 @@ export default function Deconstat() {
                             "Un décalage entre la réalité et l'écran crée un doute immédiat sur la compétence."
                         ].map((text, i) => (
                             <li key={i} className="flex items-start gap-4">
-                                <div className="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-                                    <ArrowRight className="text-primary" size={12} strokeWidth={3} />
+                                <div className="mt-1 w-6 h-6 rounded-full bg-[#E5F1FF] flex items-center justify-center shrink-0">
+                                    <ArrowRight className="text-[#0D7DF2]" size={12} strokeWidth={3} />
                                 </div>
-                                <span className="text-white/80 font-sans leading-snug text-sm md:text-base">{text}</span>
+                                <span className="text-foreground font-medium leading-snug text-sm md:text-base">{text}</span>
                             </li>
                         ))}
                     </ul>

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
-import { Sparkles, ArrowRight, Bot, Smartphone, Brain, Search, FileSignature, PenTool, Lock, Shield, Users, Check, Clock, Scale, Database } from 'lucide-react';
+import { Sparkles, ArrowRight, Bot, Smartphone, Brain, Search, FileSignature, PenTool, Lock, Shield, Users, Check } from 'lucide-react';
 import { SplineScene } from '../components/ui/splite';
 import { Card } from '../components/ui/card';
 import { Spotlight } from '../components/ui/spotlight';
@@ -13,7 +13,6 @@ export default function OutilsIA() {
         'Agents IA multi-canaux, standard téléphonique IA, automatisation emails et réseaux sociaux. RE7SET intègre et configure les meilleurs outils IA pour votre cabinet.'
     );
     const canvasRef = useRef(null);
-    const [activeTool, setActiveTool] = useState(0);
 
     useEffect(() => {
         // Text Entrance Animations
@@ -108,7 +107,7 @@ export default function OutilsIA() {
     ];
 
     return (
-        <main className="relative bg-black text-white min-h-screen overflow-x-clip font-sans">
+        <main className="relative bg-[#050505] text-white min-h-screen overflow-x-clip font-sans">
 
             {/* Cinematic Background Glow matching Diagnostic */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-primary/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
@@ -145,173 +144,46 @@ export default function OutilsIA() {
                         Gagnez en productivité avec des solutions d'IA sécurisées. Automatisez la recherche, l'analyse et la rédaction pour vous concentrer sur votre véritable valeur : le conseil et la stratégie juridique.
                     </p>
 
-                    <a href="#outils" className="ia-anim inline-block bg-[#2563EB] hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-medium text-[15px] transition-colors duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] z-20 pointer-events-auto">
+                    <a href="#outils" className="ia-anim inline-block bg-primary border border-white/10 hover:border-white/20 text-white px-8 py-4 rounded-full font-medium text-[15px] transition-all duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] hover:shadow-[0_0_60px_-10px_rgba(37,99,235,0.7)] z-20 pointer-events-auto">
                         Découvrir les Outils
                     </a>
                 </div>
             </section>
 
             {/* Fading bottom edge of the hero */}
-            <div className="w-full h-40 bg-gradient-to-b from-transparent to-[#050505] relative z-20 -mt-20"></div>
-
-            {/* LES ENJEUX / POURQUOI L'IA SECTION */}
-            <section className="relative z-30 bg-[#050505] py-24 px-6 md:px-12 border-b border-white/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20">
-                        <span className="text-primary font-mono text-sm tracking-widest uppercase mb-6 block">Le Point de Non-Retour</span>
-                        <h2 className="text-3xl md:text-5xl font-sans font-medium text-white mb-6 tracking-tight">
-                            Le volume documentaire explose. <br className="hidden md:block" />
-                            <span className="text-white/60">Vos ressources humaines ne sont pas extensibles.</span>
-                        </h2>
-                        <p className="text-white/60 max-w-3xl mx-auto leading-relaxed text-lg">
-                            Aujourd'hui, un avocat passe en moyenne 35% de son temps sur la recherche, la revue et la rédaction primaire. Demain, ces tâches seront instantanées. L'IA n'est pas une option, c'est votre bouclier face à la pression des coûts et de la concurrence.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Enjeu 1 */}
-                        <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center">
-                            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                                <Clock className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">La Course contre la Montre</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">Les délais de réponse attendus par les clients diminuent drasticement. L'IA permet d'absorber la charge de pointe sans compromettre la qualité du conseil.</p>
-                        </div>
-
-                        {/* Enjeu 2 */}
-                        <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center">
-                            <div className="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
-                                <Scale className="w-6 h-6 text-blue-500" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Valorisation de l'Expertise</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">Libérez vos collaborateurs juniors et seniors des tâches ingrates. Laissez-les se concentrer sur la structuration stratégique des dossiers.</p>
-                        </div>
-
-                        {/* Enjeu 3 */}
-                        <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center relative overflow-hidden">
-                            <div className="w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 relative z-10">
-                                <Database className="w-6 h-6 text-cyan-500" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3 relative z-10">Exploitation du Capital Data</h3>
-                            <p className="text-white/60 text-sm leading-relaxed relative z-10">Votre cabinet dorment sur des années de conclusions et mémos. Mettez cette intelligence collective à profit grâce à une mémoire RAG interrogable.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div className="w-full h-40 bg-gradient-to-b from-transparent to-[#0A0A0A] relative z-20 -mt-20"></div>
 
             {/* TOOLS GRID SECTION */}
             <section id="outils" className="relative z-30 bg-[#0A0A0A] py-24 px-6 md:px-12 border-t border-white/5">
                 <div className="max-w-7xl mx-auto">
 
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-mono text-sm tracking-widest uppercase mb-6 block">La Suite RE7SET AI</span>
-                        <h2 className="text-3xl md:text-5xl font-sans font-medium text-white tracking-tight">
-                            Des solutions pensées pour votre pratique.
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
-                        {/* Left Column: List of Tools / Tabs */}
-                        <div className="lg:col-span-5 flex flex-col gap-2 relative z-10">
-                            {tools.map((tool, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setActiveTool(index)}
-                                    className={`text-left p-5 rounded-2xl border transition-all duration-300 flex items-start gap-5
-                                        ${activeTool === index
-                                            ? 'bg-[#111] border-white/10 shadow-[0_0_30px_-10px_rgba(255,255,255,0.05)]'
-                                            : 'bg-transparent border-transparent hover:bg-white/[0.02]'}`}
-                                >
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300
-                                        ${activeTool === index ? 'bg-[#050505] border border-white/5 text-opacity-100' : 'bg-transparent opacity-50'}`}>
-                                        {React.cloneElement(tool.icon, { className: 'w-6 h-6' })}
-                                    </div>
-                                    <div className="pt-1">
-                                        <h3 className={`font-bold font-sans transition-colors duration-300 text-lg ${activeTool === index ? 'text-white' : 'text-white/50'}`}>
-                                            {tool.title}
-                                        </h3>
-                                        {activeTool === index && (
-                                            <p className="text-sm text-white/60 mt-2 leading-relaxed animate-in fade-in slide-in-from-top-2 duration-500">
-                                                {tool.desc}
-                                            </p>
-                                        )}
-                                    </div>
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* Right Column: Visual Preview Mockup */}
-                        <div className="lg:col-span-7 relative z-10 flex items-center justify-center">
-                            {/* Glow behind mockup */}
-                            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[100px] opacity-20 transition-colors duration-1000
-                                ${tools[activeTool].color === 'purple' ? 'bg-purple-500' : tools[activeTool].color === 'cyan' ? 'bg-cyan-500' : 'bg-blue-500'}`}>
-                            </div>
-
-                            {/* App Window Mockup */}
-                            <div className="w-full h-[550px] bg-[#0A0A0A] border border-white/10 rounded-2xl flex flex-col shadow-2xl overflow-hidden">
-                                {/* Window Header */}
-                                <div className="h-12 border-b border-white/5 flex items-center px-4 bg-[#111]">
-                                    <div className="flex gap-2">
-                                        <div className="w-3 h-3 rounded-full bg-white/10"></div>
-                                        <div className="w-3 h-3 rounded-full bg-white/10"></div>
-                                        <div className="w-3 h-3 rounded-full bg-white/10"></div>
-                                    </div>
-                                    <div className="mx-auto px-4 py-1 rounded bg-[#050505] border border-white/5 text-[10px] font-mono text-white/30 hidden md:block">
-                                        re7set-{tools[activeTool].color}-engine.exe
-                                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 relative z-10 mt-10">
+                        {tools.map((tool, index) => (
+                            <div key={index} className="bg-[#111] rounded-2xl p-8 border border-white/5 hover:border-white/10 transition-all duration-500 flex flex-col h-full group relative overflow-hidden">
+                                {/* Soft glow on hover matching tool color */}
+                                <div className={`absolute top-0 right-0 w-64 h-64 rounded-full blur-[80px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none 
+                                    ${tool.color === 'purple' ? 'bg-purple-500' : tool.color === 'cyan' ? 'bg-cyan-500' : 'bg-blue-500'}`}>
                                 </div>
 
-                                {/* Window Body */}
-                                <div className="flex-grow p-8 flex flex-col items-center justify-center relative bg-gradient-to-b from-[#111] to-[#0A0A0A]">
-
-                                    <div className="absolute inset-0 pattern-grid-white/[0.02] bg-[length:32px_32px]"></div>
-
-                                    <div key={activeTool} className="relative z-10 flex flex-col items-center text-center animate-in fade-in zoom-in-95 duration-700">
-                                        <div className={`w-24 h-24 rounded-2xl bg-[#050505] border border-white/10 flex items-center justify-center mb-6 shadow-xl relative
-                                            ${tools[activeTool].color === 'purple' ? 'shadow-purple-500/10' :
-                                                tools[activeTool].color === 'cyan' ? 'shadow-cyan-500/10' :
-                                                    'shadow-blue-500/10'}`}>
-                                            {React.cloneElement(tools[activeTool].icon, { className: "w-12 h-12 relative z-10" })}
-
-                                            {/* Micro-glow inside icon box */}
-                                            <div className={`absolute inset-0 blur-xl opacity-30 rounded-2xl
-                                                ${tools[activeTool].color === 'purple' ? 'bg-purple-500' :
-                                                    tools[activeTool].color === 'cyan' ? 'bg-cyan-500' :
-                                                        'bg-blue-500'}`}>
-                                            </div>
-                                        </div>
-
-                                        <span className={`text-xs font-mono tracking-widest uppercase mb-4
-                                            ${tools[activeTool].color === 'purple' ? 'text-purple-400' :
-                                                tools[activeTool].color === 'cyan' ? 'text-cyan-400' :
-                                                    'text-blue-400'}`}>
-                                            {tools[activeTool].subtitle}
-                                        </span>
-
-                                        <h4 className="text-2xl font-sans font-medium text-white mb-6">{tools[activeTool].title}</h4>
-
-                                        {/* Abstract UI Representation */}
-                                        <div className="w-full max-w-sm bg-[#161616] rounded-xl border border-white/5 p-5 relative overflow-hidden">
-                                            {/* Simulated loading/scanning pulse */}
-                                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-transparent via-white/5 to-transparent -translate-y-[150%] animate-[scan_3s_ease-in-out_infinite]"></div>
-
-                                            <div className="space-y-4">
-                                                <div className="h-2 w-1/4 bg-white/10 rounded"></div>
-                                                <div className="space-y-2">
-                                                    <div className="h-2 w-full bg-white/5 rounded"></div>
-                                                    <div className="h-2 w-5/6 bg-white/5 rounded"></div>
-                                                    <div className="h-2 w-4/5 bg-white/5 rounded"></div>
-                                                </div>
-                                                <div className="flex gap-2">
-                                                    <div className="h-2 w-1/3 bg-white/5 rounded"></div>
-                                                    <div className="h-2 w-1/4 bg-white/5 rounded"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div className="flex justify-between items-start w-full mb-10">
+                                    <div className={`w-12 h-12 rounded-xl bg-[#050505] border border-white/5 flex items-center justify-center relative z-10 shadow-lg`}>
+                                        {tool.icon}
                                     </div>
+                                    <span className="text-5xl font-thin text-white/5 font-sans select-none pointer-events-none group-hover:text-white/10 transition-colors duration-500 -mt-2 -mr-2">
+                                        {tool.number}
+                                    </span>
                                 </div>
+
+                                <h3 className="text-xl font-medium font-sans text-white mb-2 group-hover:text-white transition-colors relative z-10">{tool.title}</h3>
+                                <p className={`text-[10px] font-mono tracking-widest uppercase mb-6 relative z-10
+                                    ${tool.color === 'purple' ? 'text-purple-400' :
+                                        tool.color === 'cyan' ? 'text-cyan-400' :
+                                            'text-blue-400'}`}>
+                                    {tool.subtitle}
+                                </p>
+                                <p className="text-sm text-white/60 leading-relaxed flex-grow relative z-10">{tool.desc}</p>
                             </div>
-                        </div>
+                        ))}
                     </div>
 
                     {/* Trust / Benefits Bar */}
@@ -337,73 +209,6 @@ export default function OutilsIA() {
                 </div>
             </section>
 
-            {/* SÉCURITÉ & SOUVERAINETÉ SECTION */}
-            <section className="relative z-30 bg-[#0A0A0A] py-24 px-6 md:px-12 border-t border-white/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row items-center gap-16">
-                        {/* Visual Left */}
-                        <div className="flex-1 w-full relative">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-                            <div className="relative z-10 bg-[#050505] border border-white/5 rounded-3xl p-8 flex flex-col gap-6 shadow-2xl">
-                                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                    <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0">
-                                        <Lock className="w-6 h-6 text-emerald-500" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-white font-bold text-sm">Chiffrement de Bout en Bout</h4>
-                                        <p className="text-white/50 text-xs">Données inaccessibles par des tiers</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                    <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
-                                        <Database className="w-6 h-6 text-blue-500" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-white font-bold text-sm">Hébergement Souverain</h4>
-                                        <p className="text-white/50 text-xs">Serveurs localisés strictement en Europe</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                    <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
-                                        <Shield className="w-6 h-6 text-purple-500" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-white font-bold text-sm">Isolement des Modèles (RAG)</h4>
-                                        <p className="text-white/50 text-xs">Aucun entraînement public sur vos données</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Content Right */}
-                        <div className="flex-1">
-                            <span className="text-primary font-mono text-sm tracking-widest uppercase mb-6 block">Sécurité & Souveraineté</span>
-                            <h2 className="text-3xl md:text-5xl font-sans font-medium text-white mb-6 tracking-tight">
-                                Le secret professionnel est <br className="hidden md:block" /> notre ligne rouge.
-                            </h2>
-                            <p className="text-white/60 mb-8 leading-relaxed text-lg">
-                                L'usage de l'Intelligence Artificielle en cabinet d'avocats implique une responsabilité absolue. Nos architectures "Zero Trust" garantissent que vos données, vos secrets et vos stratégies restent strictement confinés à votre environnement privatif.
-                            </p>
-
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                                    <span className="text-white/80">Conformité RGPD stricte et auditable</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                                    <span className="text-white/80">Architecture RAG (Retrieval-Augmented Generation) 100% privée</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                                    <span className="text-white/80">Les éditeurs de LLM n'ont aucun droit de regard ou d'entraînement</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* METHODOLOGY SECTION */}
             <section className="relative z-30 bg-[#050505] py-24 px-6 md:px-12 border-t border-white/5">
                 <div className="max-w-6xl mx-auto">
@@ -420,18 +225,18 @@ export default function OutilsIA() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                         {/* Process Steps */}
                         <div className="bg-[#111] p-8 rounded-2xl border border-white/5 relative z-10 hover:border-white/20 transition-colors duration-300">
-                            <span className="text-6xl font-serif text-white/5 absolute top-4 right-4 pointing-events-none select-none">1</span>
-                            <h3 className="text-xl font-bold font-sans text-white mb-4">Audit & Structuration</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">Analyse minutieuse de vos données internes (jurisprudences, modèles de contrats, mémos) et préparation de l'architecture pour l'ingestion par les modèles d'Intelligence Artificielle.</p>
+                            <span className="text-6xl font-sans text-white/5 absolute top-4 right-4 pointing-events-none select-none">1</span>
+                            <h3 className="text-xl font-medium font-sans text-white mb-4">Audit & Structuration</h3>
+                            <p className="text-white/60 text-sm leading-relaxed">Analyse minutieuse de vos données interne (jurisprudences, modèles de contrats, mémos) et préparation de l'architecture pour l'ingestion par les modèles d'Intelligence Artificielle.</p>
                         </div>
                         <div className="bg-[#111] p-8 rounded-2xl border border-white/5 relative z-10 hover:border-white/20 transition-colors duration-300">
-                            <span className="text-6xl font-serif text-white/5 absolute top-4 right-4 pointing-events-none select-none">2</span>
-                            <h3 className="text-xl font-bold font-sans text-white mb-4">Déploiement RAG Privé</h3>
+                            <span className="text-6xl font-sans text-white/5 absolute top-4 right-4 pointing-events-none select-none">2</span>
+                            <h3 className="text-xl font-medium font-sans text-white mb-4">Déploiement RAG Privé</h3>
                             <p className="text-white/60 text-sm leading-relaxed">Mise en place d'une infrastructure fermée (Retrieval-Augmented Generation). L'IA n'utilise aucune donnée externe pour halluciner, elle se base à 100% sur VOTRE propre doctrine juridique.</p>
                         </div>
                         <div className="bg-[#111] p-8 rounded-2xl border border-white/5 relative z-10 hover:border-white/20 transition-colors duration-300">
-                            <span className="text-6xl font-serif text-white/5 absolute top-4 right-4 pointing-events-none select-none">3</span>
-                            <h3 className="text-xl font-bold font-sans text-white mb-4">Formation Accélérée</h3>
+                            <span className="text-6xl font-sans text-white/5 absolute top-4 right-4 pointing-events-none select-none">3</span>
+                            <h3 className="text-xl font-medium font-sans text-white mb-4">Formation Accélérée</h3>
                             <p className="text-white/60 text-sm leading-relaxed">Ateliers pratiques avec vos associés et collaborateurs pour maîtriser le <em>Prompt Engineering</em> juridique. L'outil n'a de valeur que s'il est parfaitement adopté au quotidien par l'équipe.</p>
                         </div>
                     </div>
@@ -444,7 +249,7 @@ export default function OutilsIA() {
 
                     <div>
                         <span className="text-primary font-mono text-sm tracking-widest uppercase mb-4 block">Votre cabinet de demain</span>
-                        <h2 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">La productivité n'a jamais été aussi stratégique.</h2>
+                        <h2 className="text-3xl md:text-5xl font-sans font-medium mb-8 leading-tight">La productivité n'a jamais été aussi stratégique.</h2>
                         <p className="text-white/60 mb-6 text-lg">
                             Les cabinets qui adopteront l'I.A aujourd'hui détiendront l'avantage concurrentiel de demain. Par où commencer ? Par un diagnostic stratégique rigoureux de votre potentiel d'automatisation.
                         </p>
@@ -463,19 +268,19 @@ export default function OutilsIA() {
                         </ul>
                     </div>
 
-                    <div className="bg-[#111111] border border-white/10 rounded-2xl p-10 flex flex-col justify-center shadow-[0_0_50px_-20px_rgba(37,99,235,0.15)] relative overflow-hidden h-full">
+                    <div className="bg-[#111] border border-white/5 hover:border-white/10 transition-colors duration-500 rounded-2xl p-10 flex flex-col justify-center shadow-[0_0_50px_-20px_rgba(37,99,235,0.15)] relative overflow-hidden h-full">
 
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full pointer-events-none"></div>
 
                         <div className="text-center mb-10 relative z-10 flex-grow flex flex-col justify-center">
                             <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-4 block">Passez à l'action</span>
                             <div className="flex justify-center mb-6">
-                                <h3 className="text-3xl font-serif font-medium text-white max-w-[250px] leading-tight">Évaluation du Potentiel IA</h3>
+                                <h3 className="text-3xl font-sans font-medium text-white max-w-[250px] leading-tight">Évaluation du Potentiel IA</h3>
                             </div>
                             <p className="text-sm text-white/60 leading-relaxed max-w-sm mx-auto">Identifions ensemble comment gagner plusieurs dizaines d'heures facturables par mois grâce à l'IA générative personnalisée.</p>
                         </div>
 
-                        <Link to="/offres/diagnostic-strategique" onClick={() => window.scrollTo(0, 0)} className="w-full bg-primary hover:bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 mt-auto relative z-10">
+                        <Link to="/offres/diagnostic-strategique" onClick={() => window.scrollTo(0, 0)} className="w-full bg-primary hover:bg-blue-600 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 mt-auto relative z-10">
                             Réserver notre évaluation
                             <ArrowRight size={18} />
                         </Link>
