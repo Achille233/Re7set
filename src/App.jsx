@@ -37,7 +37,6 @@ export default function App() {
   return (
     <>
       <div className="grain-overlay" />
-      <CustomCursor />
       <ScrollManager />
 
       <Header />

@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ScrollManager() {
     useLayoutEffect(() => {
         // 0. CLEANUP: Clear any stuck GSAP inline styles caused by Vite Hot Module Replacement (HMR) during dev
-        gsap.set('section', { clearProps: 'all' });
+        gsap.set('section, footer', { clearProps: 'all' });
 
         // 1. Text Reveal Animation for headings
         const headings = document.querySelectorAll('.reveal-text');
@@ -30,11 +30,11 @@ export default function ScrollManager() {
 
         // 2. Safe Section Reveal (Replaces the broken parallax)
         // Instead of animating layout which breaks z-index, we do a very subtle, clean fade-in as sections enter.
-        const sections = document.querySelectorAll('section');
-        sections.forEach((section, i) => {
-            if (i === 0) return; // Skip Hero
+        const animatedElements = document.querySelectorAll('section, footer');
+        animatedElements.forEach((el, i) => {
+            if (el.tagName.toLowerCase() === 'section' && i === 0) return; // Skip Hero section
 
-            gsap.fromTo(section,
+            gsap.fromTo(el,
                 { opacity: 0, y: 30 },
                 {
                     opacity: 1,
@@ -42,7 +42,7 @@ export default function ScrollManager() {
                     duration: 0.8,
                     ease: 'power2.out',
                     scrollTrigger: {
-                        trigger: section,
+                        trigger: el,
                         start: 'top 90%', // Triggers before it fully enters
                     }
                 }
@@ -51,7 +51,7 @@ export default function ScrollManager() {
 
         return () => {
             ScrollTrigger.getAll().forEach((t) => t.kill());
-            gsap.set('section', { clearProps: 'all' }); // Clean up on unmount
+            gsap.set('section, footer', { clearProps: 'all' }); // Clean up on unmount
         };
     }, []);
 
