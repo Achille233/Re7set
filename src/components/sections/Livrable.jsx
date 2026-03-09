@@ -282,7 +282,7 @@ export default function Livrable() {
                         {/* Shimmer effect background */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
 
-                        <span className="relative z-10 text-sm md:text-base">Découvrir nos offres d'audit</span>
+                        <span className="relative z-10 text-sm md:text-base">Réserver un appel stratégique</span>
                         <div className="relative z-10 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-colors">
                             <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />

@@ -99,7 +99,7 @@ export default function Piliers() {
             link: "/outils-ia",
             description: "Nous automatisons vos tâches répétitives et intégrons des assistants IA dans vos workflows pour libérer du temps — et le réinvestir dans ce qui compte vraiment.",
             tags: ["Outils IA sur-mesure", "Automatisation", "Formation"],
-            visualType: "robot",
+            visualType: "components",
             buttonHoverColor: "hover:bg-purple-600"
         }
     ];
@@ -154,11 +154,9 @@ export default function Piliers() {
                             </div>
 
                             {/* Right Visual Area */}
-                            <div className={`animate-visual w-full lg:w-[45%] xl:w-[50%] relative overflow-hidden min-h-[300px] lg:min-h-full flex items-center justify-center p-8 ${service.visualType === 'robot' ? 'bg-[#0A0A0A]' : 'bg-gray-50'}`}>
+                            <div className={`animate-visual w-full lg:w-[45%] xl:w-[50%] relative overflow-hidden min-h-[300px] lg:min-h-full flex items-center justify-center p-8 bg-gray-50`}>
                                 {/* Soft gradient glow */}
-                                {service.visualType !== 'robot' && (
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
-                                )}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
 
                                 {/* Premium Visuals based on visualType */}
                                 {/* 1. Full Dashboard Visual (Image 1) */}
@@ -267,32 +265,39 @@ export default function Piliers() {
                                             </div>
 
                                             {/* Layer 1 (Top/Front) */}
-                                            <div className="absolute left-0 right-0 top-[22%] bg-white/95 backdrop-blur-2xl border border-black/[0.08] p-6 md:p-8 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transform translate-y-0 group-[.is-active]:-translate-y-12 group-[.is-active]:shadow-[0_40px_80px_-20px_rgba(37,99,235,0.25)] transition-[transform,opacity,box-shadow,border-color] duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] z-20">
+                                            <div className="absolute left-0 right-0 top-[22%] bg-white/95 backdrop-blur-2xl border border-black/[0.08] p-6 md:p-8 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transform translate-y-0 group-[.is-active]:-translate-y-12 group-[.is-active]:shadow-[0_40px_80px_-20px_rgba(37,99,235,0.25)] transition-[transform,opacity,box-shadow,border-color] duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] z-20">
+
+                                                {/* Header row */}
                                                 <div className="flex items-center justify-between mb-8">
                                                     <div className="flex items-center gap-4">
-                                                        <div className="w-12 h-12 rounded-xl bg-darkAccent text-white flex items-center justify-center shadow-inner text-xl">⚡</div>
+                                                        <div className="w-14 h-14 rounded-[1.25rem] bg-[#0A0A0A] flex items-center justify-center shadow-md">
+                                                            <span className="text-2xl">⚡</span>
+                                                        </div>
                                                         <div>
-                                                            <div className="text-lg md:text-xl font-bold text-foreground font-serif">IA Automatisée</div>
-                                                            <div className="text-xs text-muted font-medium">Workflows synchronisés</div>
+                                                            <div className="text-xl md:text-2xl font-bold text-foreground font-sans tracking-tight">IA Automatisée</div>
+                                                            <div className="text-sm text-foreground/50 font-medium">Workflows synchronisés</div>
                                                         </div>
                                                     </div>
                                                     {/* Toggle Switch */}
-                                                    <div className="w-12 h-6 bg-secondary rounded-full relative shadow-inner overflow-hidden cursor-pointer">
-                                                        <div className="absolute inset-0 bg-green-500 opacity-0 group-[.is-active]:opacity-100 transition-opacity duration-300 delay-300"></div>
-                                                        <div className="absolute left-1 top-1 w-4 h-4 rounded-full bg-white shadow-md transform translate-x-0 group-[.is-active]:translate-x-6 transition-transform duration-500 delay-300 border border-black/5"></div>
+                                                    <div className="w-14 h-8 bg-[#22C55E] rounded-full relative shadow-inner cursor-pointer shrink-0">
+                                                        <div className="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-sm transition-transform duration-500 delay-300"></div>
                                                     </div>
                                                 </div>
-                                                <div className="bg-gray-50 rounded-xl p-4 border border-black/[0.03]">
-                                                    <div className="flex justify-between items-center mb-2">
-                                                        <span className="text-[10px] md:text-xs font-mono text-muted uppercase tracking-wider">Gain de temps</span>
-                                                        <span className="text-[10px] md:text-xs font-mono text-green-600 font-bold overflow-hidden bg-green-50 px-2 py-0.5 rounded border border-green-200">
-                                                            <span className="inline-block transform translate-y-full group-[.is-active]:translate-y-0 transition-transform duration-500 delay-500">-85% par semaine</span>
+
+                                                {/* Gain de temps Box */}
+                                                <div className="bg-transparent rounded-2xl p-5 border border-black/[0.05]">
+                                                    <div className="flex justify-between items-center mb-4">
+                                                        <span className="text-xs md:text-sm font-mono text-muted uppercase tracking-[0.15em] font-medium">Gain de temps</span>
+                                                        <span className="text-xs md:text-sm font-mono text-[#16A34A] font-bold bg-[#DCFCE7]/60 px-3 py-1.5 rounded-md border border-[#86EFAC]/60">
+                                                            -85% par semaine
                                                         </span>
                                                     </div>
-                                                    <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-                                                        <div className="h-full bg-primary w-0 group-[.is-active]:w-[100%] transition-[width] duration-[1500ms] ease-[cubic-bezier(0.23,1,0.32,1)] delay-300"></div>
+                                                    {/* Progress bar line */}
+                                                    <div className="w-full h-3 bg-secondary rounded-full overflow-hidden">
+                                                        <div className="h-full bg-primary w-0 rounded-full group-[.is-active]:w-[85%] transition-[width] duration-[1500ms] ease-[cubic-bezier(0.23,1,0.32,1)] delay-300"></div>
                                                     </div>
                                                 </div>
+
                                             </div>
 
                                         </div>

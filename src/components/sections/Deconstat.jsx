@@ -137,20 +137,38 @@ function AuraVisual() {
                 {/* 2. LES BADGES ORBITAUX */}
                 <div className="absolute inset-0 z-20 pointer-events-none">
                     {badgesData.map((data, i) => {
-                        // Switch fluide entre l'objet "before" et "after" selon l'état de isRevealed
-                        const current = isRevealed ? data.after : data.before;
-
                         return (
                             <div
                                 key={i}
                                 ref={el => badgeRefs.current[i] = el}
-                                className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${current.bg} ${current.border} ${current.textClass} ${isRevealed ? current.shadow : 'shadow-none'}`}
+                                className="absolute"
                             >
-                                {/* Wrapper de l'icône pour animer sa taille lors du passage Avant -> Après */}
-                                <div className={`transition-transform duration-700 ${isRevealed ? 'scale-100' : 'scale-90 opacity-60'}`}>
-                                    {current.icon}
+                                {/* Wrapper to hold both states without layout shifting */}
+                                <div className="relative flex items-center justify-center">
+
+                                    {/* BEFORE STATE (Grey) */}
+                                    <div
+                                        className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[600ms] ease-in-out ${data.before.bg} ${data.before.border} ${data.before.textClass} shadow-none ${isRevealed ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}
+                                        style={{ transformOrigin: 'center center' }}
+                                    >
+                                        <div className="opacity-60">
+                                            {data.before.icon}
+                                        </div>
+                                        <span className="tracking-tight">{data.before.text}</span>
+                                    </div>
+
+                                    {/* AFTER STATE (Colored & Glowing) */}
+                                    <div
+                                        className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[800ms] ease-out ${data.after.bg} ${data.after.border} ${data.after.textClass} ${data.after.shadow} ${isRevealed ? 'opacity-100 scale-100' : 'opacity-0 scale-[1.05] pointer-events-none'}`}
+                                        style={{ transformOrigin: 'center center' }}
+                                    >
+                                        <div className="scale-100">
+                                            {data.after.icon}
+                                        </div>
+                                        <span className="tracking-tight">{data.after.text}</span>
+                                    </div>
+
                                 </div>
-                                <span className="tracking-tight">{current.text}</span>
                             </div>
                         )
                     })}
@@ -160,10 +178,10 @@ function AuraVisual() {
                 <div className={`absolute -bottom-16 left-1/2 -translate-x-1/2 transition-all duration-700 w-full flex flex-col items-center justify-center`}>
 
                     <a
-                        href="#audits"
+                        href="#offres"
                         onClick={(e) => {
                             e.stopPropagation(); // Prevent toggling the aura state when clicking the button
-                            const target = document.getElementById('audits');
+                            const target = document.getElementById('offres');
                             if (target) {
                                 target.scrollIntoView({ behavior: 'smooth' });
                             }

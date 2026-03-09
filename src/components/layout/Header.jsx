@@ -133,14 +133,28 @@ export default function Header() {
                     </div>
 
                     <a href="/#equipe" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors h-full flex items-center`}>Équipe</a>
-                    <a href="/#audits" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors h-full flex items-center`}>Offres</a>
+                    <a href="/#contact" className={`font-sans font-medium text-[15px] ${textColorClass} hover:text-primary transition-colors h-full flex items-center`}>Contact</a>
                 </nav>
 
                 {/* CTA Right */}
                 <div className="hidden md:block z-[110] relative">
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-md font-sans font-medium text-[14px] transition-colors">
-                        Contact
-                    </a>
+                    <div className="relative group/cta">
+                        {/* Huge Neon Desktop Glow (Permanent Breathing) */}
+                        <div className="absolute inset-0 bg-[#2563EB]/40 rounded-full blur-[20px] animate-[pulse_3s_ease-in-out_infinite] transition-all duration-300"></div>
+
+                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="relative hidden md:flex items-center justify-center bg-[#2563EB] text-white px-7 py-3 rounded-full font-sans font-medium text-[15px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-white/20 hover:scale-105">
+                            {/* Inner Bright Ring (Constant) */}
+                            <div className="absolute inset-0 ring-[1px] ring-blue-300/50 rounded-full pointer-events-none"></div>
+
+                            {/* Subtle inner light */}
+                            <div className="absolute top-0 right-0 w-1/2 h-full bg-white/20 blur-[15px] opacity-40 mix-blend-overlay pointer-events-none"></div>
+
+                            {/* Text with slight glow */}
+                            <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+                                Audit SEO offert
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -149,11 +163,11 @@ export default function Header() {
                 className={`fixed inset-0 bg-white z-[100] transition-transform duration-500 flex flex-col pt-24 px-8 md:hidden ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
                 <div className="flex flex-col gap-6 font-sans text-xl font-medium">
-                    <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Services</a>
-                    <a href="#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Équipe</a>
-                    <a href="#audits" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Offres</a>
-                    <a href="#outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Outils IA</a>
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#1A1A1A] text-white py-4 rounded-full text-center hover:bg-black">Nous contacter</a>
+                    <a href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Services</a>
+                    <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Équipe</a>
+                    <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Outils IA</a>
+                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Contact</a>
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#2563EB] text-white py-4 rounded-full text-center hover:bg-blue-600 font-medium">Audit SEO offert</a>
                 </div>
             </div>
         </header>

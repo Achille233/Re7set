@@ -5,6 +5,7 @@ import ScrollManager from './components/animations/ScrollManager';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import CookieBanner from './components/ui/CookieBanner';
+import FloatingCalendly from './components/ui/FloatingCalendly';
 
 const Home = lazy(() => import('./pages/Home'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
@@ -48,6 +49,7 @@ export default function App() {
 
       <Footer />
       <CookieBanner />
+      <FloatingCalendly />
     </>
   );
 }
