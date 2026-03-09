@@ -7,7 +7,9 @@ import Footer from './components/layout/Footer';
 import CookieBanner from './components/ui/CookieBanner';
 import FloatingCalendly from './components/ui/FloatingCalendly';
 
-const Home = lazy(() => import('./pages/Home'));
+// Eager load the main Home page so it renders instantly (no white flash)
+import Home from './pages/Home';
+
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const AuditStrategique = lazy(() => import('./pages/AuditStrategique'));
 const MiseEnOeuvre = lazy(() => import('./pages/MiseEnOeuvre'));
@@ -16,6 +18,13 @@ const OutilsIA = lazy(() => import('./pages/OutilsIA'));
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
 const VisibiliteSEO = lazy(() => import('./pages/VisibiliteSEO'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
+// A simple premium loading fallback for lazy routes
+const PageLoader = () => (
+  <div className="w-full h-screen flex flex-col items-center justify-center bg-white z-50">
+    <div className="w-8 h-8 rounded-full border-2 border-[#0D7DF2] border-t-transparent animate-spin"></div>
+  </div>
+);
 
 export default function App() {
   const location = useLocation();
@@ -33,7 +42,7 @@ export default function App() {
 
       <Header />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offres/diagnostic-strategique" element={<DiagnosticStrategique />} />
