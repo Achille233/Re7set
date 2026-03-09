@@ -140,7 +140,7 @@ export default function Livrable() {
                         </span>
                     </h2>
                     <p className="mt-6 text-base md:text-lg font-sans text-muted max-w-2xl mx-auto leading-relaxed">
-                        Guidez vos décisions de communication et d'investissement digital avec un livrable structuré, sans jargon technique.
+                        Repartez avec de la valeur immédiate : un diagnostic complet de votre visibilité numérique et une feuille de route stratégique pour attirer une clientèle qualifiée.
                     </p>
                 </div>
 
@@ -276,12 +276,18 @@ export default function Livrable() {
                     </div>
                 </div>
 
-                {/* Bottom CTA to match mockup */}
-                <div className="w-full flex justify-end mt-24 lg:absolute lg:bottom-16 lg:right-16 lg:mt-0">
-                    <a href="#audits" onClick={scrollToAudits} className="group relative px-8 py-4 bg-[#1A1A1A] text-white flex items-center gap-3 rounded-2xl hover:bg-black transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1">
-                        <Calendar size={18} />
-                        <span className="font-semibold text-sm">Réserver un audit</span>
-                        <div className="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/20 transition-colors pointer-events-none" />
+                {/* Improved Central CTA */}
+                <div className="w-full flex justify-center mt-16 md:mt-24 relative z-40">
+                    <a href="#audits" onClick={scrollToAudits} className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+                        {/* Shimmer effect background */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+
+                        <span className="relative z-10 text-sm md:text-base">Découvrir nos offres d'audit</span>
+                        <div className="relative z-10 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/30 transition-colors">
+                            <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
                     </a>
                 </div>
 

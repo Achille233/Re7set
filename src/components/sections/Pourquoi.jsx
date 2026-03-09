@@ -1,30 +1,30 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PiInfinityBold, PiShuffleAngularBold, PiStepsBold, PiTargetBold } from 'react-icons/pi';
+import { Infinity as InfinityIcon, Shuffle, Workflow, Target } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FEATURES = [
     {
-        title: "La stratégie avant la technique",
-        desc: "Avant de parler IA ou référencement, on travaille la clarté de votre offre et votre positionnement. Une stratégie digitale performante commence toujours par des bases solides.",
-        icon: PiInfinityBold,
+        title: "Votre expertise, visible par les bons dossiers",
+        desc: "On commence par comprendre votre cabinet, vos domaines de prédilection et le profil de vos meilleurs clients. Puis on construit pour attirer exactement ces dossiers-là.",
+        icon: InfinityIcon,
     },
     {
-        title: "Des solutions pour l'autonomie",
-        desc: "Nous construisons des systèmes que vos équipes peuvent réellement exploiter. Accompagnement sur-mesure pour faire grandir votre cabinet sans dépendre indéfiniment de nous.",
-        icon: PiShuffleAngularBold,
+        title: "Des outils à votre rythme, pas au nôtre",
+        desc: "Un expert n'a pas de temps à perdre. On construit des systèmes simples, que vous ou votre assistante pouvez piloter sans compétence technique.",
+        icon: Shuffle,
     },
     {
-        title: "Excellence & veille en continu",
-        desc: "Le web et l'IA évoluent en permanence. Nous nous formons, testons et ajustons continuellement nos recommandations pour vous garantir une performance durable.",
-        icon: PiStepsBold,
+        title: "Adapté aux contraintes du droit",
+        desc: "Déontologie, publicité réglementée, confidentialité : on connaît les règles qui s'appliquent aux professions juridiques et on les intègre dès le départ.",
+        icon: Workflow,
     },
     {
-        title: "Suivi continu & transparence",
-        desc: "Vous savez toujours où en est votre projet. Une équipe dédiée et une méthodologie claire pour une vision de l'avancement de votre transformation digitale.",
-        icon: PiTargetBold,
+        title: "Un reporting clair, comme un dossier bien tenu",
+        desc: "Vous savez ce qui est fait, ce qui fonctionne et ce que ça rapporte. Aucun jargon — des chiffres lisibles et des actions concrètes.",
+        icon: Target,
     }
 ];
 
@@ -65,12 +65,11 @@ export default function Pourquoi() {
 
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground tracking-tight mb-6">
-                        Pourquoi choisir notre agence ?
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground tracking-tight mb-6 text-balance">
+                        Pourquoi RE7SET&nbsp;?
                     </h2>
                     <p className="text-base text-muted font-sans leading-relaxed">
-                        RE7SET est un cabinet de conseil orienté stratégie et performance, qui conçoit votre écosystème digital
-                        comme un véritable levier de croissance, pas comme une simple vitrine figée.
+                        On connaît vos contraintes déontologiques, votre rapport au temps et ce que signifie un bon dossier. On construit autour de ça.
                     </p>
                 </div>
 
@@ -104,11 +103,11 @@ export default function Pourquoi() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="relative z-10 mt-auto flex flex-col gap-4 transform transition-transform duration-700 ease-out group-hover:-translate-y-2">
-                                    <h3 className="text-lg md:text-xl font-sans font-medium text-foreground transition-colors duration-700 group-hover:text-primary pr-8">
+                                <div className="relative z-10 mt-auto flex flex-col gap-4 transform transition-transform duration-700 ease-out group-hover:-translate-y-2 text-left">
+                                    <h3 className="text-lg md:text-xl font-sans font-medium text-foreground transition-colors duration-700 group-hover:text-primary text-balance">
                                         {feature.title}
                                     </h3>
-                                    <p className="text-muted text-sm md:text-base leading-relaxed font-sans transition-opacity duration-700 opacity-80 group-hover:opacity-100">
+                                    <p className="text-muted text-sm md:text-base leading-relaxed font-sans transition-opacity duration-700 opacity-80 group-hover:opacity-100 text-pretty">
                                         {feature.desc}
                                     </p>
                                 </div>

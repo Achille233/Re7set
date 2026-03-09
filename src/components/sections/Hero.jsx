@@ -1,11 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import gsap from 'gsap';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Phone, Scale } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 import { SITE_CONFIG } from '../../config/site';
 
 export default function Hero() {
     const titleRef = useRef(null);
+    const [titleNumber, setTitleNumber] = useState(0);
+    const titles = useMemo(
+        () => [
+            "flux constant de clients.",
+            "référence sur Google.",
+            "cabinet augmenté par l'IA."
+        ],
+        []
+    );
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            if (titleNumber === titles.length - 1) {
+                setTitleNumber(0);
+            } else {
+                setTitleNumber(titleNumber + 1);
+            }
+        }, 2000);
+        return () => clearTimeout(timeoutId);
+    }, [titleNumber, titles]);
 
     useEffect(() => {
         if (!titleRef.current) return;
@@ -22,8 +43,6 @@ export default function Hero() {
             }
         );
     }, []);
-
-    const titleWords = "Positionnement stratégique, Visibilité & IA.".split(" ");
 
     return (
         <section className="relative min-h-screen flex flex-col justify-center px-6 pt-32 pb-24 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
@@ -57,16 +76,13 @@ export default function Hero() {
             </div>
 
             {/* Badge Pill — haut de section */}
-            <div className="flex items-center justify-center gap-4 px-5 py-2.5 rounded-full border border-foreground/10 bg-white/60 backdrop-blur-md mb-8 shadow-sm w-fit mx-auto relative z-10">
-                <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-primary/50 hidden sm:block"></div>
-                <span className="relative flex h-2 w-2 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                <span className="text-xs uppercase tracking-widest font-mono text-foreground/80 font-medium">
-                    Stratégie digitale pour professions libérales
-                </span>
-                <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-primary/50 hidden sm:block"></div>
+            <div className="flex items-center justify-center gap-3 px-5 py-2.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md mb-8 shadow-sm w-fit mx-auto relative z-10">
+                <div className="flex items-center gap-2">
+                    <Scale size={14} className="text-primary" strokeWidth={2.5} />
+                    <span className="text-[10px] md:text-xs uppercase tracking-widest font-mono text-white/80 font-medium">
+                        Stratégie digitale pour professions libérales
+                    </span>
+                </div>
             </div>
 
             <div className="max-w-6xl w-full mx-auto flex flex-col items-center justify-center flex-grow text-center relative z-10">
@@ -74,39 +90,60 @@ export default function Hero() {
                 {/* Title */}
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center"
+                    className="text-4xl md:text-5xl lg:text-7xl font-sans font-medium text-white leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center flex flex-col items-center gap-2 md:gap-4"
                 >
-                    {titleWords.map((word, i) => (
-                        <span key={i} className="inline-block overflow-hidden pb-2 align-bottom">
-                            <span className="inline-block word-reveal will-change-transform">
-                                {word}&nbsp;
-                            </span>
+                    <span className="inline-block overflow-hidden pb-1 md:pb-2">
+                        <span className="inline-block word-reveal will-change-transform">
+                            Nous transformons votre expertise en
                         </span>
-                    ))}
+                    </span>
+
+                    <span className="relative inline-flex flex-col justify-end overflow-hidden pb-2 md:pb-4 text-primary font-bold min-h-[1.2em] w-full">
+                        {/* Invisible placeholder to reserve width and height of the longest word */}
+                        <span className="invisible pointer-events-none" aria-hidden="true">
+                            cabinet augmenté par l'IA.
+                        </span>
+                        {titles.map((title, index) => (
+                            <motion.span
+                                key={index}
+                                className="absolute left-0 w-full text-center"
+                                initial={{ opacity: 0, y: "-100%" }}
+                                transition={{ type: "spring", stiffness: 50 }}
+                                animate={
+                                    titleNumber === index
+                                        ? { y: 0, opacity: 1 }
+                                        : { y: titleNumber > index ? "-150%" : "150%", opacity: 0 }
+                                }
+                            >
+                                {title}
+                            </motion.span>
+                        ))}
+                    </span>
                 </h1>
 
                 {/* Subtitles & Body */}
                 <div className="max-w-3xl mx-auto text-center">
-                    <p className="text-xl md:text-2xl font-sans text-foreground mb-6">
-                        Par des spécialistes du secteur libéral, pour les professionnels qui exigent l'excellence.
+                    <p className="text-xl md:text-2xl font-sans text-white mb-6 font-medium tracking-tight">
+                        Plus de clients. Moins de marketing inutile.
                     </p>
-                    <p className="text-sm md:text-base font-sans text-muted mb-12 max-w-xl mx-auto leading-relaxed">
-                        Nous structurons la présence digitale de votre cabinet et intégrons l'IA pour vous permettre d'attirer les meilleurs dossiers et vous concentrer sur votre cœur de métier.
+                    <p className="text-sm md:text-lg font-sans text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        SEO, site haute conversion et stratégie digitale conçus pour générer des dossiers, pas seulement du trafic.
                     </p>
                 </div>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-24 cursor-pointer w-full">
-                    <a href="#services" className="group relative px-8 py-4 bg-primary text-white flex items-center justify-center gap-2 rounded hover:brightness-110 transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.5)]">
-                        <span className="font-medium text-lg">Découvrir nos offres</span>
-                        <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
-                        <div className="absolute inset-0 rounded pointer-events-none border border-white/0 group-hover:border-white/20 transition-colors" />
-                    </a>
+                <div className="flex flex-col items-center mb-24 cursor-pointer w-full">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4 mt-4 relative z-20 pointer-events-auto">
+                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="group relative px-10 py-5 bg-primary text-white flex items-center justify-center gap-2 rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_30px_-5px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_-5px_rgba(37,99,235,0.5)] overflow-hidden">
+                            <span className="font-medium text-lg relative z-10">Réserver mon audit gratuit</span>
+                            <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform relative z-10" />
+                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                        </a>
 
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="group px-8 py-4 flex items-center justify-center gap-2 rounded border border-foreground/20 bg-white/50 backdrop-blur-sm text-foreground hover:bg-white transition-all duration-300 hover:shadow-sm">
-                        <Phone size={20} />
-                        <span className="font-medium text-lg">Nous contacter</span>
-                    </a>
+                        <a href="#services" className="group px-10 py-5 flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 transition-all duration-300">
+                            <span className="font-medium text-lg">Voir nos offres</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

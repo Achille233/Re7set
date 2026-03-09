@@ -23,7 +23,7 @@ const TESTIMONIALS = [
         author: {
             name: "Sibylle D.",
             handle: "Avocate consultante",
-            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face"
+            avatar: "/Sibylle.jpg"
         }
     },
     {

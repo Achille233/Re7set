@@ -1,206 +1,244 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Star, AlertCircle, ShieldAlert, WifiOff, FileSearch, Search } from 'lucide-react';
+import { ArrowRight, Star, Shield, Trophy, Eye, Zap, EyeOff, HelpCircle, Search, Cpu } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+function AuraVisual() {
+    const auraCoreRef = useRef(null);
+    const badgeRefs = useRef([]);
+    const [isRevealed, setIsRevealed] = useState(false);
 
-export default function Deconstat() {
-    const containerRef = useRef(null);
-    const realCardRef = useRef(null);
-    const digitalCardRef = useRef(null);
+    // Configuration des états "Avant" (grisé/sombre) et "Après" (coloré/neon)
+    const badgesData = [
+        {
+            angle: -Math.PI / 2, // Perfect Top
+            before: { icon: <EyeOff strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Introuvable", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
+            after: { icon: <Eye strokeWidth={2.5} className="w-[18px] h-[18px] text-purple-400" />, text: "Visibilité Nette", bg: "bg-purple-500/10", border: "border-purple-500/20", textClass: "text-purple-400", shadow: "shadow-[0_0_20px_rgba(168,85,247,0.2)]" }
+        },
+        {
+            angle: 0, // Perfect Right
+            before: { icon: <HelpCircle strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Aucun avis", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
+            after: { icon: <Star strokeWidth={2.5} className="w-[18px] h-[18px] text-yellow-400" fill="#FACC15" />, text: "4.9/5 TrustScore", bg: "bg-[#111]", border: "border-yellow-500/20", textClass: "text-white", shadow: "shadow-[0_0_20px_rgba(250,204,21,0.15)]" }
+        },
+        {
+            angle: Math.PI / 2, // Perfect Bottom
+            before: { icon: <Search strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Page 3 Google", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
+            after: { icon: <Shield strokeWidth={2.5} className="w-[18px] h-[18px] text-emerald-400" />, text: "Top 3 Google", bg: "bg-emerald-500/10", border: "border-emerald-500/20", textClass: "text-emerald-400", shadow: "shadow-[0_0_20px_rgba(52,211,153,0.2)]" }
+        },
+        {
+            angle: Math.PI, // Perfect Left
+            before: { icon: <Cpu strokeWidth={2.5} className="w-[18px] h-[18px]" />, text: "Ignoré des IA", bg: "bg-[#0A0A0A]", border: "border-white/5", textClass: "text-white/40", shadow: "shadow-none" },
+            after: { icon: <Trophy strokeWidth={2.5} className="w-[18px] h-[18px] text-blue-400" />, text: "Reconnu par l'IA", bg: "bg-blue-500/10", border: "border-blue-500/20", textClass: "text-blue-400", shadow: "shadow-[0_0_20px_rgba(59,130,246,0.2)]" }
+        }
+    ];
 
     useEffect(() => {
-        if (!containerRef.current) return;
-
-        // Animate the "Real" profile card (Solid, stable entrance)
-        gsap.fromTo(
-            realCardRef.current,
-            { y: 40, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: 'top 75%',
-                },
-            }
-        );
-
-        // Animate the "Digital" profile card (Delayed, glitchy entrance)
-        const digitalTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 75%',
-            }
+        // Ensure the core is perfectly centered using GSAP's transform origin
+        gsap.set(auraCoreRef.current, {
+            xPercent: -50,
+            yPercent: -50,
+            left: "50%",
+            top: "50%"
         });
 
-        digitalTl.fromTo(digitalCardRef.current,
-            { y: 60, opacity: 0, rotation: -2 },
-            { y: 0, opacity: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.2)', delay: 0.3 }
+        // Apparition initiale en douceur du noyau central
+        gsap.fromTo(auraCoreRef.current,
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out' }
         );
 
-        // Add a continuous "glitch/flicker" effect to the broken elements inside the digital card
-        gsap.to('.glitch-element', {
-            opacity: 0.4,
-            duration: 0.1,
-            repeat: -1,
-            yoyo: true,
-            repeatDelay: Math.random() * 3 + 1, // Random flicker
-            ease: "steps(1)"
-        });
-
-        // Floating animation for the digital card to make it feel unstable
-        gsap.to(digitalCardRef.current, {
-            y: "+=5",
-            rotation: "+=0.5",
-            duration: 2.5,
+        // Effet de lévitation continue du noyau central
+        gsap.to(auraCoreRef.current, {
+            y: "-=8",
+            scale: 1.02,
+            duration: 3,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut"
         });
 
+        // Mise en place et animation des badges orbitaux
+        badgeRefs.current.forEach((badge, i) => {
+            const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 130 : 180;
+            const angle = badgesData[i].angle;
+
+            // Placement initial mathématique en cercle parfait
+            gsap.set(badge, {
+                x: Math.cos(angle) * radius,
+                y: Math.sin(angle) * radius,
+                xPercent: -50,
+                yPercent: -50,
+                left: "50%",
+                top: "50%",
+                opacity: 0,
+                scale: 0.5
+            });
+
+            // Arrivée "pop" en douceur
+            gsap.to(badge, {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: "back.out(1.5)",
+                delay: 0.5 + (i * 0.1)
+            });
+
+            // Lévitation subtile et propre à chaque badge (verticale uniquement pour un aspect propre)
+            gsap.to(badge, {
+                y: "-=10",
+                duration: 2.5 + i * 0.3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: i * 0.2
+            });
+        });
+
     }, []);
 
+    // Animation dynamique ("BUMP") lors de la révélation "Avant" -> "Après"
+    useEffect(() => {
+        if (isRevealed) {
+            gsap.to(auraCoreRef.current, { scale: 1.08, duration: 0.3, yoyo: true, repeat: 1, ease: 'power2.out' });
+            badgeRefs.current.forEach((badge, i) => {
+                gsap.to(badge, { scale: 1.05, duration: 0.3, yoyo: true, repeat: 1, delay: i * 0.05, ease: 'power2.out' });
+            });
+        }
+    }, [isRevealed]);
+
     return (
-        <section className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden">
-            <div className="max-w-7xl mx-auto" ref={containerRef}>
-                <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
-                    Le problème
-                </span>
+        <div className="w-full h-full min-h-[500px] flex items-center justify-center font-sans relative">
 
-                <h2 className="text-3xl md:text-5xl font-sans font-bold text-[#1A1A1A] leading-[1.1] tracking-tight mb-16 max-w-4xl">
-                    <span className="block">Votre expertise est peut-être excellente.</span>
-                    <span className="block text-[#0D7DF2] mt-2">Votre image digitale raconte une autre histoire.</span>
-                </h2>
+            {/* Conteneur Interactif Principal */}
+            <div
+                className="relative w-full max-w-[500px] aspect-square flex items-center justify-center cursor-pointer group perspective-1000"
+                onMouseEnter={() => setIsRevealed(true)}
+                onMouseLeave={() => setIsRevealed(false)}
+                onClick={() => setIsRevealed(!isRevealed)}
+            >
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                    {/* Left Column - Text */}
-                    <div className="lg:col-span-5 relative z-20">
-                        <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed">
-                            La réalité est asymétrique. Les patients, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
-                            Une réputation invisible ou dégradée profite directement à vos concurrents.
-                        </p>
-
-                        <ul className="space-y-6">
-                            {[
-                                "La majorité des prospects vérifient les avis en ligne avant de prendre rendez-vous.",
-                                "Les algorithmes (Google, IA) ignorent les profils dont le contenu est obsolète.",
-                                "Un décalage entre la réalité et l'écran crée un doute immédiat sur la compétence."
-                            ].map((text, i) => (
-                                <li key={i} className="flex items-start gap-4">
-                                    <div className="mt-1 w-6 h-6 rounded-full bg-[#E5F1FF] flex items-center justify-center shrink-0">
-                                        <ArrowRight className="text-[#0D7DF2]" size={12} strokeWidth={3} />
-                                    </div>
-                                    <span className="text-foreground font-medium leading-snug text-sm md:text-base">{text}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Right Column: "Le Miroir Déformant" */}
-                    <div className="lg:col-span-7 relative flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-end items-stretch perspective-1000 mt-10 lg:mt-0">
-
-                        {/* Connection line between cards (desktop only) */}
-                        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 border-t-2 border-dashed border-red-500/30 z-0">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-[10px] font-mono font-bold text-red-500 tracking-wider">VS</div>
-                        </div>
-
-                        {/* Card 1: La Réalité (The Truth) */}
-                        <div ref={realCardRef} className="relative z-10 w-full sm:w-[320px] bg-[#0A0A0A] rounded-2xl p-6 shadow-2xl flex flex-col">
-                            <div className="flex justify-between items-start mb-6">
-                                <div>
-                                    <span className="text-[10px] font-mono text-[#00E573] uppercase tracking-widest font-bold">La Réalité</span>
-                                    <h3 className="text-white font-sans font-bold text-xl mt-1">Votre Profil</h3>
-                                </div>
-                                <div className="w-12 h-12 rounded-full border border-[#00E573]/20 flex items-center justify-center">
-                                    <span className="text-[#00E573] font-bold font-mono text-sm">PRO</span>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4 mb-6 flex-grow">
-                                <div className="bg-[#141414] rounded-xl p-4 border border-white/5">
-                                    <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5 font-mono">Expérience métier</div>
-                                    <div className="text-white font-bold text-lg">15+ Années</div>
-                                </div>
-                                <div className="bg-[#141414] rounded-xl p-4 border border-white/5">
-                                    <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5 font-mono">Taux de recommandation</div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="text-white font-bold text-lg">98%</div>
-                                        <div className="flex gap-1">
-                                            <Star size={14} className="text-[#FFB800] fill-[#FFB800]" />
-                                            <Star size={14} className="text-[#FFB800] fill-[#FFB800]" />
-                                            <Star size={14} className="text-[#FFB800] fill-[#FFB800]" />
-                                            <Star size={14} className="text-[#FFB800] fill-[#FFB800]" />
-                                            <Star size={14} className="text-[#FFB800] fill-[#FFB800]" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="bg-[#141414] rounded-xl p-4 border border-white/5">
-                                    <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1.5 font-mono">Expertise</div>
-                                    <div className="text-white/80 text-sm leading-relaxed">Hyper-spécialisée, reconnue par les pairs.</div>
-                                </div>
-                            </div>
-
-                            <div className="w-full text-[#00E573] text-[10px] font-mono font-bold text-center py-3 flex justify-center items-center gap-2 border-t border-white/5 relative">
-                                {/* Subtle green glow at the bottom */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[#00E573]/20 to-transparent"></div>
-                                ✓ CONFIANCE ACQUISE
-                            </div>
-                        </div>
-
-                        {/* Card 2: L'Image Digitale (The Distortion) */}
-                        <div ref={digitalCardRef} className="relative z-10 w-full sm:w-[320px] bg-white rounded-2xl p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] flex flex-col transform sm:translate-y-6">
-
-                            {/* Glitch overlays - slightly reduced opacity */}
-                            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiAvPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjZjAwIiBvcGFjaXR5PSIwLjAyIiAvPgo8L3N2Zz4=')] opacity-30 rounded-2xl pointer-events-none"></div>
-
-                            <div className="flex justify-between items-start mb-6 relative z-10">
-                                <div>
-                                    <span className="text-[10px] font-mono text-[#F43F5E] uppercase tracking-widest font-bold opacity-80">L'Image Digitale</span>
-                                    <h3 className="text-[#A1A1AA] font-sans font-bold text-xl mt-1 glitch-element">Ce qu'ils voient</h3>
-                                </div>
-                                <div className="w-12 h-12 rounded-full bg-[#F4F4F5] flex items-center justify-center">
-                                    <div className="w-6 h-6 bg-[#E4E4E7] rounded animate-pulse"></div>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4 mb-6 flex-grow relative z-10">
-                                <div className="bg-[#FAFAFA] rounded-xl p-4 border border-black/5 relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#FAFAFA] via-[#FAFAFA]/80 to-transparent z-10"></div>
-                                    <div className="text-[10px] text-[#A1A1AA] uppercase tracking-widest mb-1.5 font-mono flex items-center gap-1.5"><Search size={12} className="text-[#A1A1AA]" /> VISIBILITÉ GOOGLE</div>
-                                    <div className="text-[#A1A1AA]/60 font-bold text-lg blur-[2px]">Page 3 / Introuvable</div>
-                                </div>
-                                <div className="bg-[#FFF1F2] rounded-xl p-4 border border-[#FFE4E6]">
-                                    <div className="text-[10px] text-[#F43F5E] uppercase tracking-widest mb-1.5 font-mono flex items-center gap-1.5"><AlertCircle size={12} strokeWidth={2.5} /> RÉPUTATION WEB</div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="text-[#F43F5E] font-bold text-lg">3.2/5</div>
-                                        <div className="flex gap-1">
-                                            <Star size={14} className="text-[#F43F5E] fill-[#F43F5E]" />
-                                            <Star size={14} className="text-[#F43F5E] fill-[#F43F5E]" />
-                                            <Star size={14} className="text-[#F43F5E] fill-[#F43F5E]" />
-                                            <Star size={14} className="text-[#E4E4E7] fill-[#E4E4E7]" />
-                                            <Star size={14} className="text-[#E4E4E7] fill-[#E4E4E7]" />
-                                        </div>
-                                    </div>
-                                    <div className="text-[10px] font-mono text-[#F43F5E]/70 mt-2">"Cabinet injoignable..." (Avis de 2023)</div>
-                                </div>
-                                <div className="bg-[#FAFAFA] rounded-xl p-4 border border-black/5 opacity-60 glitch-element">
-                                    <div className="text-[10px] text-[#A1A1AA] uppercase tracking-widest mb-1.5 font-mono">PRÉSENCE IA (CHATGPT)</div>
-                                    <div className="text-[#A1A1AA] text-sm flex items-center gap-2"><WifiOff size={14} /> Données obsolètes</div>
-                                </div>
-                            </div>
-
-                            <div className="relative z-10 w-full text-white bg-transparent text-[10px] font-mono font-bold text-center py-2 rounded flex items-center justify-center gap-1.5">
-                                {/* Invisible text to maintain exact height matching the left card */}
-                                <span className="opacity-0">✓ CONFIANCE ACQUISE</span>
-                            </div>
-                        </div>
-
-                    </div>
+                {/* 1. LE NOYAU CENTRAL (État Dormant vs Actif) */}
+                <div
+                    ref={auraCoreRef}
+                    className="absolute rounded-full z-10 transition-colors duration-1000 ease-out flex items-center justify-center"
+                    style={{
+                        width: "180px",
+                        height: "180px",
+                        background: isRevealed
+                            ? "radial-gradient(circle at 35% 35%, #2563EB 0%, #1D4ED8 50%, #1E3A8A 100%)" // Bleu profond
+                            : "radial-gradient(circle at 35% 35%, #111 0%, #0A0A0A 50%, #050505 100%)", // Noir profond
+                        boxShadow: isRevealed
+                            ? "0 0 80px 20px rgba(37, 99, 235, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2)"
+                            : "0 0 0 0 rgba(0,0,0,0), inset 0 0 20px rgba(255, 255, 255, 0.05)",
+                    }}
+                >
+                    <Zap className={`w-12 h-12 transition-all duration-1000 ${isRevealed ? 'text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] opacity-100 scale-100' : 'text-white/20 opacity-50 scale-90'}`} />
                 </div>
+
+                {/* 2. LES BADGES ORBITAUX */}
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                    {badgesData.map((data, i) => {
+                        // Switch fluide entre l'objet "before" et "after" selon l'état de isRevealed
+                        const current = isRevealed ? data.after : data.before;
+
+                        return (
+                            <div
+                                key={i}
+                                ref={el => badgeRefs.current[i] = el}
+                                className={`absolute px-5 py-2.5 rounded-full border-[1.5px] flex items-center gap-2.5 whitespace-nowrap text-[15px] font-bold transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ${current.bg} ${current.border} ${current.textClass} ${isRevealed ? current.shadow : 'shadow-none'}`}
+                            >
+                                {/* Wrapper de l'icône pour animer sa taille lors du passage Avant -> Après */}
+                                <div className={`transition-transform duration-700 ${isRevealed ? 'scale-100' : 'scale-90 opacity-60'}`}>
+                                    {current.icon}
+                                </div>
+                                <span className="tracking-tight">{current.text}</span>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                {/* Appel à l'action / Button */}
+                <div className={`absolute -bottom-16 left-1/2 -translate-x-1/2 transition-all duration-700 w-full flex flex-col items-center justify-center`}>
+
+                    <a
+                        href="#audits"
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevent toggling the aura state when clicking the button
+                            const target = document.getElementById('audits');
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className={`group relative overflow-hidden rounded-full font-semibold text-sm transition-all duration-500 flex items-center gap-2 
+                            ${isRevealed
+                                ? 'bg-primary text-white px-8 py-3.5 shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 scale-100 opacity-100'
+                                : 'bg-[#111] text-white/50 border border-white/5 px-6 py-3 shadow-none scale-95 opacity-80'}`}
+                    >
+                        <span className="relative z-10 transition-colors duration-300">
+                            {isRevealed ? "Structurer mon image digitale" : "Analyser ma situation"}
+                        </span>
+
+                        {/* Interactive Arrow */}
+                        <ArrowRight
+                            size={16}
+                            className={`relative z-10 transition-transform duration-300 ${isRevealed ? 'translate-x-0 group-hover:translate-x-1' : '-translate-x-1 opacity-50'}`}
+                        />
+
+                        {/* Button hover gradient effect */}
+                        {isRevealed && (
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:animate-[shimmer_1.5s_infinite]" />
+                        )}
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default function Deconstat() {
+    return (
+        <section className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden object-cover select-none">
+            {/* Ambient Ambient Blue Glow */}
+            <div className="absolute top-1/2 left-3/4 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-20">
+
+                {/* Left Column - Text */}
+                <div className="lg:col-span-6 relative">
+                    <span className="text-sm uppercase tracking-widest font-mono text-primary mb-6 block">
+                        Le problème
+                    </span>
+
+                    <h2 className="text-3xl md:text-5xl lg:text-5xl font-sans font-medium text-white leading-[1.1] tracking-tight mb-10">
+                        <span className="block mb-2">Votre expertise est peut-être excellente.</span>
+                        <span className="block text-white/50">Votre image digitale raconte une autre histoire.</span>
+                    </h2>
+
+                    <p className="text-base md:text-lg font-sans text-white/60 mb-10 leading-relaxed">
+                        La réalité est asymétrique. Les patients, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
+                        Une réputation invisible ou dégradée profite directement à vos concurrents.
+                    </p>
+
+                    <ul className="space-y-6">
+                        {[
+                            "La majorité des prospects vérifient les avis en ligne avant de prendre rendez-vous.",
+                            "Les algorithmes (Google, IA) ignorent les profils dont le contenu est obsolète.",
+                            "Un décalage entre la réalité et l'écran crée un doute immédiat sur la compétence."
+                        ].map((text, i) => (
+                            <li key={i} className="flex items-start gap-4">
+                                <div className="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+                                    <ArrowRight className="text-primary" size={12} strokeWidth={3} />
+                                </div>
+                                <span className="text-white/80 font-sans leading-snug text-sm md:text-base">{text}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Right Column - User provided AuraVisual Component */}
+                <div className="lg:col-span-6 relative w-full flex items-center justify-center">
+                    <AuraVisual />
+                </div>
+
             </div>
         </section>
     );

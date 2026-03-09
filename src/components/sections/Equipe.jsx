@@ -43,7 +43,8 @@ const TEAM = [
         role: "CONSULTANT & EXPERT IA",
         quote: '"Intelligence Artificielle & GEO"',
         desc: "Spécialiste de l'IA appliquée aux professions réglementées. Il conçoit les stratégies GEO qui positionnent votre cabinet dans les moteurs de demain.",
-        initial: "AB"
+        initial: "AB",
+        image: "/Achille.jpg"
     }
 ];
 

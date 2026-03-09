@@ -73,20 +73,24 @@ export default function Contact() {
                         </h2>
 
                         {/* Référente card */}
-                        <div className="flex flex-col items-center text-center w-full max-w-xs mb-10">
-                            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-5">
-                                <img src="/Sibylle.jpg" alt="Sibylle D." className="w-full h-full object-cover" />
+                        <div className="flex flex-col items-start w-full max-w-sm mb-12">
+                            <div className="flex items-center gap-5 w-full mb-6">
+                                <div className="w-20 h-20 rounded-full overflow-hidden border-[3px] border-white shadow-lg shrink-0">
+                                    <img src="/Sibylle.jpg" alt="Sibylle D." className="w-full h-full object-cover" />
+                                </div>
+                                <div className="flex flex-col text-left">
+                                    <p className="text-lg font-bold font-sans text-foreground mb-0.5">Sibylle D.</p>
+                                    <p className="text-sm text-muted">Avocate consultante &<br />co-fondatrice</p>
+                                </div>
                             </div>
-                            <p className="text-lg font-bold font-sans text-foreground mb-1">Sibylle D.</p>
-                            <p className="text-sm text-muted mb-5">Avocate consultante & co-fondatrice</p>
 
-                            <div className="flex flex-col gap-3 w-full text-left">
+                            <div className="flex flex-col gap-4 w-full text-left pl-1">
                                 <a href={SITE_CONFIG.phoneHref} className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors">
-                                    <Phone size={16} className="text-primary shrink-0" />
+                                    <Phone size={18} className="text-primary shrink-0" />
                                     {SITE_CONFIG.phone}
                                 </a>
                                 <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors">
-                                    <Mail size={16} className="text-primary shrink-0" />
+                                    <Mail size={18} className="text-primary shrink-0" />
                                     {SITE_CONFIG.email}
                                 </a>
                             </div>
@@ -121,7 +125,7 @@ export default function Contact() {
                             <form className="space-y-5" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-nom" className="text-xs font-bold text-foreground">Nom complet</label>
+                                        <label htmlFor="contact-nom" className="text-xs font-bold text-foreground ml-1">Nom complet</label>
                                         <input
                                             id="contact-nom"
                                             name="nom"
@@ -132,7 +136,7 @@ export default function Contact() {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-email" className="text-xs font-bold text-foreground">Email professionnel</label>
+                                        <label htmlFor="contact-email" className="text-xs font-bold text-foreground ml-1">Email professionnel</label>
                                         <input
                                             id="contact-email"
                                             name="email"
@@ -146,7 +150,7 @@ export default function Contact() {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-tel" className="text-xs font-bold text-foreground">Téléphone</label>
+                                        <label htmlFor="contact-tel" className="text-xs font-bold text-foreground ml-1">Téléphone</label>
                                         <input
                                             id="contact-tel"
                                             name="telephone"
@@ -156,7 +160,7 @@ export default function Contact() {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="contact-service" className="text-xs font-bold text-foreground">Service souhaité</label>
+                                        <label htmlFor="contact-service" className="text-xs font-bold text-foreground ml-1">Service souhaité</label>
                                         <select
                                             id="contact-service"
                                             name="service"
@@ -172,7 +176,7 @@ export default function Contact() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label htmlFor="contact-message" className="text-xs font-bold text-foreground">Votre message</label>
+                                    <label htmlFor="contact-message" className="text-xs font-bold text-foreground ml-1">Votre message</label>
                                     <textarea
                                         id="contact-message"
                                         name="message"

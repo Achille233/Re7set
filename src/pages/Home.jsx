@@ -6,10 +6,7 @@ import Deconstat from '../components/sections/Deconstat';
 import Pourquoi from '../components/sections/Pourquoi';
 import Livrable from '../components/sections/Livrable';
 import Equipe from '../components/sections/Equipe';
-import PricingNiveau01 from '../components/sections/PricingNiveau01';
-import PricingNiveau02 from '../components/sections/PricingNiveau02';
-import PricingNiveau03 from '../components/sections/PricingNiveau03';
-import OutilsIA from '../components/sections/OutilsIA';
+import Offres from '../components/sections/Offres';
 import PreuveSociale from '../components/sections/PreuveSociale';
 import Contact from '../components/sections/Contact';
 
@@ -21,16 +18,13 @@ export default function Home() {
     return (
         <main className="relative z-10 w-full overflow-hidden bg-transparent">
             <Hero />
-            <Piliers />
             <Deconstat />
+            <Piliers />
             <Pourquoi />
             <Livrable />
-            <Equipe />
-            <PricingNiveau01 />
-            <PricingNiveau02 />
-            <PricingNiveau03 />
-            <OutilsIA />
             <PreuveSociale />
+            <Equipe />
+            <Offres />
             <Contact />
         </main>
     );
