@@ -91,7 +91,7 @@ export default function PricingNiveau01() {
                         <div className="w-16 h-16 bg-darkAccent flex items-center justify-center text-white text-2xl font-serif font-bold">
                             01
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-serif text-foreground">Audits Stratégiques</h2>
+                        <h2 className="text-2xl md:text-4xl font-sans font-medium tracking-tight text-foreground">Audits Stratégiques</h2>
                     </div>
                     <p className="text-sm font-sans text-muted md:ml-auto">
                         Chaque audit peut être commandé seul · prix fixes
@@ -106,7 +106,7 @@ export default function PricingNiveau01() {
                                 {audit.kicker}
                             </span>
 
-                            <h3 className="text-xl font-bold font-sans text-foreground mb-1">{audit.title}</h3>
+                            <h3 className="text-2xl font-bold font-sans tracking-tight text-foreground mb-2">{audit.title}</h3>
                             <p className="text-sm text-muted mb-8">{audit.desc}</p>
 
                             <ul className="space-y-3 mb-8 flex-grow">

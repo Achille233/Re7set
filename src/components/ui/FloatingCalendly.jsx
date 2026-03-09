@@ -47,11 +47,7 @@ export default function FloatingCalendly() {
                         <span className="relative z-10 hidden sm:inline-block font-sans font-semibold tracking-wide text-[15px]">Réserver un Audit</span>
                     </button>
 
-                    {/* Live Status dot */}
-                    <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 shadow-lg shadow-black/20 rounded-full">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#0d7df2]"></span>
-                    </span>
+                    {/* Removed Live Status dot to keep the CTA minimal */}
                 </div>
             </div>
 

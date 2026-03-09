@@ -3,6 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import Hero from '../components/sections/Hero';
 import Piliers from '../components/sections/Piliers';
 import Deconstat from '../components/sections/Deconstat';
+import Resultats from '../components/sections/Resultats';
 import Pourquoi from '../components/sections/Pourquoi';
 import Livrable from '../components/sections/Livrable';
 import Equipe from '../components/sections/Equipe';
@@ -19,6 +20,7 @@ export default function Home() {
         <main className="relative z-10 w-full overflow-hidden bg-transparent">
             <Hero />
             <Deconstat />
+            <Resultats />
             <Piliers />
             <Pourquoi />
             <Livrable />

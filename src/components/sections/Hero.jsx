@@ -45,7 +45,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex flex-col justify-center px-6 pt-32 pb-24 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
+        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 pt-28 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
 
             {/* Background Grid Lines */}
             <div className="absolute inset-0 w-full h-full pointer-events-none -z-20 flex justify-center">
@@ -92,7 +92,7 @@ export default function Hero() {
                 {/* Title */}
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center flex flex-col items-center gap-2 md:gap-4"
+                    className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center flex flex-col items-center gap-2 md:gap-4"
                 >
                     <span className="inline-block overflow-hidden pb-1 md:pb-2">
                         <span className="inline-block word-reveal will-change-transform">
@@ -142,7 +142,7 @@ export default function Hero() {
                             <div className="absolute inset-0 rounded pointer-events-none border border-white/0 group-hover:border-white/20 transition-colors" />
                         </a>
 
-                        <a href="#services" className="group px-8 py-4 flex items-center justify-center gap-2 rounded border border-foreground/20 bg-white/50 backdrop-blur-sm text-foreground hover:bg-white transition-all duration-300 hover:shadow-sm">
+                        <a href="#offres" className="group px-8 py-4 flex items-center justify-center gap-2 rounded border border-foreground/20 bg-white/50 backdrop-blur-sm text-foreground hover:bg-white transition-all duration-300 hover:shadow-sm">
                             <span className="font-medium text-lg">Voir nos offres</span>
                         </a>
                     </div>

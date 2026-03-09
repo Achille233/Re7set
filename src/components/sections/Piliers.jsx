@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
-import { SplineScene } from '../ui/splite';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +104,7 @@ export default function Piliers() {
     ];
 
     return (
-        <section id="services" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
+        <section id="services" className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
             <div className="max-w-6xl mx-auto flex flex-col gap-8">
 
                 {/* Section Header */}
@@ -113,8 +112,8 @@ export default function Piliers() {
                     <span className="text-sm uppercase tracking-widest font-mono text-muted mb-6 block">
                         Nos piliers d'intervention
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground">
-                        Conçus pour votre métier.
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground">
+                        Conçus pour <span className="text-primary font-serif italic">votre métier.</span>
                     </h2>
                 </div>
 

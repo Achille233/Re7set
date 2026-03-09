@@ -30,11 +30,16 @@ export default {
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(calc(-100% - var(--gap)))' }
-        }
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         'float-doc': 'floatDocument 4s ease-in-out infinite',
         marquee: 'marquee var(--duration) linear infinite',
+        shimmer: 'shimmer 1.5s infinite',
       }
     },
   },

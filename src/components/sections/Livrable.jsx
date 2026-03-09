@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, CheckCircle2, FileText } from 'lucide-react';
+import { Calendar, CheckCircle2, FileText, Scale } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -124,7 +124,7 @@ export default function Livrable() {
     };
 
     return (
-        <section ref={sectionRef} className="relative w-full py-20 lg:py-24 px-6 md:px-12 lg:px-24 bg-transparent z-20 overflow-visible perspective-[3000px]">
+        <section ref={sectionRef} className="relative w-full py-16 lg:py-20 px-6 md:px-12 lg:px-24 bg-transparent z-20 overflow-visible perspective-[3000px]">
             {/* Soft background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.03] blur-[100px] rounded-full pointer-events-none -z-10" />
 
@@ -132,10 +132,10 @@ export default function Livrable() {
 
                 {/* Header Text */}
                 <div className="mb-24">
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-4 tracking-tight leading-[1.1]">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground mb-4 tracking-tight leading-[1.1]">
                         Un document de pilotage
                         <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500">
+                        <span className="text-primary font-serif italic">
                             clair et actionnable
                         </span>
                     </h2>
@@ -210,7 +210,7 @@ export default function Livrable() {
 
                             {/* Main Title Area - Pure typography, huge whitespace */}
                             <div className="my-auto relative z-10 text-left pl-2">
-                                <h3 className="text-3xl md:text-4xl lg:text-4xl font-sans font-light text-[#1A1A1A] leading-[1.05] tracking-tight mb-6">
+                                <h3 className="text-3xl md:text-4xl lg:text-4xl font-sans font-light text-[#1A1A1A] leading-[1.05] tracking-tight mb-6 relative">
                                     Audit<br />
                                     Stratégique<span className="text-primary/80">.</span>
                                 </h3>
@@ -220,6 +220,13 @@ export default function Livrable() {
                                 <p className="text-[11px] font-sans text-muted/70 max-w-[200px] leading-relaxed font-medium">
                                     Positionnement structuré et stratégie digitale d'acquisition.
                                 </p>
+                            </div>
+
+                            {/* Center Decal - Subtle Legal Wink */}
+                            <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex items-center justify-center opacity-10">
+                                <div className="w-12 h-12 rounded-full border border-black/30 flex items-center justify-center">
+                                    <Scale className="w-5 h-5 text-black" strokeWidth={1.5} />
+                                </div>
                             </div>
 
                             {/* Bottom Bar - Minimal */}

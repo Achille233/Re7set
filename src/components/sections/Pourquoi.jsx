@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Infinity as InfinityIcon, Shuffle, Workflow, Target } from 'lucide-react';
+import { Infinity as InfinityIcon, Shuffle, Workflow, Phone } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,9 +22,9 @@ const FEATURES = [
         icon: Workflow,
     },
     {
-        title: "Un reporting clair, comme un dossier bien tenu",
-        desc: "Vous savez ce qui est fait, ce qui fonctionne et ce que ça rapporte. Aucun jargon — des chiffres lisibles et des actions concrètes.",
-        icon: Target,
+        title: "Un contact très rapproché, de bout en bout",
+        desc: "Nous ne sommes pas une agence distante. Nous avançons main dans la main avec vous, avec une communication fluide, directe et réactive pour ajuster la stratégie en temps réel.",
+        icon: Phone,
     }
 ];
 
@@ -60,13 +60,13 @@ export default function Pourquoi() {
     }, []);
 
     return (
-        <section id="pourquoi" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
+        <section id="pourquoi" className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent" ref={sectionRef}>
             <div className="max-w-6xl mx-auto flex flex-col items-center">
 
                 {/* Header */}
                 <div className="text-center mb-16 max-w-3xl">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground tracking-tight mb-6 text-balance">
-                        Pourquoi RE7SET&nbsp;?
+                        Pourquoi RE<span className="text-primary">7</span>SET&nbsp;?
                     </h2>
                     <p className="text-base text-muted font-sans leading-relaxed">
                         On connaît vos contraintes déontologiques, votre rapport au temps et ce que signifie un bon dossier. On construit autour de ça.
@@ -102,14 +102,21 @@ export default function Pourquoi() {
                                     </div>
                                 </div>
 
-                                {/* Content */}
-                                <div className="relative z-10 mt-auto flex flex-col gap-4 transform transition-transform duration-700 ease-out group-hover:-translate-y-2 text-left">
-                                    <h3 className="text-lg md:text-xl font-sans font-medium text-foreground transition-colors duration-700 group-hover:text-primary text-balance">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-muted text-sm md:text-base leading-relaxed font-sans transition-opacity duration-700 opacity-80 group-hover:opacity-100 text-pretty">
-                                        {feature.desc}
-                                    </p>
+                                {/* Content - Rigid Alignment */}
+                                <div className="relative z-10 w-full mt-auto pt-10 transform transition-transform duration-700 ease-out group-hover:-translate-y-2">
+                                    <div className="flex flex-col text-left">
+                                        {/* Fixed Height Title Area */}
+                                        <div className="h-[3.5rem] md:h-[4rem] mb-3">
+                                            <h3 className="text-lg md:text-xl font-sans font-medium text-foreground transition-colors duration-700 group-hover:text-primary leading-tight tracking-tight">
+                                                {feature.title}
+                                            </h3>
+                                        </div>
+
+                                        {/* Description */}
+                                        <p className="text-muted text-sm md:text-base leading-relaxed font-sans transition-opacity duration-700 opacity-80 group-hover:opacity-100 text-pretty">
+                                            {feature.desc}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         );

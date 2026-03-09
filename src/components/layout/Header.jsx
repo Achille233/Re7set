@@ -18,6 +18,8 @@ export default function Header() {
         : 'bg-white/95 backdrop-blur-md border-black/5';
 
     const textColorClass = isDarkPage ? 'text-white' : 'text-foreground';
+    const isOutilsIAPage = location.pathname === '/outils-ia';
+    const ctaText = isOutilsIAPage ? 'Audit IA offert' : 'Audit SEO offert';
 
     return (
         <header className="fixed top-0 left-0 w-full z-[100]">
@@ -151,7 +153,7 @@ export default function Header() {
 
                             {/* Text with slight glow */}
                             <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                                Audit SEO offert
+                                {ctaText}
                             </span>
                         </a>
                     </div>
@@ -163,11 +165,11 @@ export default function Header() {
                 className={`fixed inset-0 bg-white z-[100] transition-transform duration-500 flex flex-col pt-24 px-8 md:hidden ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
                 <div className="flex flex-col gap-6 font-sans text-xl font-medium">
-                    <a href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Services</a>
+                    <a href="/#offres" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Services</a>
                     <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Équipe</a>
                     <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Outils IA</a>
                     <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Contact</a>
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#2563EB] text-white py-4 rounded-full text-center hover:bg-blue-600 font-medium">Audit SEO offert</a>
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#2563EB] text-white py-4 rounded-full text-center hover:bg-blue-600 font-medium">{ctaText}</a>
                 </div>
             </div>
         </header>

@@ -92,7 +92,7 @@ export default function PricingNiveau03() {
                         <div className="w-16 h-16 bg-darkAccent flex items-center justify-center text-white text-2xl font-serif font-bold">
                             03
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-serif text-foreground">Mise en œuvre</h2>
+                        <h2 className="text-2xl md:text-4xl font-sans font-medium tracking-tight text-foreground">Mise en œuvre</h2>
                     </div>
                     <p className="text-sm font-sans text-muted md:ml-auto">
                         Déploiement & transformation · sur devis
@@ -107,7 +107,7 @@ export default function PricingNiveau03() {
                                 {offer.kicker}
                             </span>
 
-                            <h3 className="text-xl font-bold font-sans text-foreground mb-1">{offer.title}</h3>
+                            <h3 className="text-2xl font-bold font-sans tracking-tight text-foreground mb-2">{offer.title}</h3>
                             <p className="text-sm text-muted mb-8">{offer.desc}</p>
 
                             <ul className="space-y-3 mb-8 flex-grow">

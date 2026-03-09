@@ -32,7 +32,8 @@ function AuraVisual() {
     ];
 
     useEffect(() => {
-        // Ensure the core is perfectly centered using GSAP's transform origin
+        const container = auraCoreRef.current?.closest('section');
+
         gsap.set(auraCoreRef.current, {
             xPercent: -50,
             yPercent: -50,
@@ -40,28 +41,26 @@ function AuraVisual() {
             top: "50%"
         });
 
-        // Apparition initiale en douceur du noyau central
         gsap.fromTo(auraCoreRef.current,
             { scale: 0.9, opacity: 0 },
             { scale: 1, opacity: 1, duration: 1.2, ease: 'power3.out' }
         );
 
-        // Effet de lévitation continue du noyau central
-        gsap.to(auraCoreRef.current, {
+        // Lévitation noyau — en pause jusqu'à ce que visible
+        const coreAnim = gsap.to(auraCoreRef.current, {
             y: "-=8",
             scale: 1.02,
             duration: 3,
             repeat: -1,
             yoyo: true,
-            ease: "sine.inOut"
+            ease: "sine.inOut",
+            paused: true,
         });
 
-        // Mise en place et animation des badges orbitaux
+        // Placement initial des badges
         badgeRefs.current.forEach((badge, i) => {
             const radius = typeof window !== 'undefined' && window.innerWidth < 768 ? 130 : 180;
             const angle = badgesData[i].angle;
-
-            // Placement initial mathématique en cercle parfait
             gsap.set(badge, {
                 x: Math.cos(angle) * radius,
                 y: Math.sin(angle) * radius,
@@ -72,27 +71,43 @@ function AuraVisual() {
                 opacity: 0,
                 scale: 0.5
             });
+            gsap.to(badge, { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.5)", delay: 0.5 + (i * 0.1) });
+        });
 
-            // Arrivée "pop" en douceur
-            gsap.to(badge, {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: "back.out(1.5)",
-                delay: 0.5 + (i * 0.1)
-            });
-
-            // Lévitation subtile et propre à chaque badge (verticale uniquement pour un aspect propre)
+        // Lévitation badges — en pause jusqu'à ce que visible
+        const badgeAnims = badgeRefs.current.map((badge, i) =>
             gsap.to(badge, {
                 y: "-=10",
                 duration: 2.5 + i * 0.3,
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
-                delay: i * 0.2
-            });
-        });
+                delay: i * 0.2,
+                paused: true,
+            })
+        );
 
+        // Jouer/pauser selon visibilité
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    coreAnim.play();
+                    badgeAnims.forEach(a => a.play());
+                } else {
+                    coreAnim.pause();
+                    badgeAnims.forEach(a => a.pause());
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (container) observer.observe(container);
+
+        return () => {
+            observer.disconnect();
+            coreAnim.kill();
+            badgeAnims.forEach(a => a.kill());
+        };
     }, []);
 
     // Animation dynamique ("BUMP") lors de la révélation "Avant" -> "Après"
@@ -214,7 +229,7 @@ function AuraVisual() {
 
 export default function Deconstat() {
     return (
-        <section className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden object-cover select-none">
+        <section className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden object-cover">
             {/* Ambient Ambient Blue Glow */}
             <div className="absolute top-1/2 left-3/4 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
@@ -226,9 +241,9 @@ export default function Deconstat() {
                         Le problème
                     </span>
 
-                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-bold text-[#1A1A1A] leading-[1.1] tracking-tight mb-10">
+                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-medium text-foreground leading-[1.1] tracking-tight mb-10">
                         <span className="block mb-1">Votre expertise est peut-être excellente.</span>
-                        <span className="block text-[#0D7DF2]">Votre image digitale raconte une autre histoire.</span>
+                        <span className="block text-[#0D7DF2] font-serif italic">Votre image digitale raconte une autre histoire.</span>
                     </h2>
 
                     <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-light">

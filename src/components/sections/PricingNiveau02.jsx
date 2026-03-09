@@ -41,7 +41,7 @@ export default function PricingNiveau02() {
                         <div className="w-16 h-16 bg-primary flex items-center justify-center text-white text-2xl font-serif font-bold">
                             02
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-serif text-foreground">Diagnostic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500">Global</span></h2>
+                        <h2 className="text-2xl md:text-4xl font-sans font-medium tracking-tight text-foreground">Diagnostic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pr-4 pb-2">Global</span></h2>
                     </div>
                     <p className="text-sm font-sans text-muted md:ml-auto">
                         L'offre structurante · vision complète de votre cabinet
@@ -77,7 +77,7 @@ export default function PricingNiveau02() {
                                 <span className="text-[10px] sm:text-xs font-mono text-primary uppercase tracking-widest mb-4 block">
                                     L'offre structurante
                                 </span>
-                                <h3 className="text-2xl sm:text-3xl font-bold font-sans text-foreground mb-4 tracking-tight">RE7SET — Diagnostic Stratégique Complet</h3>
+                                <h3 className="text-2xl sm:text-3xl font-bold font-sans tracking-tight text-foreground mb-2">RE7SET — Diagnostic Stratégique Complet</h3>
                                 <p className="text-sm sm:text-base text-muted mb-10 max-w-2xl leading-relaxed">Passer d'un expert isolé à une véritable stratégie numérique. Nous analysons l'ensemble de votre présence pour révéler vos leviers de croissance cachés.</p>
 
                                 {/* Features section */}

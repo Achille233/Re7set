@@ -36,13 +36,16 @@ export default function Contact() {
         e.preventDefault();
         setFormState('loading');
 
-        const formData = new FormData(e.target);
+        const data = Object.fromEntries(new FormData(e.target));
 
         try {
-            const res = await fetch(`https://formspree.io/f/${SITE_CONFIG.formspreeId}`, {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
-                body: formData,
-                headers: { Accept: 'application/json' },
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
             });
 
             if (res.ok) {
@@ -57,7 +60,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
+        <section id="contact" className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
@@ -67,9 +70,9 @@ export default function Contact() {
                         <span className="text-sm uppercase tracking-widest font-mono text-muted mb-6 block">
                             Nous contacter
                         </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-10">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight mb-10">
                             <span className="text-foreground">Parlons de </span>
-                            <span className="text-primary">votre cabinet.</span>
+                            <span className="text-primary font-serif italic">votre cabinet.</span>
                         </h2>
 
                         {/* Référente card */}
@@ -103,7 +106,7 @@ export default function Contact() {
                             className="group flex items-center gap-3 bg-foreground text-white px-6 py-3.5 rounded-lg font-medium text-sm hover:bg-foreground/90 transition-colors w-full max-w-xs justify-center"
                         >
                             Prendre rendez-vous
-                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                            <Phone size={16} className="group-hover:rotate-12 transition-transform" />
                         </a>
                     </div>
 
@@ -166,11 +169,13 @@ export default function Contact() {
                                             name="service"
                                             className="w-full bg-white border border-foreground/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-foreground appearance-none cursor-pointer"
                                         >
-                                            <option>Audit Positionnement 250€</option>
-                                            <option>Audit SEO & GEO 300€</option>
-                                            <option>Audit IA 450€</option>
-                                            <option>Diagnostic Global 900€</option>
-                                            <option>Mise en œuvre sur devis</option>
+                                            <option value="">Sélectionner un service</option>
+                                            <option>Audit Stratégique Gratuit</option>
+                                            <option>Diagnostic Stratégique Global</option>
+                                            <option>Audits & Optimisations SEO</option>
+                                            <option>Outils & Solutions IA</option>
+                                            <option>Coaching & Transformation</option>
+                                            <option>Autre demande</option>
                                         </select>
                                     </div>
                                 </div>
@@ -194,28 +199,46 @@ export default function Contact() {
                                     </div>
                                 )}
 
-                                <button
-                                    type="submit"
-                                    disabled={formState === 'loading'}
-                                    className="group relative w-full bg-primary text-white py-4 rounded-lg font-medium flex items-center justify-center gap-2 overflow-hidden shadow-lg shadow-primary/20 hover:brightness-110 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
-                                >
-                                    <span className="relative flex items-center gap-2">
-                                        {formState === 'loading' ? (
-                                            <>
-                                                <Loader size={18} className="animate-spin" />
-                                                Envoi en cours…
-                                            </>
-                                        ) : (
-                                            <>
-                                                <ArrowRight size={18} />
-                                                Envoyer ma demande
-                                            </>
+                                <div className="relative w-full group/submit mt-4">
+                                    {/* Pulse effect like in the Header */}
+                                    <div className="absolute inset-0 bg-primary/40 rounded-full blur-[20px] animate-[pulse_3s_ease-in-out_infinite] transition-all duration-300 opacity-60 group-hover/submit:opacity-100"></div>
+
+                                    <button
+                                        type="submit"
+                                        disabled={formState === 'loading'}
+                                        className="relative w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-white/20 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                                    >
+                                        {/* Inner Bright Ring */}
+                                        <div className="absolute inset-0 ring-[1px] ring-blue-300/50 rounded-full pointer-events-none"></div>
+
+                                        {/* Subtle inner light */}
+                                        <div className="absolute top-0 right-0 w-1/2 h-full bg-white/20 blur-[15px] opacity-40 mix-blend-overlay pointer-events-none"></div>
+
+                                        {/* Shimmer effect background */}
+                                        {formState !== 'loading' && (
+                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/submit:animate-[shimmer_1.5s_infinite]" />
                                         )}
-                                    </span>
-                                    {formState !== 'loading' && (
-                                        <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 group-hover:left-[200%] transition-all duration-700 ease-out" />
-                                    )}
-                                </button>
+
+                                        <span className="relative z-10 text-sm md:text-base flex items-center gap-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+                                            {formState === 'loading' ? (
+                                                <>
+                                                    <Loader size={18} className="animate-spin" />
+                                                    Envoi en cours…
+                                                </>
+                                            ) : (
+                                                'Envoyer ma demande'
+                                            )}
+                                        </span>
+
+                                        {formState !== 'loading' && (
+                                            <div className="relative z-10 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm group-hover/submit:bg-white/30 transition-colors">
+                                                <svg className="w-4 h-4 transform group-hover/submit:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        )}
+                                    </button>
+                                </div>
 
                                 <p className="text-center text-xs text-muted flex items-center justify-center gap-1">
                                     🔒 Vos données sont traitées de manière confidentielle. NDA disponible sur demande.

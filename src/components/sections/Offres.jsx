@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { PopupModal } from 'react-calendly';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,7 +37,7 @@ export default function Offres() {
     }, []);
 
     return (
-        <section ref={sectionRef} id="offres" className="relative w-full py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden">
+        <section ref={sectionRef} id="offres" className="relative w-full py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-transparent overflow-hidden">
             {/* Background elements to make this section pop despite being on a transparent global background */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/5 to-[#050505]/10 pointer-events-none -z-10"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
@@ -55,27 +55,36 @@ export default function Offres() {
 
                         {/* Top Label */}
                         <div className="reveal-el inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/5 border border-primary/10 mb-10">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                            </span>
                             <span className="text-[11px] font-sans font-semibold text-primary tracking-widest uppercase">
                                 Audit Stratégique Offert
                             </span>
                         </div>
 
                         {/* Typo Hook */}
-                        <h2 className="reveal-el text-4xl md:text-5xl lg:text-6xl font-sans font-extrabold text-slate-900 mb-8 tracking-tighter leading-[1.05] text-balance">
+                        <h2 className="reveal-el text-3xl md:text-5xl lg:text-5xl font-sans font-extrabold text-slate-900 mb-6 tracking-tighter leading-[1.05] text-balance">
                             Chaque mois sans stratégie digitale,<br />
-                            <span className="italic font-serif font-light text-slate-500">vos concurrents avancent à votre place.</span>
+                            <span className="text-primary font-serif italic">vos concurrents avancent à votre place.</span>
                         </h2>
 
                         {/* Subtitle / Promise */}
-                        <p className="reveal-el text-base md:text-lg lg:text-xl text-slate-600 font-sans max-w-2xl mx-auto mb-14 leading-relaxed text-balance">
-                            Nous analysons la visibilité de votre cabinet, votre positionnement face à la concurrence et les leviers de croissance que vous n'avez pas encore actionnés.
-                            <br /><br />
-                            <strong className="text-slate-900 font-medium block">Réservez votre audit de 30 minutes. On vous livre un plan d'action concret — ou vous gardez le document, sans suite.</strong>
+                        <p className="reveal-el text-base md:text-lg lg:text-xl text-slate-600 font-sans max-w-2xl mx-auto mb-8 leading-relaxed text-balance">
+                            Nous analysons la visibilité de votre cabinet, votre positionnement face à la concurrence et les leviers de croissance que vous n'avez pas encore actionnés au cœur de RE7SET.
                         </p>
+
+                        {/* Guarantee Highlight */}
+                        <div className="reveal-el bg-primary/5 border border-primary/20 rounded-xl p-4 max-w-xl mx-auto mb-8 text-primary font-medium">
+                            🎯 On vous livre un plan concret ou vous gardez le document, sans suite.
+                        </div>
+
+                        {/* Benefits Row */}
+                        <div className="reveal-el flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+                            {['Analyse Offerte', 'Zéro Engagement', 'Plan Actionnable'].map((label, idx) => (
+                                <div key={idx} className="flex items-center gap-2 font-sans font-semibold text-slate-700 bg-white shadow-sm border border-slate-100 px-4 pt-1.5 pb-2 rounded-lg text-sm">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                    <span>{label}</span>
+                                </div>
+                            ))}
+                        </div>
 
 
                         {/* Shimmering CTA Button */}

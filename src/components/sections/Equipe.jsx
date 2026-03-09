@@ -1,10 +1,3 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import RevealText from '../animations/RevealText';
-
-gsap.registerPlugin(ScrollTrigger);
-
 const TEAM = [
     {
         name: "Stanislas B.",
@@ -49,32 +42,23 @@ const TEAM = [
 ];
 
 export default function Equipe() {
-    const teamRef = useRef(null);
-
-    useEffect(() => {
-        if (!teamRef.current) return;
-        const cards = teamRef.current.querySelectorAll('.team-card');
-
-        // Animation retirée à la demande de l'utilisateur
-    }, []);
-
     return (
-        <section id="equipe" className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent">
+        <section id="equipe" className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-transparent">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16">
                     <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
                         Notre équipe
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-4 max-w-3xl">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground mb-4 max-w-3xl">
                         <span className="block">Une équipe taillée pour</span>
-                        <span className="block text-primary">l'excellence.</span>
+                        <span className="block text-primary font-serif italic">l'excellence.</span>
                     </h2>
                     <p className="text-base font-sans text-muted max-w-2xl">
                         La rencontre unique entre l'expertise bancaire, la maîtrise technique du SEO et la connaissance intime du monde juridique.
                     </p>
                 </div>
 
-                <div ref={teamRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                     {TEAM.map((member, i) => (
                         <div
                             key={i}
@@ -86,7 +70,7 @@ export default function Equipe() {
                             {/* Avatar / Photo */}
                             <div className="w-24 h-24 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-3xl mb-6 overflow-hidden">
                                 {member.image ? (
-                                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
                                 ) : (
                                     member.initial
                                 )}
