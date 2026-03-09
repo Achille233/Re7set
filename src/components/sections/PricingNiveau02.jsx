@@ -41,7 +41,7 @@ export default function PricingNiveau02() {
                         <div className="w-16 h-16 bg-primary flex items-center justify-center text-white text-2xl font-serif font-bold">
                             02
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-sans font-medium tracking-tight text-foreground">Diagnostic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pr-4 pb-2">Global</span></h2>
+                        <h2 className="text-2xl md:text-4xl font-sans font-medium tracking-tight text-foreground">Diagnostic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pr-4 pb-2">Global</span></h2>
                     </div>
                     <p className="text-sm font-sans text-muted md:ml-auto">
                         L'offre structurante · vision complète de votre cabinet

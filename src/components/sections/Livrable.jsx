@@ -135,7 +135,7 @@ export default function Livrable() {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground mb-4 tracking-tight leading-[1.1]">
                         Un document de pilotage
                         <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pb-2">
                             clair et actionnable
                         </span>
                     </h2>

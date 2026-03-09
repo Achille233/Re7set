@@ -110,7 +110,7 @@ export default function Piliers() {
                 {/* Section Header */}
                 <div className="mb-12">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground">
-                        Nos services : L'équation parfaite pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">votre croissance.</span>
+                        Nos services : L'équation parfaite pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pb-2">votre croissance.</span>
                     </h2>
                 </div>
 

@@ -71,7 +71,7 @@ export default function Resultats() {
                         Résultats projetés
                     </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-black tracking-tighter text-[#1a1c1e] mb-3 leading-[1.1]">
-                        À quoi ressemble votre cabinet <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D7DF2] to-[#00BCFA] font-serif italic pb-1">dans 90 jours.</span>
+                        À quoi ressemble votre cabinet <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D7DF2] to-[#00BCFA] pb-1">dans 90 jours.</span>
                     </h2>
                     <p className="text-[15px] font-sans text-[#4a5568] font-medium max-w-xl mx-auto leading-relaxed">
                         Des résultats concrets obtenus quand l'expertise métier rencontre une stratégie digitale d'excellence récompensée par les algorithmes.

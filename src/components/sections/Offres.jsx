@@ -53,7 +53,7 @@ export default function Offres() {
                 {/* Title */}
                 <h2 className="text-xl md:text-3xl lg:text-[32px] font-sans font-bold tracking-tight leading-[1.2] text-balance mb-10 max-w-[480px]">
                     <span className="text-[#1A1A1A] block">Chaque mois sans stratégie,</span>
-                    <span className="block mt-1 bg-gradient-to-r from-[#00BCFA] to-[#0051e0] bg-clip-text text-transparent italic font-serif">vos concurrents avancent.</span>
+                    <span className="block mt-1 bg-gradient-to-r from-[#00BCFA] to-[#0051e0] bg-clip-text text-transparent">vos concurrents avancent.</span>
                 </h2>
 
                 {/* RE7SET Pill Button */}

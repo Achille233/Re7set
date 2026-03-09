@@ -242,7 +242,7 @@ export default function Deconstat() {
 
                     <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-black text-foreground leading-[1.1] tracking-tight mb-10">
                         <span className="block mb-1">Votre expertise est peut-être excellente.</span>
-                        <span className="block text-[#0D7DF2] font-serif italic pb-2">Votre image digitale raconte une autre histoire.</span>
+                        <span className="block text-[#0D7DF2] pb-2">Votre image digitale raconte une autre histoire.</span>
                     </h2>
 
                     <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-medium">

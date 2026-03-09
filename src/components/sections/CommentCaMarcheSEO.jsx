@@ -55,7 +55,7 @@ export default function CommentCaMarcheSEO() {
                         COMMENT ÇA MARCHE
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white tracking-tight">
-                        Vous n'êtes qu'à <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">3 corrections</span> d'un trafic exponentiel
+                        Vous n'êtes qu'à <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pb-2">3 corrections</span> d'un trafic exponentiel
                     </h2>
                 </div>
 

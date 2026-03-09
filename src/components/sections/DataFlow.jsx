@@ -72,7 +72,7 @@ export default function DataFlow({ theme = 'light' }) {
 
                 <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
                     <h2 className={`text-4xl md:text-5xl lg:text-6xl font-sans font-medium mb-6 tracking-tight leading-tight ${textMain}`}>
-                        Votre expertise mérite d'être trouvée <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 font-serif italic pb-2">par les bons clients.</span>
+                        Votre expertise mérite d'être trouvée <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pb-2">par les bons clients.</span>
                     </h2>
                     <p className={`text-base font-sans leading-relaxed max-w-2xl mx-auto ${textMuted}`}>
                         Nous analysons les mots-clés sur lesquels vos confrères dominent et déployons un SEO de précision pour que votre cabinet capte les dossiers à forte valeur ajoutée.
