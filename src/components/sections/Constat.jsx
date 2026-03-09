@@ -59,7 +59,7 @@ export default function Constat() {
 
     return (
         <section ref={sectionRef} className="relative w-full py-12 md:py-16 px-6 bg-[#F8FAFC] overflow-hidden border-y border-black/5">
-            <div className="max-w-[1000px] mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header section (Compact & Inline-like) */}
                 <div className="reveal-el flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-12">

@@ -8,20 +8,20 @@ gsap.registerPlugin(ScrollTrigger);
 const IMPACTS = [
     {
         id: '01',
-        title: "Assainissement de la présence locale",
-        desc: "Structuration de votre positionnement sur les recherches à forte valeur ajoutée. Votre cabinet devient la réponse évidente ciblée par Google et les algorithmes d'IA.",
+        title: "Visibilité locale maîtrisée",
+        desc: "Votre cabinet apparaît en tête des recherches locales et des requêtes IA. Chaque prospect qui cherche votre expertise vous trouve en premier.",
         icon: <Network className="w-6 h-6 text-[#0D7DF2]" strokeWidth={1.5} />,
     },
     {
         id: '02',
-        title: "Maîtrise de la réputation en ligne",
-        desc: "Une preuve sociale irréprochable qui transforme l'intérêt en prise de contact qualifiée, avant même le premier échange avec le client.",
+        title: "Réputation qui convertit",
+        desc: "Des avis structurés et une image cohérente transforment la curiosité en prise de contact. Votre crédibilité précède chaque conversation.",
         icon: <Database className="w-6 h-6 text-[#0D7DF2]" strokeWidth={1.5} />,
     },
     {
         id: '03',
-        title: "Rationalisation des processus",
-        desc: "Délégation des tâches chronophages à des systèmes d'intelligence artificielle sur-mesure et sécurisés, libérant un temps précieux pour le travail juridique.",
+        title: "Temps libéré par l'IA",
+        desc: "Des outils d'intelligence artificielle sur mesure prennent en charge les tâches répétitives. Vous vous concentrez sur le travail à valeur ajoutée.",
         icon: <BrainCircuit className="w-6 h-6 text-[#0D7DF2]" strokeWidth={1.5} />,
     }
 ];
@@ -53,43 +53,49 @@ export default function Resultats() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full py-20 md:py-32 px-6 bg-white overflow-hidden border-y border-black/5">
+        <section ref={sectionRef} className="relative w-full py-20 md:py-32 px-6 bg-[#FCFDFE] overflow-hidden border-y border-black/5">
+            {/* Arrière-plan subtilement néon (bruit/glow) */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(13,125,242,0.05),transparent_70%)] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0D7DF2]/[0.02] blur-[100px] rounded-full pointer-events-none" />
+
             <div className="max-w-[1200px] mx-auto relative z-10">
 
-                {/* Header aligné à gauche */}
-                <div className="reveal-impact max-w-2xl mb-16 md:mb-24">
-                    <span className="inline-block px-3 py-1 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-full text-[10px] font-mono font-bold uppercase tracking-widest mb-6">
+                {/* Header aligné au centre */}
+                <div className="reveal-impact max-w-3xl mx-auto text-center mb-16 md:mb-24 flex flex-col items-center">
+                    <span className="inline-block px-3 py-1 bg-[#0D7DF2]/10 border border-[#0D7DF2]/20 text-[#0D7DF2] rounded-full text-[10px] font-mono font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(13,125,242,0.15)]">
                         L'impact RE7SET
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-[#1a1c1e] leading-[1.1] mb-6">
-                        La structuration comme <span className="text-[#0D7DF2]">levier de croissance.</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-medium tracking-tight text-[#1a1c1e] leading-[1.1] mb-6">
+                        Votre cabinet, visible là où <span className="text-[#0D7DF2] drop-shadow-[0_0_20px_rgba(13,125,242,0.2)]">vos clients vous cherchent.</span>
                     </h2>
-                    <p className="text-lg font-sans text-[#4a5568] leading-relaxed">
-                        Nous ne vendons pas de promesses éphémères. Nous mettons en place des fondations digitales robustes pour que votre expertise rencontre sa véritable valeur sur le marché.
+                    <p className="text-lg font-sans text-[#4a5568] leading-relaxed max-w-2xl">
+                        Nous construisons une présence digitale structurée qui positionne votre expertise au bon endroit, au bon moment, devant les bons clients.
                     </p>
                 </div>
 
                 {/* Liste Interactive Minimaliste (Style Accordéon / Tabs sur Desktop) */}
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 relative">
 
                     {/* Colonne de gauche : Navigation / Liste */}
-                    <div className="w-full lg:w-1/2 flex flex-col gap-4">
+                    <div className="w-full lg:w-1/2 flex flex-col gap-4 relative z-20">
                         {IMPACTS.map((item, idx) => {
                             const isActive = activeIdx === idx;
                             return (
                                 <div
                                     key={idx}
                                     onClick={() => setActiveIdx(idx)}
-                                    className={`reveal-impact group cursor-pointer border-b border-black/5 pb-6 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-50 hover:opacity-100'}`}
+                                    className={`reveal-impact group cursor-pointer border-b border-black/5 pb-6 transition-all duration-300 relative ${isActive ? 'opacity-100 pl-4' : 'opacity-40 hover:opacity-100 hover:pl-4'}`}
                                 >
-                                    <div className="flex items-center gap-6 mb-3">
-                                        <span className={`font-mono text-sm font-bold transition-colors duration-300 ${isActive ? 'text-[#0D7DF2]' : 'text-[#a0aec0]'}`}>
+                                    <div className="flex items-center gap-6 mb-3 relative">
+                                        <div className={`absolute -left-6 top-1/2 -translate-y-1/2 w-[5px] h-[34px] bg-[#0D7DF2] rounded-full shadow-[0_0_15px_rgba(13,125,242,0.5)] transition-all duration-300 ${isActive ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
+
+                                        <span className={`font-mono text-sm font-bold transition-all duration-300 ${isActive ? 'text-[#0D7DF2] drop-shadow-[0_0_8px_rgba(13,125,242,0.4)]' : 'text-[#a0aec0]'}`}>
                                             {item.id}
                                         </span>
                                         <h3 className={`text-xl md:text-2xl font-sans font-medium tracking-tight transition-colors duration-300 ${isActive ? 'text-[#1a1c1e]' : 'text-[#4a5568]'}`}>
                                             {item.title}
                                         </h3>
-                                        <ArrowRight className={`ml-auto w-5 h-5 transition-all duration-300 ${isActive ? 'text-[#0D7DF2] opacity-100 translate-x-0' : 'text-[#a0aec0] opacity-0 -translate-x-4 group-hover:opacity-50'}`} />
+                                        <ArrowRight className={`ml-auto w-5 h-5 transition-all duration-300 ${isActive ? 'text-[#0D7DF2] opacity-100 translate-x-0 drop-shadow-[0_0_8px_rgba(13,125,242,0.3)]' : 'text-[#a0aec0] opacity-0 -translate-x-4 group-hover:opacity-40 group-hover:translate-x-0'}`} />
                                     </div>
 
                                     {/* Mobile Only Content (Accordion style) */}
@@ -104,19 +110,23 @@ export default function Resultats() {
                     </div>
 
                     {/* Colonne de droite : Affichage dynamique (Desktop Only) */}
-                    <div className="hidden lg:flex w-full lg:w-1/2 relative min-h-[300px] items-center">
+                    <div className="hidden lg:flex w-full lg:w-1/2 relative min-h-[350px] items-center justify-center">
+                        {/* Glow orb behind active card */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#0D7DF2]/10 blur-[80px] rounded-full pointer-events-none transition-all duration-700" />
+
                         {IMPACTS.map((item, idx) => (
                             <div
                                 key={idx}
-                                className={`absolute inset-0 flex flex-col justify-center bg-[#F8FAFC] rounded-3xl p-12 transition-all duration-700 ease-in-out ${activeIdx === idx ? 'opacity-100 translate-y-0 relative z-10 shadow-[0_20px_40px_rgba(13,125,242,0.08)]' : 'opacity-0 translate-y-8 z-0 pointer-events-none'}`}
+                                className={`absolute w-full max-w-[450px] flex flex-col justify-center items-center text-center bg-white/70 backdrop-blur-xl rounded-3xl p-10 lg:p-12 transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)] border border-white/80 ${activeIdx === idx ? 'opacity-100 translate-y-0 scale-100 z-10 shadow-[0_20px_50px_rgba(13,125,242,0.08),inset_0_0_0_1px_rgba(255,255,255,0.5)]' : 'opacity-0 translate-y-12 scale-95 z-0 pointer-events-none'}`}
                             >
-                                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-8 border border-black/5">
+                                <div className="w-16 h-16 bg-[#F8FAFC] rounded-2xl flex flex-col items-center justify-center shadow-inner mb-6 border border-black/5 shrink-0 relative group-hover:scale-105 transition-transform duration-300">
+                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
                                     {item.icon}
                                 </div>
-                                <h4 className="text-2xl font-sans font-medium text-[#1a1c1e] mb-4">
+                                <h4 className="text-[22px] font-sans font-black tracking-tight text-[#1a1c1e] mb-4">
                                     {item.title}
                                 </h4>
-                                <p className="text-[#4a5568] font-sans text-lg leading-relaxed">
+                                <p className="text-[#4a5568] font-sans text-[17px] leading-relaxed font-medium">
                                     {item.desc}
                                 </p>
                             </div>
