@@ -58,7 +58,7 @@ export default function Constat() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full py-12 md:py-16 px-6 bg-[#F8FAFC] overflow-hidden border-y border-black/5">
+        <section ref={sectionRef} className="relative w-full py-12 md:py-16 px-6 bg-transparent overflow-hidden">
             <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header section (Compact & Inline-like) */}

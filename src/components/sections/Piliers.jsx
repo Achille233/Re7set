@@ -108,9 +108,13 @@ export default function Piliers() {
             <div className="max-w-6xl mx-auto flex flex-col gap-8">
 
                 {/* Section Header */}
-                <div className="mb-12">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-foreground">
-                        Nos services : L'équation parfaite pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-500 pb-2">votre croissance.</span>
+                <div className="mb-12 max-w-2xl">
+                    <span className="text-sm uppercase tracking-widest font-mono text-muted mb-4 block">
+                        Nos services
+                    </span>
+                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-black text-foreground leading-[1.1] tracking-tight m-0">
+                        <span className="block mb-1">L'équation parfaite pour</span>
+                        <span className="block text-[#0D7DF2]">votre croissance.</span>
                     </h2>
                 </div>
 

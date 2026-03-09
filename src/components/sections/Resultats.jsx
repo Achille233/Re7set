@@ -53,7 +53,7 @@ export default function Resultats() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full py-20 md:py-32 px-6 bg-[#FCFDFE] overflow-hidden border-y border-black/5">
+        <section ref={sectionRef} className="relative w-full py-20 md:py-32 px-6 bg-transparent overflow-hidden">
             {/* Arrière-plan subtilement néon (bruit/glow) */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(13,125,242,0.05),transparent_70%)] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0D7DF2]/[0.02] blur-[100px] rounded-full pointer-events-none" />
@@ -63,13 +63,13 @@ export default function Resultats() {
                 {/* Header aligné au centre */}
                 <div className="reveal-impact max-w-3xl mx-auto text-center mb-16 md:mb-24 flex flex-col items-center">
                     <span className="inline-block px-3 py-1 bg-[#0D7DF2]/10 border border-[#0D7DF2]/20 text-[#0D7DF2] rounded-full text-[10px] font-mono font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(13,125,242,0.15)]">
-                        L'impact RE7SET
+                        La solution
                     </span>
                     <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-medium tracking-tight text-[#1a1c1e] leading-[1.1] mb-6">
-                        Votre cabinet, visible là où <span className="text-[#0D7DF2] drop-shadow-[0_0_20px_rgba(13,125,242,0.2)]">vos clients vous cherchent.</span>
+                        Passez d'une présence subie à <span className="text-[#0D7DF2] drop-shadow-[0_0_20px_rgba(13,125,242,0.2)]">un écosystème performant.</span>
                     </h2>
                     <p className="text-lg font-sans text-[#4a5568] leading-relaxed max-w-2xl">
-                        Nous construisons une présence digitale structurée qui positionne votre expertise au bon endroit, au bon moment, devant les bons clients.
+                        Nous reprenons le contrôle de votre image de bout en bout pour en faire votre meilleur apporteur d'affaires. Voici les trois piliers sur lesquels nous bâtissons votre croissance.
                     </p>
                 </div>
 
