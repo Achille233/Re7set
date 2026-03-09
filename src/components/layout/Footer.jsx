@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        // Prevent FOUC (Flash of Unstyled Content) by delaying footer render
+        // until the Suspense boundary in App.jsx has likely resolved the main content.
+        const timer = setTimeout(() => {
+            setIsMounted(true);
+        }, 300); // 300ms is usually enough for the first chunk to render
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (!isMounted) return null;
+
     return (
         <footer className="w-full bg-darkAccent text-white border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16">
