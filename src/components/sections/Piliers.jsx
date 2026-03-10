@@ -355,6 +355,9 @@ export default function Piliers() {
                 </div>
 
             </div>
+
+            {/* NEON EFFECT CONNECTING TO NEXT SECTION */}
+            <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0D7DF2]/30 blur-[130px] rounded-[100%] pointer-events-none -z-10 mix-blend-multiply"></div>
         </section>
     );
 }

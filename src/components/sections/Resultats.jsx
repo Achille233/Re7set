@@ -53,9 +53,8 @@ export default function Resultats() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full py-20 md:py-32 px-6 bg-transparent overflow-hidden">
+        <section ref={sectionRef} className="relative w-full pt-10 pb-20 md:pb-32 px-6 bg-transparent overflow-hidden">
             {/* Arrière-plan subtilement néon (bruit/glow) */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(13,125,242,0.05),transparent_70%)] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#0D7DF2]/[0.02] blur-[100px] rounded-full pointer-events-none" />
 
             <div className="max-w-[1200px] mx-auto relative z-10">

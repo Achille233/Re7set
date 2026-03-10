@@ -1,11 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Calendar } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
 
 export default function Footer() {
     return (
         <footer className="w-full bg-white text-foreground font-sans overflow-hidden border-t border-black/5 relative z-10 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
+            {/* TOP CTA SECTION */}
+            <div className="w-full px-6 md:px-12 lg:px-24 border-b border-black/5 relative bg-gradient-to-b from-white to-slate-50/50">
+                <div className="max-w-7xl mx-auto py-8 lg:py-10">
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+
+                        {/* CTA Text */}
+                        <div className="w-full lg:max-w-[850px] xl:max-w-[950px]">
+                            {/* Premium Badge Light */}
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/10 bg-white mb-5">
+                                <span className="text-[10px] font-sans font-bold tracking-[0.14em] text-slate-500 uppercase flex items-center gap-2">
+                                    <div className="w-2.5 h-2.5 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
+                                    </div>
+                                    AGENCE IA & VISIBILITÉ
+                                </span>
+                            </div>
+
+                            <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-sans font-black text-[#111111] leading-[1.05] tracking-[-0.03em] mb-3 text-balance">
+                                Transformez votre image digitale en levier de croissance.
+                            </h2>
+                            <p className="text-[15px] text-slate-500 font-medium max-w-[500px] leading-relaxed">
+                                Envie d'échanger avec l'équipe qui s'investira dans votre cabinet comme si c'était le sien ? Réservez votre appel stratégique offert.
+                            </p>
+                        </div>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col items-center lg:items-end justify-center gap-4 shrink-0 w-full lg:w-auto mt-6 lg:mt-0 lg:mb-8">
+                            <a
+                                href={SITE_CONFIG.calendlyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 bg-[#0D7DF2] hover:bg-[#005AD2] text-white px-6 py-3.5 rounded-full font-bold text-[14px] transition-all duration-300 shadow-[0_8px_20px_rgba(13,125,242,0.25)] hover:shadow-[0_12px_28px_rgba(13,125,242,0.35)] transform hover:-translate-y-1 w-full lg:w-auto"
+                            >
+                                <Calendar size={16} strokeWidth={2.5} />
+                                Prendre un rendez-vous
+                            </a>
+                            <a
+                                href="mailto:contact@re7set.com"
+                                className="group inline-flex items-center justify-center lg:justify-end gap-2 text-[#4A5568] font-bold text-[14px] hover:text-[#0D7DF2] transition-colors w-full lg:mr-4"
+                            >
+                                Nous contacter
+                                <ArrowUpRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-slate-400 group-hover:text-[#0D7DF2]" />
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             {/* MIDDLE NAVIGATION GRID */}
             <div className="w-full px-6 md:px-12 lg:px-24 bg-white">
                 <div className="max-w-7xl mx-auto py-8 lg:py-12">
