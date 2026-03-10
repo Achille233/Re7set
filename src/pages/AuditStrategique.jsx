@@ -80,37 +80,37 @@ export default function AuditStrategique() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-[#0EA5E9]/10 blur-[120px] rounded-full pointer-events-none"></div>
 
             {/* HERO SECTION */}
-            <section className="relative z-10 pt-40 pb-32 px-6 md:px-12 flex flex-col items-center text-center">
+            <section className="relative z-10 min-h-[95vh] pt-32 pb-12 px-6 md:px-12 flex flex-col items-center justify-center text-center">
 
-                {/* Main Title Area */}
-                <div className="relative w-full max-w-5xl">
+                {/* Main Content Wrapper for precise badge positioning */}
+                <div className="relative w-full max-w-5xl flex flex-col items-center justify-center mt-12 mb-12">
 
                     {/* Floating Badges */}
-                    <div className="hidden lg:flex float-badge-1 absolute -left-16 top-0 xl:-left-32 xl:-top-10 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-lg items-center text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase">
+                    <div className="hidden lg:flex float-badge-1 absolute -left-8 top-0 xl:-left-20 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2 rounded-lg items-center text-[10px] md:text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase pointer-events-none">
                         Audit Technique
                     </div>
-                    <div className="hidden lg:flex float-badge-2 absolute -right-10 top-32 xl:-right-24 xl:top-40 bg-[#111] border border-white/10 px-4 py-2 rounded-lg items-center text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase z-10">
-                        Profil Google Local
-                    </div>
-                    <div className="hidden lg:flex float-badge-3 absolute left-0 bottom-40 xl:-left-20 xl:bottom-28 bg-[#111] border border-white/10 px-4 py-2 rounded-lg items-center text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase">
+                    <div className="hidden lg:flex float-badge-3 absolute -left-0 top-32 xl:-left-8 bg-[#111] border border-white/10 px-4 py-2 rounded-lg items-center text-[10px] md:text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase pointer-events-none">
                         Optimisation Mots-Clés
                     </div>
+                    <div className="hidden lg:flex float-badge-2 absolute -right-8 top-40 xl:-right-16 bg-[#111] border border-white/10 px-4 py-2 rounded-lg items-center text-[10px] md:text-xs text-white/80 shadow-2xl font-mono tracking-widest uppercase z-10 pointer-events-none">
+                        Profil Google Local
+                    </div>
 
-                    <h1 className="audit-anim text-4xl md:text-6xl lg:text-7xl font-sans font-medium leading-[1.1] tracking-tight mb-8">
+                    <h1 className="audit-anim text-5xl md:text-6xl lg:text-7xl font-sans font-medium leading-[1.1] tracking-tight mb-8">
                         Audits & <br className="hidden md:block" /> Optimisations SEO
                     </h1>
+
+                    <p className="audit-anim text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Positionnement, audit technique, sémantique & géographique pour dominer les recherches locales web et attirer les meilleurs dossiers.
+                    </p>
+
+                    <a href="#contenu" className="audit-anim inline-block bg-[#2563EB] hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-medium text-[15px] transition-colors duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] z-20">
+                        Demander un audit
+                    </a>
                 </div>
 
-                <p className="audit-anim text-lg md:text-xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Positionnement, audit technique, sémantique & géographique pour dominer les recherches locales web et attirer les meilleurs dossiers.
-                </p>
-
-                <a href="#contenu" className="audit-anim inline-block bg-[#2563EB] hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-medium text-[15px] transition-colors duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] z-20 mb-32">
-                    Demander un audit
-                </a>
-
                 {/* Animated Graph Visual - Organic Growth Variation */}
-                <div className="audit-anim w-full max-w-6xl mx-auto mt-6 relative h-[350px]">
+                <div className="audit-anim w-full max-w-6xl mx-auto mt-6 relative h-[350px] shrink-0">
 
                     {/* Faint Background Wave */}
                     <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
@@ -198,11 +198,7 @@ export default function AuditStrategique() {
                                     </ul>
                                 </div>
 
-                                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                                    <div>
-                                        <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase block mb-1">Prix indicatif</span>
-                                        <span className="text-2xl font-serif font-bold text-white">{audit.price}</span>
-                                    </div>
+                                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-end">
                                     <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 text-white rounded-lg hover:bg-primary transition-colors group-hover:-translate-y-1 duration-300 border border-white/10 hover:border-transparent">
                                         <ArrowRight className="w-5 h-5" />
                                     </a>

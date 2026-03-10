@@ -79,7 +79,7 @@ export default function DiagnosticStrategique() {
 
     const timelineData = [
         {
-            title: "Semaine 1",
+            title: "Étape 1",
             content: (
                 <div>
                     <h4 className="text-xl text-white font-serif mb-4">Immersion & Audit Existant</h4>
@@ -102,7 +102,7 @@ export default function DiagnosticStrategique() {
             )
         },
         {
-            title: "Semaine 2",
+            title: "Étape 2",
             content: (
                 <div>
                     <h4 className="text-xl text-white font-serif mb-4">Potentiel IA & Modélisation</h4>
@@ -125,7 +125,7 @@ export default function DiagnosticStrategique() {
             )
         },
         {
-            title: "Semaine 3",
+            title: "Étape 3",
             content: (
                 <div>
                     <h4 className="text-xl text-white font-serif mb-4">Restitution & Roadmap</h4>
@@ -205,22 +205,66 @@ export default function DiagnosticStrategique() {
                         {/* Mockup Body splitting */}
                         <div className="flex h-[calc(100%-2.5rem)]">
                             {/* Left panel placeholder simulating an interface */}
-                            <div className="w-64 border-r border-white/5 bg-[#161616] p-6 flex flex-col gap-4">
-                                <div className="h-6 w-3/4 bg-white/10 rounded"></div>
-                                <div className="h-4 w-full bg-white/5 rounded mb-4"></div>
+                            <div className="hidden md:flex w-64 border-r border-white/5 bg-[#161616] flex-col">
+                                {/* Sidebar Header */}
+                                <div className="p-5 border-b border-white/5 flex items-center justify-between">
+                                    <div className="flex items-center gap-3 w-full">
+                                        <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center shrink-0">
+                                            <div className="w-3 h-3 bg-white rounded-sm"></div>
+                                        </div>
+                                        <div className="flex flex-col gap-1 w-full">
+                                            <div className="h-3 w-2/3 bg-white/20 rounded"></div>
+                                            <div className="h-2 w-1/3 bg-white/10 rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <div className="space-y-3">
-                                    <div className="h-4 w-full bg-white/5 rounded flex items-center px-2 gap-2">
-                                        <div className="w-3 h-3 border border-white/20"></div>
-                                        <div className="h-2 w-1/2 bg-white/10 rounded"></div>
+                                {/* Sidebar Navigation Items */}
+                                <div className="p-4 flex-1 flex flex-col gap-6">
+                                    {/* Section 1 */}
+                                    <div className="space-y-2.5">
+                                        <div className="h-2 w-16 bg-white/10 rounded mb-3 ml-2"></div>
+
+                                        <div className="h-8 w-full bg-white/5 rounded flex items-center px-3 gap-3 border border-white/5">
+                                            <div className="w-3.5 h-3.5 border border-primary/50 text-transparent flex items-center justify-center rounded-sm bg-primary/10"></div>
+                                            <div className="h-2 w-1/2 bg-white/20 rounded"></div>
+                                        </div>
+
+                                        <div className="h-8 w-full rounded flex items-center px-3 gap-3 hover:bg-white/5 transition-colors">
+                                            <div className="w-3.5 h-3.5 border border-white/20 rounded-sm"></div>
+                                            <div className="h-2 w-2/3 bg-white/10 rounded"></div>
+                                        </div>
+
+                                        <div className="h-8 w-full rounded flex items-center px-3 gap-3 hover:bg-white/5 transition-colors">
+                                            <div className="w-3.5 h-3.5 border border-white/20 rounded-sm"></div>
+                                            <div className="h-2 w-1/3 bg-white/10 rounded"></div>
+                                        </div>
                                     </div>
-                                    <div className="h-4 w-full bg-white/5 rounded flex items-center px-2 gap-2 pl-6">
-                                        <div className="w-3 h-3 border border-white/20"></div>
-                                        <div className="h-2 w-2/3 bg-white/10 rounded"></div>
+
+                                    {/* Section 2 */}
+                                    <div className="space-y-2.5">
+                                        <div className="h-2 w-20 bg-white/10 rounded mb-3 ml-2 mt-2"></div>
+
+                                        <div className="h-8 w-full rounded flex items-center px-3 gap-3 hover:bg-white/5 transition-colors">
+                                            <div className="w-3.5 h-3.5 rounded-sm bg-white/5"></div>
+                                            <div className="h-2 w-3/4 bg-white/10 rounded"></div>
+                                        </div>
+
+                                        <div className="h-8 w-full rounded flex items-center px-3 gap-3 hover:bg-white/5 transition-colors">
+                                            <div className="w-3.5 h-3.5 rounded-sm bg-white/5"></div>
+                                            <div className="h-2 w-1/2 bg-white/10 rounded"></div>
+                                        </div>
                                     </div>
-                                    <div className="h-4 w-full bg-white/5 rounded flex items-center px-2 gap-2 pl-6">
-                                        <div className="w-3 h-3 border border-white/20"></div>
-                                        <div className="h-2 w-1/3 bg-white/10 rounded"></div>
+                                </div>
+
+                                {/* Sidebar Footer */}
+                                <div className="p-4 border-t border-white/5">
+                                    <div className="h-10 w-full bg-white/5 rounded-lg flex items-center px-3 gap-3 border border-white/5">
+                                        <div className="w-5 h-5 rounded-full bg-white/10"></div>
+                                        <div className="flex flex-col gap-1 w-full">
+                                            <div className="h-1.5 w-1/2 bg-white/20 rounded"></div>
+                                            <div className="h-1 w-1/3 bg-white/5 rounded"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -312,21 +356,32 @@ export default function DiagnosticStrategique() {
                         </ul>
                     </div>
 
-                    <div className="bg-[#111111] border border-white/10 rounded-2xl p-10 flex flex-col justify-center">
-                        <div className="text-center mb-8">
-                            <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-4 block">Tarif de l'offre</span>
-                            <div className="flex items-baseline justify-center gap-2 mb-2">
-                                <span className="text-6xl font-serif font-bold">900<span className="text-4xl text-white/50">€</span></span>
-                                <span className="text-sm font-bold text-white/40 uppercase tracking-widest">TTC</span>
+                    <div className="bg-[#111] border border-white/5 rounded-3xl p-10 flex flex-col justify-center relative overflow-hidden group shadow-2xl">
+                        {/* Premium Glow Effect inside card */}
+                        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px] pointer-events-none translate-x-1/2 -translate-y-1/2 group-hover:bg-primary/20 transition-colors duration-700"></div>
+
+                        <div className="relative z-10 text-center mb-8">
+                            <span className="text-xs font-mono text-white/40 tracking-widest uppercase mb-4 block">Votre plan d'action</span>
+
+                            <div className="mb-6 flex justify-center">
+                                <span className="font-sans font-black text-4xl tracking-tighter text-white">
+                                    RE<span className="text-primary">7</span>SET<span className="text-primary">.</span>
+                                </span>
                             </div>
-                            <p className="text-sm text-white/50">Délai de réalisation : 2 semaines</p>
+
+                            <h3 className="text-2xl font-sans font-medium text-white mb-4">Diagnostic Stratégique Global</h3>
+
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-mono tracking-widest uppercase mt-2">
+                                Délai de réalisation : 2 semaines
+                            </div>
                         </div>
 
-                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-blue-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20 mb-4">
-                            Réserver le diagnostic
-                            <ArrowRight size={18} />
-                        </a>
-                        <p className="text-center text-xs text-white/30 uppercase tracking-widest font-mono">Paiement sécurisé via Stripe</p>
+                        <div className="relative z-10 w-full mt-4">
+                            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-primary hover:bg-[#005AD2] text-white py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_8px_20px_rgba(13,125,242,0.25)] hover:shadow-[0_12px_28px_rgba(13,125,242,0.35)] transform hover:-translate-y-1">
+                                Réserver le diagnostic
+                                <ArrowRight size={18} />
+                            </a>
+                        </div>
                     </div>
 
                 </div>
