@@ -2,30 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://re7set.com/</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://re7set.com/offres/diagnostic-strategique</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://re7set.com/offres/audits-strategiques</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://re7set.com/offres/visibilite-seo</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://re7set.com/offres/mise-en-oeuvre</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://re7set.com/outils-ia</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://re7set.com/mentions-legales</loc>
+    <lastmod>2025-03-10</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://re7set.com/politique-confidentialite</loc>
+    <lastmod>2025-03-10</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

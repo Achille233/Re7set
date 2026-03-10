@@ -61,9 +61,6 @@ export default function Resultats() {
 
                 {/* Header aligné au centre */}
                 <div className="reveal-impact max-w-3xl mx-auto text-center mb-16 md:mb-24 flex flex-col items-center">
-                    <span className="inline-block px-3 py-1 bg-[#0D7DF2]/10 border border-[#0D7DF2]/20 text-[#0D7DF2] rounded-full text-[10px] font-mono font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(13,125,242,0.15)]">
-                        Ce que vous gagnez
-                    </span>
                     <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-medium tracking-tight text-[#1a1c1e] leading-[1.1] mb-6">
                         Trois transformations concrètes <span className="text-[#0D7DF2] drop-shadow-[0_0_20px_rgba(13,125,242,0.2)]">pour votre cabinet.</span>
                     </h2>

@@ -16,6 +16,8 @@ const MiseEnOeuvre = lazy(() => import('./pages/MiseEnOeuvre'));
 const DiagnosticStrategique = lazy(() => import('./pages/DiagnosticStrategique'));
 const OutilsIA = lazy(() => import('./pages/OutilsIA'));
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
+const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'));
+const Sitemap = lazy(() => import('./pages/Sitemap'));
 const VisibiliteSEO = lazy(() => import('./pages/VisibiliteSEO'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -51,6 +53,8 @@ export default function App() {
           <Route path="/offres/visibilite-seo" element={<VisibiliteSEO />} />
           <Route path="/outils-ia" element={<OutilsIA />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
