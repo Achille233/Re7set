@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState, useEffect, useRef } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
@@ -16,11 +16,40 @@ const SplineError = () => (
 );
 
 export function SplineScene({ scene, className }) {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
+
     return (
-        <ErrorBoundary fallback={<SplineError />}>
-            <Suspense fallback={<SplineFallback />}>
-                <Spline scene={scene} className={className} />
-            </Suspense>
-        </ErrorBoundary>
+        <div ref={containerRef} className={className}>
+            {isVisible ? (
+                <ErrorBoundary fallback={<SplineError />}>
+                    <Suspense fallback={<SplineFallback />}>
+                        <Spline scene={scene} className="w-full h-full" />
+                    </Suspense>
+                </ErrorBoundary>
+            ) : (
+                <SplineFallback />
+            )}
+        </div>
     );
 }
