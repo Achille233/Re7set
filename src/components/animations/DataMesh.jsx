@@ -27,33 +27,27 @@ export default function DataMesh() {
         const cy = height / 2;
         let angleOffset = 0;
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                // Keep original positions to calculate slow rotation + mouse repulsion
-                this.baseX = this.x;
-                this.baseY = this.y;
+        const createParticle = () => {
+            const p = {
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.2,
+                vy: (Math.random() - 0.5) * 0.2,
+            };
+            p.baseX = p.x;
+            p.baseY = p.y;
 
-                // Random subtle movement
-                this.vx = (Math.random() - 0.5) * 0.2;
-                this.vy = (Math.random() - 0.5) * 0.2;
-            }
+            p.update = () => {
+                p.baseX += p.vx;
+                p.baseY += p.vy;
 
-            update() {
-                // Linear drift
-                this.baseX += this.vx;
-                this.baseY += this.vy;
+                if (p.baseX < 0) p.baseX = width;
+                if (p.baseX > width) p.baseX = 0;
+                if (p.baseY < 0) p.baseY = height;
+                if (p.baseY > height) p.baseY = 0;
 
-                // Wrap around
-                if (this.baseX < 0) this.baseX = width;
-                if (this.baseX > width) this.baseX = 0;
-                if (this.baseY < 0) this.baseY = height;
-                if (this.baseY > height) this.baseY = 0;
-
-                // Apply global slow rotation around center
-                const dxCenter = this.baseX - cx;
-                const dyCenter = this.baseY - cy;
+                const dxCenter = p.baseX - cx;
+                const dyCenter = p.baseY - cy;
                 const distCenter = Math.sqrt(dxCenter * dxCenter + dyCenter * dyCenter);
                 const originalAngle = Math.atan2(dyCenter, dxCenter);
                 const newAngle = originalAngle + angleOffset;
@@ -61,7 +55,6 @@ export default function DataMesh() {
                 let targetX = cx + Math.cos(newAngle) * distCenter;
                 let targetY = cy + Math.sin(newAngle) * distCenter;
 
-                // Mouse repulsion
                 const dxMouse = targetX - mouse.x;
                 const dyMouse = targetY - mouse.y;
                 const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
@@ -70,26 +63,26 @@ export default function DataMesh() {
                     const forceDirectionX = dxMouse / distMouse;
                     const forceDirectionY = dyMouse / distMouse;
                     const force = (mouseRadius - distMouse) / mouseRadius;
-                    // Subtler repulsion, max 40px push
                     targetX += forceDirectionX * force * 40;
                     targetY += forceDirectionY * force * 40;
                 }
 
-                // Smooth transition to target
-                this.x += (targetX - this.x) * 0.1;
-                this.y += (targetY - this.y) * 0.1;
-            }
+                p.x += (targetX - p.x) * 0.1;
+                p.y += (targetY - p.y) * 0.1;
+            };
 
-            draw() {
+            p.draw = () => {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, 1, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(9, 9, 11, 0.15)'; // Very subtle nodes
+                ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(9, 9, 11, 0.15)';
                 ctx.fill();
-            }
-        }
+            };
+
+            return p;
+        };
 
         for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+            particles.push(createParticle());
         }
 
         const drawLines = () => {

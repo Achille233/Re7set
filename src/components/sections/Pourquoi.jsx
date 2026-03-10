@@ -30,20 +30,12 @@ const FEATURES = [
 
 export default function Pourquoi() {
     const sectionRef = useRef(null);
-    const cardsRef = useRef([]);
-    cardsRef.current = [];
-
-    const addToRefs = el => {
-        if (el && !cardsRef.current.includes(el)) {
-            cardsRef.current.push(el);
-        }
-    };
 
     useEffect(() => {
         if (!sectionRef.current) return;
 
         gsap.fromTo(
-            cardsRef.current,
+            '.pourquoi-card',
             { y: 50, opacity: 0 },
             {
                 y: 0,
@@ -80,8 +72,7 @@ export default function Pourquoi() {
                         return (
                             <div
                                 key={idx}
-                                ref={addToRefs}
-                                className="relative bg-white border border-black/5 rounded-2xl md:rounded-[2rem] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] overflow-hidden group transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] flex flex-col min-h-[320px] cursor-pointer"
+                                className="pourquoi-card relative bg-white border border-black/5 rounded-2xl md:rounded-[2rem] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] overflow-hidden group transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] flex flex-col min-h-[320px] cursor-pointer"
                             >
                                 {/* Animated Borders */}
                                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/10 rounded-2xl md:rounded-[2rem] transition-colors duration-700 pointer-events-none z-20"></div>

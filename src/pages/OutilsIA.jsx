@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { Sparkles, ArrowRight, Bot, Smartphone, Brain, Search, FileSignature, PenTool, Lock, Shield, Users, Check } from 'lucide-react';
@@ -12,7 +12,6 @@ export default function OutilsIA() {
         'Outils & Solutions IA | RE7SET — Intelligence Artificielle pour Avocats',
         'Agents IA multi-canaux, standard téléphonique IA, automatisation emails et réseaux sociaux. RE7SET intègre et configure les meilleurs outils IA pour votre cabinet.'
     );
-    const canvasRef = useRef(null);
 
     useEffect(() => {
         // Text Entrance Animations

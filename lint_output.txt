@@ -1,0 +1,102 @@
+
+> app_temp@0.0.0 lint
+> eslint .
+
+
+/Users/blanchartachille/R7_V2/api/contact.js
+  3:27  error  'process' is not defined  no-undef
+
+/Users/blanchartachille/R7_V2/src/components/animations/CustomCursor.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/animations/DataMesh.jsx
+  30:9  warning  Compilation Skipped: Inline `class` declarations are not supported
+
+Move class declarations outside of components/hooks.
+
+  28 |         let angleOffset = 0;
+  29 |
+> 30 |         class Particle {
+     |         ^^^^^^^^^^^^^^^^
+> 31 |             constructor() {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |                 this.x = Math.random() * width;
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 88 |             }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 89 |         }
+     | ^^^^^^^^^^ Inline `class` declarations are not supported
+  90 |
+  91 |         for (let i = 0; i < particleCount; i++) {
+  92 |             particles.push(new Particle());
+
+  react-hooks/unsupported-syntax
+
+/Users/blanchartachille/R7_V2/src/components/animations/RevealText.jsx
+  10:80  error  'Component' is assigned a value but never used  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/animations/ScrambleText.jsx
+  47:61  warning  The ref value 'timeoutRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'timeoutRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+/Users/blanchartachille/R7_V2/src/components/sections/Deconstat.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/sections/Hero.jsx
+  4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  5:10  error  'cn' is defined but never used. Allowed unused vars must match /^[A-Z_]/u      no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/sections/OutilsIA.jsx
+  1:17  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  1:28  error  'useRef' is defined but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/sections/Piliers.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/sections/Pourquoi.jsx
+  34:5  error  Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+  32 |     const sectionRef = useRef(null);
+  33 |     const cardsRef = useRef([]);
+> 34 |     cardsRef.current = [];
+     |     ^^^^^^^^^^^^^^^^ Cannot update ref during render
+  35 |
+  36 |     const addToRefs = el => {
+  37 |         if (el && !cardsRef.current.includes(el)) {  react-hooks/refs
+
+/Users/blanchartachille/R7_V2/src/components/sections/SolutionsAvantages.jsx
+  1:17  error  'useRef' is defined but never used. Allowed unused vars must match /^[A-Z_]/u        no-unused-vars
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u        no-unused-vars
+  2:18  error  'useScroll' is defined but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+  2:29  error  'useTransform' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/components/ui/CookieBanner.jsx
+  10:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+   8 |     useEffect(() => {
+   9 |         const consent = localStorage.getItem('re7set_cookie_consent');
+> 10 |         if (!consent) setVisible(true);
+     |                       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  11 |     }, []);
+  12 |
+  13 |     const accept = () => {  react-hooks/set-state-in-effect
+
+/Users/blanchartachille/R7_V2/src/components/ui/timeline.jsx
+  1:35  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/pages/Home.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+/Users/blanchartachille/R7_V2/src/pages/OutilsIA.jsx
+  15:11  error  'canvasRef' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 20 problems (18 errors, 2 warnings)
+

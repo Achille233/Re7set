@@ -7,7 +7,10 @@ export default function CookieBanner() {
 
     useEffect(() => {
         const consent = localStorage.getItem('re7set_cookie_consent');
-        if (!consent) setVisible(true);
+        if (!consent) {
+            const timer = setTimeout(() => setVisible(true), 10);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const accept = () => {

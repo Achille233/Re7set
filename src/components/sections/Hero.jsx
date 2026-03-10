@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import gsap from 'gsap';
 import { ArrowRight, Phone, Scale } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { cn } from '../../utils/cn';
 import { SITE_CONFIG } from '../../config/site';
 
 export default function Hero() {

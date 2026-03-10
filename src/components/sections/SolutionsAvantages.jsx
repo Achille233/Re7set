@@ -1,10 +1,25 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Target, Zap, MousePointerClick, Users, Bell, Clock, Search, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../../config/site';
 
 export default function SolutionsAvantages() {
+    // Animation Variants
+    const fadeUpVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+        }
+    };
+
     return (
         <section className="relative w-full overflow-hidden">
             {/* ------------------------------------------------------------------ */}
@@ -74,9 +89,15 @@ export default function SolutionsAvantages() {
 
 
                     {/* BLOC 2 : Focus SEO (Texte Gauche / UI Overlapping Droite) */}
-                    <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12 relative z-10 pt-10">
+                    <motion.div
+                        className="w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12 relative z-10 pt-10"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
                         {/* Left Text */}
-                        <div className="w-full lg:w-[50%] flex flex-col items-start text-left">
+                        <motion.div variants={fadeUpVariants} className="w-full lg:w-[50%] flex flex-col items-start text-left">
                             <h2 className="text-[32px] md:text-[40px] lg:text-[46px] font-sans font-medium text-[#111111] leading-[1.05] tracking-tight mb-6 text-balance group">
                                 <span className="relative inline-block px-4 py-1.5 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-2xl mr-2 rotate-2 rounded-tr-sm group-hover:-rotate-1 transition-transform duration-500">Positionnez</span><br className="max-md:hidden" /> durablement votre expertise sur Google.
                             </h2>
@@ -85,27 +106,27 @@ export default function SolutionsAvantages() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-6 mb-10 w-full">
-                                <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex-1 hover:border-[#0D7DF2]/20 hover:shadow-md transition-all">
+                                <motion.div variants={fadeUpVariants} className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex-1 hover:border-[#0D7DF2]/20 hover:shadow-md transition-all">
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/10 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <MousePointerClick size={20} strokeWidth={2.5} />
                                     </div>
                                     <h4 className="text-[17px] font-bold text-[#111111] mb-2">Trafic ciblé</h4>
                                     <p className="text-[14px] text-slate-500 font-medium leading-relaxed">Attirez un flux constant de clients en besoin immédiat.</p>
-                                </div>
-                                <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex-1 hover:border-[#0D7DF2]/20 hover:shadow-md transition-all">
+                                </motion.div>
+                                <motion.div variants={fadeUpVariants} className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex-1 hover:border-[#0D7DF2]/20 hover:shadow-md transition-all">
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/10 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <Star size={20} className="fill-[#0D7DF2]" strokeWidth={2.5} />
                                     </div>
                                     <h4 className="text-[17px] font-bold text-[#111111] mb-2">Prestige digital</h4>
                                     <p className="text-[14px] text-slate-500 font-medium leading-relaxed">La 1ère position Google assoit votre légitimité vis-à-vis des confrères.</p>
-                                </div>
+                                </motion.div>
                             </div>
 
                             <Link to="/offres/audits-strategiques" className="group inline-flex items-center justify-center gap-2 bg-[#111111] hover:bg-black text-white px-8 py-4 rounded-full font-bold text-[15px] transition-all duration-300 shadow-[0_8px_20px_rgba(0,0,0,0.15)] hover:shadow-lg transform hover:-translate-y-1">
                                 Découvrir la méthode SEO
                                 <ArrowRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
-                        </div>
+                        </motion.div>
 
                         {/* Right Mockup (3D Overlapping UI) */}
                         <div className="w-full lg:w-[45%] relative min-h-[450px] flex items-center justify-center group pointer-events-none mt-10 lg:mt-0">
@@ -149,7 +170,7 @@ export default function SolutionsAvantages() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -162,7 +183,13 @@ export default function SolutionsAvantages() {
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
                 <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-                    <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-24 lg:gap-12">
+                    <motion.div
+                        className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-24 lg:gap-12"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
 
                         {/* Left Mockup (Dashboard Isometric Dark) */}
                         <div className="w-full lg:w-[45%] relative group mt-10 lg:mt-0" style={{ perspective: '1200px' }}>
@@ -226,7 +253,7 @@ export default function SolutionsAvantages() {
                         </div>
 
                         {/* Right Text (Dark Mode) */}
-                        <div className="w-full lg:w-[50%] flex flex-col items-start text-left relative z-20">
+                        <motion.div variants={fadeUpVariants} className="w-full lg:w-[50%] flex flex-col items-start text-left relative z-20">
                             <h2 className="text-[32px] md:text-[40px] lg:text-[46px] font-sans font-medium text-white leading-[1.05] tracking-tight mb-6 text-balance group">
                                 Acquérez de <span className="relative inline-block px-4 py-1.5 bg-white/5 text-white rounded-2xl ml-1 rotate-1 rounded-bl-sm border border-white/10 group-hover:bg-[#0D7DF2]/20 transition-colors duration-500">bons dossiers</span> avec certitude.
                             </h2>
@@ -235,32 +262,32 @@ export default function SolutionsAvantages() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-6 mb-12 w-full">
-                                <div className="bg-[#1A1F30]/50 backdrop-blur border border-white/10 hover:border-white/20 hover:bg-[#1A1F30] transition-colors duration-300 rounded-2xl p-6 flex-1">
+                                <motion.div variants={fadeUpVariants} className="bg-[#1A1F30]/50 backdrop-blur border border-white/10 hover:border-white/20 hover:bg-[#1A1F30] transition-colors duration-300 rounded-2xl p-6 flex-1">
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/20 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <Clock size={20} strokeWidth={2.5} />
                                     </div>
                                     <h4 className="text-[17px] font-bold text-white mb-2">Traction immédiate</h4>
                                     <p className="text-[14px] text-slate-400 font-medium leading-relaxed">Les Ads vous positionnent en tête des requêtes urgentes dès le premier mois.</p>
-                                </div>
-                                <div className="bg-[#1A1F30]/50 backdrop-blur border border-white/10 hover:border-white/20 hover:bg-[#1A1F30] transition-colors duration-300 rounded-2xl p-6 flex-1">
+                                </motion.div>
+                                <motion.div variants={fadeUpVariants} className="bg-[#1A1F30]/50 backdrop-blur border border-white/10 hover:border-white/20 hover:bg-[#1A1F30] transition-colors duration-300 rounded-2xl p-6 flex-1">
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/20 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <Zap size={20} strokeWidth={2.5} />
                                     </div>
                                     <h4 className="text-[17px] font-bold text-white mb-2">Focus Ultra-spécialisé</h4>
                                     <p className="text-[14px] text-slate-400 font-medium leading-relaxed">Ne payez que pour les dossiers qui correspondent à votre cœur d'expertise.</p>
-                                </div>
+                                </motion.div>
                             </div>
 
                             {/* Glow Button Dark */}
-                            <div className="relative group">
+                            <motion.div variants={fadeUpVariants} className="relative group">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-[#0D7DF2] to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-700"></div>
                                 <a href="/#contact" className="relative inline-flex items-center justify-center gap-2 bg-[#1A1F30] hover:bg-[#111111] border border-white/10 text-white px-8 py-5 rounded-full font-bold text-[16px] transition-all transform hover:-translate-y-1">
                                     Créer ma Machine d'Acquisition
                                     <ArrowRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                                 </a>
-                            </div>
-                        </div>
-                    </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </section>

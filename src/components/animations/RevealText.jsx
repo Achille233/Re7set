@@ -7,6 +7,7 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
+// eslint-disable-next-line no-unused-vars
 export default function RevealText({ text, className = "", stagger = 0.08, as: Component = "h2" }) {
     const containerRef = useRef(null);
 

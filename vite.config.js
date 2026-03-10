@@ -10,7 +10,6 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-gsap': ['gsap'],
           'vendor-motion': ['framer-motion'],
-          'vendor-spline': ['@splinetool/react-spline', '@splinetool/runtime'],
         },
       },
     },
