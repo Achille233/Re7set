@@ -165,6 +165,15 @@ export default function Header() {
             <div
                 className={`fixed inset-0 bg-white z-[90] transition-transform duration-500 flex flex-col pt-24 px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
+                {/* Dedicated Close Button inside the panel */}
+                <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="absolute top-6 right-6 p-2 bg-slate-100 hover:bg-slate-200 text-foreground rounded-full transition-colors flex items-center justify-center z-[110]"
+                    aria-label="Fermer le menu"
+                >
+                    <X size={24} />
+                </button>
+
                 <div className="flex flex-col font-sans w-full">
                     <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-4 text-lg font-medium text-foreground hover:text-primary border-b border-black/5 transition-colors">Accueil</a>
 
