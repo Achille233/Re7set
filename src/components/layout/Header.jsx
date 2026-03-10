@@ -29,14 +29,14 @@ export default function Header() {
 
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-1 group z-[110] relative">
-                    <span className={`font-sans font-bold text-xl tracking-tight ${textColorClass} transition-colors duration-300`}>
+                    <span className={`font-sans font-bold text-xl tracking-tight ${isMobileMenuOpen ? 'text-foreground' : textColorClass} transition-colors duration-300`}>
                         RE<span className="text-primary transition-colors duration-300">7</span>SET<span className="text-primary">.</span>
                     </span>
                 </a>
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className={`md:hidden p-2 ${textColorClass} z-[110]`}
+                    className={`md:hidden p-2 ${isMobileMenuOpen ? 'text-foreground' : textColorClass} z-[110]`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
