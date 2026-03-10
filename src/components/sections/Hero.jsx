@@ -45,7 +45,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-[100svh] flex flex-col justify-center px-6 pt-32 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center px-6 pt-32 pb-16 md:px-12 lg:px-24 bg-transparent w-full overflow-hidden">
 
             {/* Background Grid Lines */}
             <div className="absolute inset-0 w-full h-full pointer-events-none -z-20 flex justify-center">
