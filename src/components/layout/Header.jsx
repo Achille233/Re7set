@@ -161,63 +161,67 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Navigation Menu */}
+            {/* Mobile Navigation Menu - Dark Premium Theme inspired by We-R */}
             <div
-                className={`fixed inset-0 bg-white z-[90] transition-transform duration-500 flex flex-col pt-24 px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`fixed inset-0 bg-[#0A0A0A] z-[90] transition-transform duration-500 flex flex-col pt-24 px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
-                <div className="flex flex-col gap-5 font-sans">
-                    <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Accueil</a>
+                <div className="flex flex-col font-sans w-full">
+                    <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-4 text-lg font-medium text-white/90 hover:text-white border-b border-white/10 transition-colors">Accueil</a>
 
                     {/* Services Accordion */}
-                    <div className="flex flex-col border-b border-black/5 pb-3">
+                    <div className="flex flex-col border-b border-white/10">
                         <button
                             onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                            className="flex items-center justify-between text-xl font-medium text-foreground hover:text-primary w-full text-left"
+                            className="flex items-center justify-between py-4 text-lg font-medium text-white/90 hover:text-white w-full text-left transition-colors"
                         >
                             <span>Services</span>
-                            <ChevronDown className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={`w-5 h-5 text-white/50 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
                         </button>
 
-                        <div className={`flex flex-col gap-4 overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? 'max-h-[500px] mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className={`flex flex-col overflow-hidden transition-all duration-300 ease-in-out ${isMobileServicesOpen ? 'max-h-[500px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
                             {/* Service 1 */}
-                            <a href="/offres/diagnostic-strategique" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
-                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                                    <Target className="text-primary w-5 h-5" />
+                            <a href="/offres/diagnostic-strategique" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 py-3 px-2 rounded-lg hover:bg-white/5 transition-colors group">
+                                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-primary/20 transition-colors">
+                                    <Target className="text-white/70 group-hover:text-primary w-4 h-4 transition-colors" />
                                 </div>
                                 <div>
-                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Diagnostic Stratégique Global</h4>
-                                    <p className="text-muted text-xs leading-relaxed">L'offre structurante RE7SET pour bâtir la fondation numérique.</p>
+                                    <h4 className="text-white/90 font-medium text-[15px] leading-none mb-1">Diagnostic Stratégique Global</h4>
+                                    <p className="text-white/40 text-xs line-clamp-1">Fondation numérique et plan d'action.</p>
                                 </div>
                             </a>
 
                             {/* Service 2 */}
-                            <a href="/offres/audits-strategiques" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
-                                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0">
-                                    <Search className="text-cyan-500 w-5 h-5" />
+                            <a href="/offres/audits-strategiques" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 py-3 px-2 rounded-lg hover:bg-white/5 transition-colors group">
+                                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-cyan-500/20 transition-colors">
+                                    <Search className="text-white/70 group-hover:text-cyan-400 w-4 h-4 transition-colors" />
                                 </div>
                                 <div>
-                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Audits & Optimisations SEO</h4>
-                                    <p className="text-muted text-xs leading-relaxed">Positionnement, audit SEO & GEO pour les recherches locales.</p>
+                                    <h4 className="text-white/90 font-medium text-[15px] leading-none mb-1">Audits & Optimisations SEO</h4>
+                                    <p className="text-white/40 text-xs line-clamp-1">Positionnement et visibilité en ligne.</p>
                                 </div>
                             </a>
 
                             {/* Service 3 */}
-                            <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
-                                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
-                                    <Sparkles className="text-purple-500 w-5 h-5" />
+                            <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-4 py-3 px-2 rounded-lg hover:bg-white/5 transition-colors group">
+                                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-purple-500/20 transition-colors">
+                                    <Sparkles className="text-white/70 group-hover:text-purple-400 w-4 h-4 transition-colors" />
                                 </div>
                                 <div>
-                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Outils & Solutions IA</h4>
-                                    <p className="text-muted text-xs leading-relaxed">Intégration d'outils d'intelligence artificielle sur-mesure.</p>
+                                    <h4 className="text-white/90 font-medium text-[15px] leading-none mb-1">Outils & Solutions IA</h4>
+                                    <p className="text-white/40 text-xs line-clamp-1">Intégration sur-mesure pour cabinets.</p>
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Équipe</a>
-                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Contact</a>
+                    <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="py-4 text-lg font-medium text-white/90 hover:text-white border-b border-white/10 transition-colors">Équipe</a>
+                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="py-4 text-lg font-medium text-white/90 hover:text-white border-b border-white/10 transition-colors">Contact</a>
 
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-auto mb-6 bg-[#2563EB] text-white py-4 rounded-xl text-center shadow-lg hover:bg-blue-600 font-medium text-lg">{ctaText}</a>
+                    <div className="mt-8 pt-4">
+                        <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-[#2563EB] hover:bg-blue-600 text-white py-4 rounded-lg text-center font-medium text-[15px] transition-colors shadow-lg shadow-blue-500/20">
+                            {ctaText}
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
