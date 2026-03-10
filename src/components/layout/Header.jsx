@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '../../config/site';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const location = useLocation();
 
     // Check if we are on a dark page
@@ -162,14 +163,61 @@ export default function Header() {
 
             {/* Mobile Navigation Menu */}
             <div
-                className={`fixed inset-0 bg-white z-[100] transition-transform duration-500 flex flex-col pt-24 px-8 md:hidden ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`fixed inset-0 bg-white z-[90] transition-transform duration-500 flex flex-col pt-24 px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
-                <div className="flex flex-col gap-6 font-sans text-xl font-medium">
-                    <a href="/#offres" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Services</a>
-                    <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Équipe</a>
-                    <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Outils IA</a>
-                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-foreground hover:text-primary border-b border-black/5 pb-4">Contact</a>
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 bg-[#2563EB] text-white py-4 rounded-full text-center hover:bg-blue-600 font-medium">{ctaText}</a>
+                <div className="flex flex-col gap-5 font-sans">
+                    <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Accueil</a>
+
+                    {/* Services Accordion */}
+                    <div className="flex flex-col border-b border-black/5 pb-3">
+                        <button
+                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                            className="flex items-center justify-between text-xl font-medium text-foreground hover:text-primary w-full text-left"
+                        >
+                            <span>Services</span>
+                            <ChevronDown className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+
+                        <div className={`flex flex-col gap-4 overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? 'max-h-[500px] mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+                            {/* Service 1 */}
+                            <a href="/offres/diagnostic-strategique" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
+                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                    <Target className="text-primary w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Diagnostic Stratégique Global</h4>
+                                    <p className="text-muted text-xs leading-relaxed">L'offre structurante RE7SET pour bâtir la fondation numérique.</p>
+                                </div>
+                            </a>
+
+                            {/* Service 2 */}
+                            <a href="/offres/audits-strategiques" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
+                                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0">
+                                    <Search className="text-cyan-500 w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Audits & Optimisations SEO</h4>
+                                    <p className="text-muted text-xs leading-relaxed">Positionnement, audit SEO & GEO pour les recherches locales.</p>
+                                </div>
+                            </a>
+
+                            {/* Service 3 */}
+                            <a href="/outils-ia" onClick={() => setIsMobileMenuOpen(false)} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-black/5 transition-colors">
+                                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
+                                    <Sparkles className="text-purple-500 w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h4 className="text-foreground font-semibold text-[15px] mb-1">Outils & Solutions IA</h4>
+                                    <p className="text-muted text-xs leading-relaxed">Intégration d'outils d'intelligence artificielle sur-mesure.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="/#equipe" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Équipe</a>
+                    <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-medium text-foreground hover:text-primary pb-3 border-b border-black/5">Contact</a>
+
+                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="mt-auto mb-6 bg-[#2563EB] text-white py-4 rounded-xl text-center shadow-lg hover:bg-blue-600 font-medium text-lg">{ctaText}</a>
                 </div>
             </div>
         </header>
