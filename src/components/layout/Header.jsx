@@ -163,18 +163,28 @@ export default function Header() {
 
             {/* Mobile Navigation Menu - Structure inspired by We-R, Light Theme */}
             <div
-                className={`fixed inset-0 bg-white z-[90] transition-transform duration-500 flex flex-col pt-24 px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+                className={`fixed inset-0 bg-white z-[90] transition-transform duration-500 flex flex-col px-6 pb-6 md:hidden overflow-y-auto ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
             >
-                {/* Dedicated Close Button inside the panel */}
-                <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="absolute top-6 right-6 p-2 bg-slate-100 hover:bg-slate-200 text-foreground rounded-full transition-colors flex items-center justify-center z-[110]"
-                    aria-label="Fermer le menu"
-                >
-                    <X size={24} />
-                </button>
+                {/* Mobile Menu Header with Logo and Close Button */}
+                <div className="flex items-center justify-between py-6 pt-8 w-full">
+                    {/* Logo inside mobile menu */}
+                    <a href="/" className="flex items-center gap-1 z-[110]" onClick={() => setIsMobileMenuOpen(false)}>
+                        <span className="font-sans font-bold text-xl tracking-tight text-foreground">
+                            RE<span className="text-primary">7</span>SET<span className="text-primary">.</span>
+                        </span>
+                    </a>
 
-                <div className="flex flex-col font-sans w-full">
+                    {/* Dedicated Close Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="p-2 bg-slate-100 hover:bg-slate-200 text-foreground rounded-full transition-colors flex items-center justify-center z-[110]"
+                        aria-label="Fermer le menu"
+                    >
+                        <X size={24} />
+                    </button>
+                </div>
+
+                <div className="flex flex-col font-sans w-full mt-4">
                     <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-4 text-lg font-medium text-foreground hover:text-primary border-b border-black/5 transition-colors">Accueil</a>
 
                     {/* Services Accordion */}
