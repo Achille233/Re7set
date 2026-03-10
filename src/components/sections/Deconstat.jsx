@@ -20,7 +20,7 @@ export default function Deconstat() {
                     </h2>
 
                     <p className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-medium text-center max-w-3xl">
-                        La réalité est asymétrique. Les patients, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
+                        La réalité est asymétrique. Les prospects, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
                         Une réputation invisible ou dégradée profite directement à vos concurrents.
                     </p>
 

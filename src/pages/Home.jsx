@@ -4,6 +4,7 @@ import Hero from '../components/sections/Hero';
 import Piliers from '../components/sections/Piliers';
 import Deconstat from '../components/sections/Deconstat';
 import Resultats from '../components/sections/Resultats';
+import SolutionsAvantages from '../components/sections/SolutionsAvantages';
 import Pourquoi from '../components/sections/Pourquoi';
 import Livrable from '../components/sections/Livrable';
 import Equipe from '../components/sections/Equipe';
@@ -25,8 +26,9 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#022b7a]/15 via-[#0051e0]/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
             <Hero />
             <Deconstat />
-            <Resultats />
+            <SolutionsAvantages />
             <Piliers />
+            <Resultats />
             <Pourquoi />
             <Livrable />
             <PreuveSociale />
