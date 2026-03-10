@@ -42,10 +42,9 @@ export default function ScrambleText({ text, className = '' }) {
     };
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        const currentInterval = intervalRef.current;
+        const currentTimeout = timeoutRef.current;
         return () => {
-            const currentInterval = intervalRef.current;
-            const currentTimeout = timeoutRef.current;
             if (currentInterval) clearInterval(currentInterval);
             if (currentTimeout) clearTimeout(currentTimeout);
         };
