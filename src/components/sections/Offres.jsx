@@ -47,7 +47,7 @@ export default function Offres() {
                     {/* Text section */}
                     <div className="w-full lg:max-w-[850px] xl:max-w-[950px]">
                         <h2 className="text-[36px] md:text-[44px] lg:text-[48px] font-sans font-black tracking-tight leading-[1.05] text-balance mb-4">
-                            <span className="text-[#1A1A1A]">Chaque mois sans stratégie, </span>
+                            <span className="text-[#1A1A1A]">Chaque mois sans visibilité, </span>
                             <span className="bg-gradient-to-r from-[#00BCFA] to-[#0051e0] bg-clip-text text-transparent">vos concurrents avancent.</span>
                         </h2>
                         <p className="text-[15px] text-slate-500 font-medium max-w-[650px] leading-relaxed">
