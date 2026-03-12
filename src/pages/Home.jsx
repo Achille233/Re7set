@@ -3,7 +3,6 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import Hero from '../components/sections/Hero';
 import Piliers from '../components/sections/Piliers';
 import Deconstat from '../components/sections/Deconstat';
-import Resultats from '../components/sections/Resultats';
 import SolutionsAvantages from '../components/sections/SolutionsAvantages';
 import Pourquoi from '../components/sections/Pourquoi';
 import Livrable from '../components/sections/Livrable';
@@ -30,7 +29,6 @@ export default function Home() {
             <Deconstat />
             <SolutionsAvantages />
             <Piliers />
-            <Resultats />
             <Pourquoi />
             <Livrable />
             <PreuveSociale />
