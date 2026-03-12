@@ -41,15 +41,14 @@ export default function Deconstat() {
                     </motion.h2>
 
                     <motion.p variants={itemVariants} className="text-base md:text-lg font-sans text-muted mb-10 leading-relaxed font-medium text-center max-w-3xl">
-                        La réalité est asymétrique. Les prospects, clients et confrères associent la qualité de votre présence en ligne à votre niveau de compétence.
-                        Une réputation invisible ou dégradée profite directement à vos concurrents.
+                        Le décalage est réel : vos futurs clients vous cherchent sur Google avant même de décrocher le téléphone. Ce qu'ils trouvent, c'est votre concurrent. Ce qu'ils ne trouvent pas, c'est vous.
                     </motion.p>
 
                     <motion.ul variants={itemVariants} className="space-y-6 w-fit mx-auto">
                         {[
-                            "La majorité des prospects vérifient les avis en ligne avant de prendre rendez-vous.",
-                            "Les algorithmes (Google, IA) ignorent les profils dont le contenu est obsolète.",
-                            "Un décalage entre la réalité et l'écran crée un doute immédiat sur la compétence."
+                            "8 prospects sur 10 comparent en ligne avant de prendre rendez-vous.",
+                            "Le cabinet qui apparaît en premier est celui qui est contacté.",
+                            "Ce que Google ne montre pas de vous, il le montre de quelqu'un d'autre."
                         ].map((text, i) => (
                             <motion.li
                                 key={i}
