@@ -124,11 +124,11 @@ export default function Hero() {
 
                 {/* Subtitles & Body */}
                 <div className="max-w-3xl mx-auto text-center">
-                    <h3 className="text-xl md:text-2xl font-sans text-foreground mb-6 font-medium">
-                        Nous construisons des stratégies d'acquisition conformes au RIN, aux règles ordinales et déontologiques de chaque profession.
-                    </h3>
+                    <p className="text-xl md:text-2xl font-sans text-foreground mb-6 font-medium">
+                        Plus de clients. Moins de marketing inutile.
+                    </p>
                     <p className="text-sm md:text-base font-sans text-muted mb-12 max-w-xl mx-auto leading-relaxed">
-                        SEO, site haute conversion et stratégie digitale conçus pour générer des dossiers, pas seulement du trafic.
+                        Nous construisons des stratégies d'acquisition conformes au RIN, aux règles ordinales et déontologiques de chaque profession.
                     </p>
                 </div>
 

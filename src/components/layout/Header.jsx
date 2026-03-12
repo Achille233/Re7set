@@ -20,7 +20,7 @@ export default function Header() {
 
     const textColorClass = isDarkPage ? 'text-white' : 'text-foreground';
     const isOutilsIAPage = location.pathname === '/outils-ia';
-    const ctaText = isOutilsIAPage ? 'Audit IA offert' : 'Audit SEO offert';
+    const ctaText = isOutilsIAPage ? 'Audit IA offert' : 'Audit offert';
 
     return (
         <header className="fixed top-0 left-0 w-full z-[100]">
