@@ -82,7 +82,7 @@ export default function Hero() {
                     <div className="flex items-center gap-2">
                         <Scale size={14} className="text-foreground/80" strokeWidth={2.5} />
                         <span className="text-xs uppercase tracking-widest font-mono text-foreground/80 font-medium">
-                            Stratégie digitale pour professions libérales
+                            Acquisition client pour profession réglementée
                         </span>
                     </div>
                     <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-primary/50 hidden sm:block"></div>
