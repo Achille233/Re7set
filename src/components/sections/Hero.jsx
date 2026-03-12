@@ -10,9 +10,9 @@ export default function Hero() {
     const [titleNumber, setTitleNumber] = useState(0);
     const titles = useMemo(
         () => [
-            "flux constant de clients.",
-            "référence sur Google.",
-            "cabinet augmenté par l'IA."
+            "générateur de chiffre d'affaires.",
+            "prospects qualifiés.",
+            "flux constant de clients."
         ],
         []
     );
@@ -91,7 +91,7 @@ export default function Hero() {
                 {/* Title */}
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center flex flex-col items-center gap-2 md:gap-4"
+                    className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-foreground leading-[1.1] tracking-tight mb-8 max-w-5xl mx-auto text-center flex flex-col items-center md:gap-2"
                 >
                     <span className="inline-block overflow-hidden pb-1 md:pb-2">
                         <span className="inline-block word-reveal will-change-transform">
@@ -102,7 +102,7 @@ export default function Hero() {
                     <span className="relative inline-flex flex-col justify-end overflow-hidden pb-2 md:pb-4 text-primary font-bold min-h-[1.2em] w-full">
                         {/* Invisible placeholder to reserve width and height of the longest word */}
                         <span className="invisible pointer-events-none" aria-hidden="true">
-                            cabinet augmenté par l'IA.
+                            générateur de chiffre d'affaires.
                         </span>
                         {titles.map((title, index) => (
                             <motion.span
@@ -124,9 +124,9 @@ export default function Hero() {
 
                 {/* Subtitles & Body */}
                 <div className="max-w-3xl mx-auto text-center">
-                    <p className="text-xl md:text-2xl font-sans text-foreground mb-6 font-medium">
-                        Plus de clients. Moins de marketing inutile.
-                    </p>
+                    <h3 className="text-xl md:text-2xl font-sans text-foreground mb-6 font-medium">
+                        Nous construisons des stratégies d'acquisition conformes au RIN, aux règles ordinales et déontologiques de chaque profession.
+                    </h3>
                     <p className="text-sm md:text-base font-sans text-muted mb-12 max-w-xl mx-auto leading-relaxed">
                         SEO, site haute conversion et stratégie digitale conçus pour générer des dossiers, pas seulement du trafic.
                     </p>
