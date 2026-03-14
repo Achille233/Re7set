@@ -133,10 +133,10 @@ export default function SolutionsAvantages() {
                         {/* Left Text */}
                         <motion.div variants={fadeUpVariants} className="w-full lg:w-[50%] flex flex-col items-start text-left">
                             <h2 className="text-[32px] md:text-[40px] lg:text-[46px] font-sans font-medium text-[#111111] leading-[1.05] tracking-tight mb-6 text-balance group">
-                                <span className="relative inline-block px-4 py-1.5 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-2xl mr-2 rotate-2 rounded-tr-sm group-hover:-rotate-1 transition-transform duration-500">Positionnez</span><br className="max-md:hidden" /> durablement votre expertise sur Google.
+                                On change ça. <span className="relative inline-block px-4 py-1.5 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-2xl mr-2 rotate-2 rounded-tr-sm group-hover:-rotate-1 transition-transform duration-500">Devenez</span><br className="max-md:hidden" /> le premier cabinet qu'ils trouvent.
                             </h2>
                             <p className="text-[16px] md:text-[17px] font-medium text-slate-500 leading-relaxed mb-10 text-balance">
-                                <strong className="text-slate-800">80% de vos futurs clients recherchent leur expert en ligne</strong>. Notre ingénierie SEO place votre cabinet en tête des recherches organiques les plus qualifiées, là où se décident les gros dossiers.
+                                Notre ingénierie SEO vous positionne durablement en tête des recherches les plus qualifiées — là où se prennent les décisions. <strong className="text-slate-800">Pas de chance, juste de la méthode.</strong>
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-6 mb-10 w-full">
@@ -144,15 +144,15 @@ export default function SolutionsAvantages() {
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/10 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <MousePointerClick size={20} strokeWidth={2.5} />
                                     </div>
-                                    <h4 className="text-[17px] font-bold text-[#111111] mb-2">Trafic ciblé</h4>
-                                    <p className="text-[14px] text-slate-500 font-medium leading-relaxed">Attirez un flux constant de clients en besoin immédiat.</p>
+                                    <h4 className="text-[17px] font-bold text-[#111111] mb-2">Visibilité immédiate</h4>
+                                    <p className="text-[14px] text-slate-500 font-medium leading-relaxed">Apparaissez là où vos clients cherchent, au moment exact où ils décident.</p>
                                 </motion.div>
                                 <motion.div variants={fadeUpVariants} className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex-1 hover:border-[#0D7DF2]/20 hover:shadow-md transition-all">
                                     <div className="w-10 h-10 rounded-xl bg-[#0D7DF2]/10 flex items-center justify-center mb-4 text-[#0D7DF2]">
                                         <Star size={20} className="fill-[#0D7DF2]" strokeWidth={2.5} />
                                     </div>
-                                    <h4 className="text-[17px] font-bold text-[#111111] mb-2">Prestige digital</h4>
-                                    <p className="text-[14px] text-slate-500 font-medium leading-relaxed">La 1ère position Google assoit votre légitimité vis-à-vis des confrères.</p>
+                                    <h4 className="text-[17px] font-bold text-[#111111] mb-2">Autorité établie</h4>
+                                    <p className="text-[14px] text-slate-500 font-medium leading-relaxed">La 1ère position Google installe votre crédibilité avant même le premier échange.</p>
                                 </motion.div>
                             </div>
 
