@@ -34,54 +34,88 @@ export default function SolutionsAvantages() {
                     {/* BLOC 1 : Vision Globale (BENTO GRID ASYMÉTRIQUE) */}
                     <div className="w-full flex flex-col pt-10">
                         <div className="text-center md:text-left mb-16 flex flex-col items-center md:items-start group">
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-[13px] font-bold tracking-wide uppercase mb-6 border border-slate-200">
+                                <span className="w-2 h-2 rounded-full bg-[#0D7DF2]"></span>
+                                L'urgence digitale
+                            </div>
                             <h2 className="text-[36px] md:text-[44px] lg:text-[52px] font-sans font-medium text-[#111111] leading-[1.05] tracking-tight text-balance max-w-[800px]">
-                                Plus qu'une <span className="relative inline-block px-4 py-1.5 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-2xl mx-1 -rotate-2 rounded-tl-sm group-hover:rotate-0 transition-transform duration-500">prestation</span>.<br />
-                                Un partenaire de croissance pour votre cabinet.
+                                L'expertise juridique seule ne suffit plus pour <span className="relative inline-block px-4 py-1.5 bg-[#0D7DF2]/10 text-[#0D7DF2] rounded-2xl mx-1 -rotate-2 rounded-tl-sm group-hover:rotate-0 transition-transform duration-500">développer</span> votre cabinet.
                             </h2>
+                            <p className="text-[16px] md:text-[17px] font-medium text-slate-500 leading-relaxed mt-6 text-balance max-w-[700px]">
+                                Chaque semaine, des clients potentiels cherchent exactement votre expertise sur Google. Ils appellent le premier cabinet qu'ils trouvent. Trop souvent, ce n'est pas vous.
+                            </p>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full mb-12 relative z-10">
-                            {/* Bento Item 1 : Grande Carte Principale (Span 7) */}
-                            <div className="lg:col-span-7 bg-white rounded-[2rem] p-10 lg:p-12 border border-slate-100 relative overflow-hidden group hover:shadow-[0_12px_40px_rgba(13,125,242,0.08)] transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+                            {/* Bento Item 1 : Grande Carte Principale (Span 7) - L'invisibilité */}
+                            <div className="lg:col-span-7 bg-white rounded-[2rem] p-10 lg:p-12 border border-slate-100 relative overflow-hidden group hover:shadow-[0_12px_40px_rgba(13,125,242,0.08)] transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between">
                                 <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#0D7DF2]/10 rounded-full blur-[60px] group-hover:bg-[#0D7DF2]/20 group-hover:scale-110 transition-all duration-700"></div>
-                                <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 border border-slate-100 group-hover:border-[#0D7DF2]/20 group-hover:bg-[#0D7DF2]/5 transition-colors duration-500">
-                                    <Target size={30} strokeWidth={2} className="text-[#111111] group-hover:text-[#0D7DF2] transition-colors duration-500" />
+
+                                <div>
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-8 relative z-10">
+                                        <div className="w-16 h-16 rounded-2xl bg-slate-50 flex shrink-0 items-center justify-center border border-slate-100 group-hover:border-[#0D7DF2]/20 group-hover:bg-[#0D7DF2]/5 transition-colors duration-500">
+                                            <Search size={30} strokeWidth={2} className="text-[#111111] group-hover:text-[#0D7DF2] transition-colors duration-500" />
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-baseline gap-2 mb-6 relative z-10">
+                                        <span className="text-[72px] md:text-[88px] font-medium tracking-tighter text-[#111111] leading-none">80<span className="text-[40px] text-[#0D7DF2]">%</span></span>
+                                    </div>
                                 </div>
-                                <h3 className="text-[26px] md:text-[32px] font-medium text-[#111111] mb-5 leading-tight">Devenez la référence incontestée dans votre domaine.</h3>
-                                <p className="text-[16px] md:text-[18px] font-medium text-slate-500 leading-relaxed max-w-lg">
-                                    <strong className="text-slate-800">40% des clients</strong> choisissent le premier résultat naturel sur Google. Notre mission n'est pas de faire un site, mais d'imposer votre cabinet comme <strong className="text-slate-800">le choix évident et légitime</strong>.
-                                </p>
+
+                                <div className="relative z-10">
+                                    <h3 className="text-[22px] md:text-[26px] font-bold text-[#111111] mb-3 leading-tight">Le paradoxe de l'invisibilité</h3>
+                                    <p className="text-[16px] md:text-[18px] font-medium text-slate-500 leading-relaxed max-w-xl">
+                                        Des justiciables recherchent leur avocat <strong className="text-slate-800">sur Google</strong> avant toute démarche. Sans un positionnement dominant, vos confrères captent les dossiers qui relèvent de votre expertise.
+                                    </p>
+                                </div>
                             </div>
 
                             <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-                                {/* Bento Item 2 : Petite Carte Supérieure (Span 5) */}
-                                <div className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 group hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center mb-6 text-[#111111] border border-slate-100 group-hover:border-[#0D7DF2]/20 group-hover:text-[#0D7DF2] transition-colors duration-500">
-                                        <Zap size={22} strokeWidth={2.5} />
+                                {/* Bento Item 2 : Petite Carte Supérieure (Span 5) - Temps perdu */}
+                                <div className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 group hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between">
+                                    <div>
+                                        <div className="flex items-start justify-between gap-4 mb-6">
+                                            <div className="w-12 h-12 rounded-xl bg-slate-50 flex shrink-0 items-center justify-center text-[#111111] border border-slate-100 group-hover:border-[#0D7DF2]/20 group-hover:text-[#0D7DF2] transition-colors duration-500">
+                                                <Clock size={22} strokeWidth={2.5} />
+                                            </div>
+                                        </div>
+                                        <div className="text-[48px] font-medium tracking-tighter text-[#111111] leading-none mb-4">35<span className="text-[24px] text-[#0D7DF2]">%</span></div>
                                     </div>
-                                    <h3 className="text-[20px] font-bold text-[#111111] mb-3 leading-tight">Générateur de ROI</h3>
-                                    <p className="text-[15px] font-medium text-slate-500 leading-relaxed">
-                                        Nous indexons notre réussite sur la vôtre. Construisons une <strong className="text-slate-800">marque forte</strong> face à la concurrence.
-                                    </p>
+                                    <div>
+                                        <h3 className="text-[18px] font-bold text-[#111111] mb-2 leading-tight">La charge invisible</h3>
+                                        <p className="text-[14px] font-medium text-slate-500 leading-relaxed">
+                                            Du temps consommé par l'administratif non facturable. Sans <strong className="text-slate-800">outils IA</strong>, la croissance du cabinet est freinée par sa propre structure.
+                                        </p>
+                                    </div>
                                 </div>
 
-                                {/* Bento Item 3 : Petite Carte Inférieure Dark (Span 5) */}
-                                <div className="bg-[#0B0F19] text-white rounded-[2rem] p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] group hover:-translate-y-1 hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-[#0B0F19]">
+                                {/* Bento Item 3 : Petite Carte Inférieure Dark (Span 5) - ROI Indécis */}
+                                <div className="bg-[#0B0F19] text-white rounded-[2rem] p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] group hover:-translate-y-1 hover:shadow-2xl transition-all duration-500 relative overflow-hidden border border-[#0B0F19] flex flex-col justify-between">
                                     <div className="absolute top-0 right-0 w-48 h-48 bg-[#0D7DF2]/20 rounded-full blur-[50px] group-hover:bg-[#0D7DF2]/30 transition-colors duration-700"></div>
-                                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-white border border-white/10 relative z-10 group-hover:bg-white/20 transition-colors duration-500">
-                                        <Clock size={22} strokeWidth={2.5} />
+
+                                    <div className="relative z-10">
+                                        <div className="flex items-start justify-between gap-4 mb-6">
+                                            <div className="w-12 h-12 rounded-xl bg-white/10 flex shrink-0 items-center justify-center text-white border border-white/10 transition-colors duration-500 group-hover:bg-white/20">
+                                                <Target size={22} strokeWidth={2.5} />
+                                            </div>
+                                        </div>
+                                        <div className="text-[48px] font-medium tracking-tighter text-white leading-none mb-4">2<span className="text-[32px] font-normal text-slate-400">/10</span></div>
                                     </div>
-                                    <h3 className="text-[20px] font-bold text-white mb-3 leading-tight relative z-10">Facturez (enfin) votre temps</h3>
-                                    <p className="text-[15px] font-medium text-slate-400 leading-relaxed relative z-10">
-                                        L'implémentation de nos <strong className="text-white">outils IA</strong> automatise la paperasse et redonne rapidement du <strong className="text-white">temps facturable</strong>.
-                                    </p>
+
+                                    <div className="relative z-10">
+                                        <h3 className="text-[18px] font-bold text-white mb-2 leading-tight">Croissance à l'aveugle</h3>
+                                        <p className="text-[14px] font-medium text-slate-400 leading-relaxed">
+                                            Seuls 2 avocats sur 10 mesurent le <strong className="text-white">ROI</strong> réel de leur développement digital, dépensant souvent à perte sans stratégie claire.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="flex justify-center md:justify-start">
                             <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 bg-[#0D7DF2] hover:bg-[#005AD2] text-white px-8 py-4 rounded-full font-bold text-[15px] transition-all duration-300 shadow-[0_8px_20px_rgba(13,125,242,0.25)] hover:shadow-[0_12px_28px_rgba(13,125,242,0.35)] transform hover:-translate-y-1">
-                                Réaliser un Audit Offert
+                                Inverser la tendance : Audit Offert
                                 <ArrowRight size={18} strokeWidth={2.5} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                         </div>
